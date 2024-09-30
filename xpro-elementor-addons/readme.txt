@@ -1,10 +1,10 @@
 === 140+ Widgets | Xpro Addons For Elementor - FREE ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.4.4.4
+Version: 1.4.5
 Contributors: Xpro
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
-Tested up to: 6.6
+Tested up to: 6.6.2
 Stable tag: trunk
 Requires PHP: 7.4
 License: GPLv2
@@ -264,6 +264,20 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 
 == Changelog ==
+
+= V 1.4.5 – 29 Sep 2024
+
+New: Added icon size and alignment options in the Info Box widget.
+Fixed: Icon styling issues in the Info Box widget.
+Fixed: Icon hover color issue in the Carousel Gallery widget.
+Fixed: Removed One Page Navigation feature from the Vertical Menu widget.
+Fixed: Icon and icon color issues in the Pricing Carousel widget.
+Fixed: Vertical sliding issue in the Split Slider widget.
+Fixed: Icon hover color issue in the Carousel Portfolio widget.
+Fixed: Icon, icon color, and icon hover color issues in inline styles for the One Page Navigation widget.
+Fixed: Media type icon and custom inline style issues in the Restaurant Menu widget.
+Fixed: Icon hover color issue in the Video Carousel widget.
+
 
 = V 1.4.4.4 – 27 Aug 2024
 

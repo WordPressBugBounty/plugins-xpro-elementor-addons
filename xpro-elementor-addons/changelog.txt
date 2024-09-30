@@ -1,3 +1,17 @@
+= V 1.4.5 – 29 Sep 2024
+
+New: Added icon size and alignment options in the Info Box widget.
+Fixed: Icon styling issues in the Info Box widget.
+Fixed: Icon hover color issue in the Carousel Gallery widget.
+Fixed: Removed One Page Navigation feature from the Vertical Menu widget.
+Fixed: Icon and icon color issues in the Pricing Carousel widget.
+Fixed: Vertical sliding issue in the Split Slider widget.
+Fixed: Icon hover color issue in the Carousel Portfolio widget.
+Fixed: Icon, icon color, and icon hover color issues in inline styles for the One Page Navigation widget.
+Fixed: Media type icon and custom inline style issues in the Restaurant Menu widget.
+Fixed: Icon hover color issue in the Video Carousel widget.
+
+
 = V 1.4.4.4 – 27 Aug 2024
 
 - Fix: XSS security issue for the Post Grid widget.
