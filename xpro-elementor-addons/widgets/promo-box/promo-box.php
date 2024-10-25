@@ -116,7 +116,8 @@ class Promo_Box extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			)
 		);
-
+        
+		// add changes icon in title
 		$this->add_control(
 			'media_type',
 			array(
@@ -125,7 +126,7 @@ class Promo_Box extends Widget_Base {
 				'label_block' => false,
 				'options'     => array(
 					'none'  => array(
-						'title' => __( 'Icon', 'xpro-elementor-addons' ),
+						'title' => __( 'None', 'xpro-elementor-addons' ),
 						'icon'  => 'eicon-ban',
 					),
 					'image' => array(

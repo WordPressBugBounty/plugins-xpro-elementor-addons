@@ -265,6 +265,13 @@ class Xpro_Elementor_Addons {
 
 		//Vendors JS
 		wp_register_script(
+			'waypoints',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/jquery.waypoints.min.js',
+			array( 'jquery' ),
+			'4.0.1',
+			true
+		);
+		wp_register_script(
 			'cubeportfolio',
 			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/jquery.cubeportfolio.min.js',
 			array( 'jquery' ),

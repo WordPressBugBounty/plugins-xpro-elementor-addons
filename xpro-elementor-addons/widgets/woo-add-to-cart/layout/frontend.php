@@ -2,6 +2,7 @@
 
 $product     = $this->get_product( get_post_type() );
 $editor_mode = ( \Elementor\Plugin::$instance->editor->is_edit_mode() || is_preview() );
+$custom_button_text = $settings['add_to_cart_text'];
 
 if ( empty($product) && $editor_mode ) {
 	?>
@@ -31,6 +32,9 @@ if ( $editor_mode ) {
 
 }
 
+add_filter( 'woocommerce_product_single_add_to_cart_text', function() use ( $custom_button_text ) {
+	return $custom_button_text ? $custom_button_text : __( 'Add to Cart', 'woocommerce' );
+});
 woocommerce_template_single_add_to_cart();
 
 if ( $editor_mode ) {

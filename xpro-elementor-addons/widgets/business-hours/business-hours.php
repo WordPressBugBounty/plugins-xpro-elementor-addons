@@ -558,6 +558,71 @@ class Business_Hours extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+		
+		$this->start_controls_section(
+			'section_style_item_box',
+			array(
+				'label' => __( 'List Box', 'xpro-elementor-addons' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'     => 'section_item_box_background',
+				'label'    => __( 'Background', 'xpro-elementor-addons' ),
+				'types'    => array( 'classic', 'gradient' ),
+				'selector' => '{{WRAPPER}}  .xpro-business-hour-wrapper ul.xpro-business-hour-inner',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'     => 'section_item_box_border',
+				'label'    => __( 'Border', 'xpro-elementor-addons' ),
+				'selector' => '{{WRAPPER}} .xpro-business-hour-wrapper ul.xpro-business-hour-inner',
+			)
+		);
+
+		$this->add_control(
+			'section_item_box_border_radius',
+			array(
+				'label'      => __( 'Border Radius', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}}  .xpro-business-hour-wrapper ul.xpro-business-hour-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'section_item_box_margin',
+			array(
+				'label'      => __( 'Margin', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-business-hour-wrapper ul.xpro-business-hour-inner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'section_item_box_padding',
+			array(
+				'label'      => __( 'Padding', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-business-hour-wrapper ul.xpro-business-hour-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_style_item',

@@ -24,8 +24,8 @@ if ( isset( $product_id ) && '' !== $product_id ) {
 		setup_postdata( $post );
 		do_action( 'xpro_elementor_woo_before_product' );
 		?>
-
-		<div id="xpro-woo-product-grid-id-<?php echo esc_attr( $product_id ); ?>" class="cbp-item xpro-woo-product-grid-item">
+        <!-- add class for styleing -->
+		<div id="xpro-woo-product-grid-id-<?php echo esc_attr( $product_id ); ?>" class="cbp-item xpro-woo-product-grid-item xpro-woo-prodcuts-layouts">
 			<!-- image wrapper -->
 			<a class="xpro-woo-product-grid-title-wrapper" href="<?php echo esc_url( get_permalink( $product_id ) ); ?>">
 				<div class="xpro-woo-product-grid-img">
@@ -137,6 +137,7 @@ if ( isset( $product_id ) && '' !== $product_id ) {
 										<div class="xpro-qv-cart-btn">
 											<?php
 											do_action( 'xpro_elementor_woo_products_add_to_cart_before', $product_id, $settings );
+											xpro_add_to_cart_fun( $product_id, $settings );
 											woocommerce_template_loop_add_to_cart();
 											do_action( 'xpro_elementor_woo_products_add_to_cart_after', $product_id, $settings );
 											?>
@@ -153,6 +154,7 @@ if ( isset( $product_id ) && '' !== $product_id ) {
 								<div class="xpro-woo-product-grid-add-to-cart-btn">
 									<?php
 									do_action( 'xpro_elementor_woo_products_add_to_cart_before', $product_id, $settings );
+									xpro_add_to_cart_fun( $product_id, $settings );
 									woocommerce_template_loop_add_to_cart();
 									do_action( 'xpro_elementor_woo_products_add_to_cart_after', $product_id, $settings );
 									?>
@@ -204,6 +206,7 @@ if ( isset( $product_id ) && '' !== $product_id ) {
 					<div class="xpro-woo-product-grid-star-rating-wrapper">
 						<?php
 						do_action( 'xpro_elementor_woo_products_rating_before', $product_id, $settings );
+						xpro_add_to_cart_fun( $product_id, $settings );
 						woocommerce_template_loop_rating();
 						do_action( 'xpro_elementor_woo_products_rating_after', $product_id, $settings );
 						?>
@@ -242,6 +245,7 @@ if ( isset( $product_id ) && '' !== $product_id ) {
 								<div class="xpro-qv-cart-btn">
 									<?php
 									do_action( 'xpro_elementor_woo_products_add_to_cart_before', $product_id, $settings );
+									xpro_add_to_cart_fun( $product_id, $settings );
 									woocommerce_template_loop_add_to_cart();
 									do_action( 'xpro_elementor_woo_products_add_to_cart_after', $product_id, $settings );
 									?>
@@ -258,6 +262,7 @@ if ( isset( $product_id ) && '' !== $product_id ) {
 						<div class="xpro-woo-product-grid-add-to-cart-btn">
 							<?php
 							do_action( 'xpro_elementor_woo_products_add_to_cart_before', $product_id, $settings );
+							xpro_add_to_cart_fun( $product_id, $settings );
 							woocommerce_template_loop_add_to_cart();
 							do_action( 'xpro_elementor_woo_products_add_to_cart_after', $product_id, $settings );
 							?>

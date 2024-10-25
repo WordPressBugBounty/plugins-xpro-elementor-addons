@@ -577,7 +577,7 @@ class News_Ticker extends Widget_Base {
 				),
 			)
 		);
-
+   
 		$this->add_responsive_control(
 			'heading_media_size',
 			array(
@@ -594,6 +594,10 @@ class News_Ticker extends Widget_Base {
 						'max' => 100,
 					),
 				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 16,
+				),
 				'selectors'  => array(
 					'{{WRAPPER}} .xpro-news-ticker-heading-box > img' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .xpro-news-ticker-heading-box > i'   => 'font-size: {{SIZE}}{{UNIT}};',
@@ -604,7 +608,7 @@ class News_Ticker extends Widget_Base {
 				),
 			)
 		);
-
+        
 		$this->add_responsive_control(
 			'heading_media_margin_right',
 			array(
@@ -617,6 +621,10 @@ class News_Ticker extends Widget_Base {
 						'max'  => 100,
 						'step' => 1,
 					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 6,
 				),
 				'selectors'  => array(
 					'{{WRAPPER}} .xpro-news-ticker-heading-box > img,
@@ -728,7 +736,7 @@ class News_Ticker extends Widget_Base {
 				),
 			)
 		);
-
+ 
 		$this->add_responsive_control(
 			'content_media_width',
 			array(
@@ -745,6 +753,10 @@ class News_Ticker extends Widget_Base {
 						'max' => 100,
 					),
 				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 16,
+				),
 				'selectors'  => array(
 					'{{WRAPPER}} .xpro-news-ticker-box > img' => 'height: {{SIZE}}{{UNIT}}; max-width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .xpro-news-ticker-box > i'   => 'font-size: {{SIZE}}{{UNIT}};',
@@ -752,13 +764,17 @@ class News_Ticker extends Widget_Base {
 				),
 			)
 		);
-
+        
 		$this->add_responsive_control(
 			'content_media_margin_right',
 			array(
 				'label'      => __( 'Space Between', 'xpro-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%' ),
+				'default'    => array(
+						'unit' => 'px',
+						'size' => 6,
+				),
 				'selectors'  => array(
 					'{{WRAPPER}} .xpro-news-ticker-box > img,
 					{{WRAPPER}} .xpro-news-ticker-box > i,

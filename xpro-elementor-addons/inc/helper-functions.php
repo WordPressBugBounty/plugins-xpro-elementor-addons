@@ -925,6 +925,22 @@ function xpro_get_mailchimp_lists() {
 }
 
 /**
+ * Xpro Add To Cart
+ */
+function xpro_add_to_cart_fun() {
+	add_action('xpro_elementor_woo_products_add_to_cart_before', function($product_id, $settings) {
+		add_filter('woocommerce_product_add_to_cart_text', function($text, $product) use ($product_id, $settings) {
+			if (!$product->is_type('variable') && $product->get_id() == $product_id) {
+				return isset($settings['add_to_cart_text']) && !empty($settings['add_to_cart_text'])
+					? $settings['add_to_cart_text']
+					: $text;
+			}
+			return $text;
+		}, 10, 2);
+	}, 10, 2);
+}
+
+/**
  * Xpro Options Getter Setter
  */
 function xpro_megamenu_option( $key, $default = '' ) {

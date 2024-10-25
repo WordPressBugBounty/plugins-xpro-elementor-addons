@@ -129,6 +129,8 @@ class Search extends Widget_Base {
 
 		$post_types        = xpro_elementor_get_post_types();
 		$post_types['any'] = __( 'Any', 'xpro-elementor-addons' );
+		$keys_to_remove = array('xpro_content','xpro-themer','e-floating-buttons','elementor_library','attachment');
+		$post_types = array_diff_key($post_types, array_flip($keys_to_remove));
 
 		$this->add_control(
 			'post_type',

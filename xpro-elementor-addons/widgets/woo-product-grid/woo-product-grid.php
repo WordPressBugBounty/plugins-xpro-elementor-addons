@@ -346,6 +346,36 @@ class Woo_Product_Grid extends Widget_Base {
 				'default'      => 'no',
 			)
 		);
+        
+		$this->add_control(
+			'show_add_to_cart_text',
+			array(
+				'label'        => esc_html__( 'Change Text', 'xpro-elementor-addons' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Yes', 'xpro-elementor-addons' ),
+				'label_off'    => esc_html__( 'No', 'xpro-elementor-addons' ),
+				'default'      => 'no',
+				'return_value' => 'yes',
+			    'condition'	   => array(
+                'show_cta'     => 'yes',
+				),
+			),
+		);
+
+		$this->add_control(
+            'add_to_cart_text',
+			array(
+                'label' => __( 'Add To Cart', 'xpro-elementor-addons' ),
+                'type' => Controls_Manager::TEXT,
+				 'label_block' => true,
+                'default' => __( 'Add To Cart', 'xpro-elementor-addons' ),
+                'placeholder' => __( 'Add To Cart', 'xpro-elementor-addons' ),
+				'condition'  => array(
+				'show_cta' => 'yes',
+				'show_add_to_cart_text' => 'yes',
+			    ),
+			),
+        );
 
 		$this->end_controls_section();
 

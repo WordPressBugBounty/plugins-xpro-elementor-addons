@@ -431,7 +431,7 @@ class Team extends Widget_Base {
 			)
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'align',
 			array(
 				'label'     => __( 'Alignment', 'xpro-elementor-addons' ),
@@ -645,7 +645,7 @@ class Team extends Widget_Base {
 				'default'     => array(
 					array(
 						'social_icon' => array(
-							'value'   => 'fab fa-facebook-f',
+							'value'   => 'fab fa-facebook',
 							'library' => 'fa-brands',
 						),
 					),
@@ -1195,6 +1195,163 @@ class Team extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
+		    'flex_wrap_control',
+			array(
+				'label' => __( ' Wrap', 'xpro-elementor-addons' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => array(
+					'wrap' => array(
+						'title' => __( 'Wrap', 'xpro-elementor-addons' ),
+						'icon' => 'eicon-wrap',  
+					),
+					'nowrap' => array(
+						'title' => __( 'No Wrap', 'xpro-elementor-addons' ),
+						'icon' => 'eicon-nowrap', 
+					),
+				),
+				'toggle' => true, 
+				'selectors' => array(
+				      '{{WRAPPER}} ul.xpro-team-social-list.xpro-team-social-list-dis' => 'flex-wrap: {{VALUE}};',
+				),
+				'condition' => array(
+				      'layout' => array( '1', '2','3','4','5','6', '7','10','11','14','15' ),
+                ),
+			)
+		);
+
+		$this->add_responsive_control(
+			'flex_center_control',
+			array(
+				'label' => __( 'Alignment', 'xpro-elementor-addons' ),
+				'type' => Controls_Manager::CHOOSE,
+				'label_block'          => true,
+				'options' => array(
+					'flex-start' => array(
+						'title' => __( 'Start', 'xpro-elementor-addons' ),
+						'icon' => 'eicon-h-align-left',  
+					),
+					'center' => array(
+						'title' => __( 'Center', 'xpro-elementor-addons' ),
+						'icon' => 'eicon-justify-center-h',  
+					),
+					'flex-end' => array(
+						'title' => __( 'End', 'xpro-elementor-addons' ),
+						'icon' => 'eicon-h-align-right', 
+					),
+					'space-between' => array(
+						'title' => __( 'Space Between', 'xpro-elementor-addons' ),
+						'icon' => 'eicon-justify-space-between-h',
+					),
+					
+				),
+				'selectors' => array(
+					  '{{WRAPPER}} ul.xpro-team-social-list.xpro-team-social-list-dis' => 'justify-content: {{VALUE}};',
+				),
+				'condition' => array(
+					'layout' => array( '1', '2','3','4','5','6', '7','10','11','14','15' ),
+					'flex_wrap_control' =>   array('wrap'),
+				),
+			)
+		);
+  
+		$this->add_responsive_control(
+			'social_team_icon_margin',
+			array(
+				'label'      => __( 'Margin', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'selectors'  => array(
+					'{{WRAPPER}} ul.xpro-team-social-list.xpro-team-social-list-dis' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+				'default'    => array(
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+				),
+				'condition' => array(
+					'layout' => array( '1', '2', '4','6','10','11','14' ),
+					'flex_wrap_control' =>   array('wrap'),
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'social-team-icon-postion-style4',
+			array(
+				'label'      => __( 'Position', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'default'    => array(
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}}  .xpro-team-layout-4 .xpro-team-content' => ' top: {{TOP}}{{UNIT}}; right: {{RIGHT}}{{UNIT}}; bottom: {{BOTTOM}}{{UNIT}}; left: {{LEFT}}{{UNIT}};',
+				),
+				'condition' => array(
+					'layout' => '4', 
+					'flex_wrap_control' =>   array('wrap'),
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'social-team-icon-padding-style4',
+			array(
+				'label'      => __( 'Padding', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'default'    => array(
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}}   .xpro-team-layout-4 .xpro-team-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}}   .xpro-team-layout-6 .xpro-team-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+
+				),
+				'condition' => array(
+					'layout' => array('4','6' ),
+					'flex_wrap_control' =>   array('wrap'),
+				),
+			)
+		);
+		
+		$this->add_responsive_control(
+			'social-team-icon-padding-left-style15',
+			array(
+				'label'      => __( 'Padding Left', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'default'    => array(
+					'unit' => 'px',
+					'Size' => 6,
+				),
+				'size_units' => array( 'px', '%', 'vw' ),
+				'range'      => array(
+					'px' => array(
+						'max' => 50,
+						'step' => 1,
+					),
+				),
+				'condition' => array(
+					'layout' => array('15' ),
+					'flex_wrap_control' =>   array('wrap'),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} ul.xpro-team-social-list.xpro-team-social-list-dis li' => 'padding-left: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+		
+		$this->add_responsive_control(
 			'icon_size',
 			array(
 				'label'      => __( 'Size', 'xpro-elementor-addons' ),
@@ -1235,6 +1392,32 @@ class Team extends Widget_Base {
 				),
 				'selectors'  => array(
 					'{{WRAPPER}} .xpro-team-social-list .xpro-team-social-icon' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'social-team-icon-margin-top',
+			array(
+				'label'      => __( 'Margin Top', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'default'    => array(
+					'size' => 6,
+					'unit' => 'px',
+				),
+				'size_units' => array( 'px', '%', 'vw' ),
+				'range'      => array(
+					'px' => array(
+						'max' => 50,
+						'step' => 1,
+					),
+				),
+				'condition' => array(
+					'layout' => array( '1', '2','3', '4','5','6', '7','10','11','14' ),
+					'flex_wrap_control' =>   array('wrap'),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} ul.xpro-team-social-list.xpro-team-social-list-dis li' => 'margin-top: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);

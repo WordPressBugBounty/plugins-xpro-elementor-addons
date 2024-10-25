@@ -171,6 +171,34 @@ class Woo_Add_To_Cart extends Widget_Base {
 			)
 		);
 
+        //add controls to change button text
+		$this->add_control(
+			'show_add_to_cart_text',
+			array(
+				'label'        => esc_html__( 'Change Text', 'xpro-elementor-addons' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Yes', 'xpro-elementor-addons' ),
+				'label_off'    => esc_html__( 'No', 'xpro-elementor-addons' ),
+				'default'      => 'no',
+				'return_value' => 'yes',
+				
+			),
+		);
+
+		$this->add_control(
+            'add_to_cart_text',
+			array(
+                'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+                'default' => __( 'Add To Cart', 'xpro-elementor-addons' ),
+                'placeholder' => __( 'Add To Cart', 'xpro-elementor-addons' ),
+				'condition'  => array(
+				'show_add_to_cart_text' => 'yes',
+			    ),
+			),
+        );
+
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(

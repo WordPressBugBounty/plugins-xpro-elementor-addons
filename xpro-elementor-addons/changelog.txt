@@ -1,3 +1,24 @@
+= V 1.4.6 – 25 Oct 2024
+
+New: Added options for Lottie files, button, and color customization for the entire icon box in the Icon Box Widget.
+New: Added an option to change the button text in the Woo Product Grid Widget.
+New: Added an option for styling and text customization in the Add to Cart Widget.
+Fix: Resolved issues with the headline and content icons in the News Ticker Widget.
+Fix: Resolved the issue where content merged automatically when switching to the second tab in the Advanced Tab Widget.
+Fix: Addressed the issue of the missing responsive icon and corrected the icon positioning in the Hover Card Widget.
+Fix: Adjusted the alignment of the "Add to Cart" icon in the Woo Product Grid Widget.
+Fix: Resolved the issue of inconsistent icon size after changes has been fixed, and a responsive icon feature has been added in the Team Widget.
+Fix: Resolved the issue of icons and SVGs not displaying with accordion titles in the Advanced Accordion Widget.
+Fix: Resolved the missing Xpro badge in the widget panel in the Hero Slider widget.
+Fix: Corrected the type in the media type in Promo Box widget.
+Fix: Resolved issues with social icons in the pre-built layout styles of the Team Carousel widget.
+Fix: Resolved the issue with the source option not working in the Search widget.
+Fix: Resolved the issue with the checkbox inline list not functioning in the Contact Form widget.
+Fix: Resolved the lack of border width options for list items in the Business Hours widget.
+Fix: Resolved the x-axis alignment issue in the Woo mini cart widget.
+Fix: Resolved the issue images were not rotating properly in product view 360 Widget.
+
+
 = V 1.4.5 – 29 Sep 2024
 
 New: Added icon size and alignment options in the Info Box widget.

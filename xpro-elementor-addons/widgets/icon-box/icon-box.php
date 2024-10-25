@@ -112,6 +112,10 @@ class Icon_Box extends Widget_Base {
 
 		return array( 'animate' );
 	}
+    
+	public function get_script_depends() {
+		return array( 'lottie' );
+	}
 
 	/**
 	 * Register widget controls.
@@ -130,7 +134,7 @@ class Icon_Box extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			)
 		);
-
+        
 		$this->add_control(
 			'media_type',
 			array(
@@ -146,9 +150,58 @@ class Icon_Box extends Widget_Base {
 						'title' => __( 'Image', 'xpro-elementor-addons' ),
 						'icon'  => 'eicon-image',
 					),
+					'lottie' => array(
+						'title' => __( 'Lottie', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-animation',
+					),
 				),
 				'default'     => 'icon',
 				'toggle'      => false,
+			)
+		);
+
+		$this->add_control(
+			'lottie_source',
+			array(
+				'label'       => __( 'Select Source', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::SELECT,
+				'options'     => array(
+					'upload' => __( 'Media File', 'xpro-elementor-addons' ),
+					'url'    => __( 'External Link', 'xpro-elementor-addons' ),
+				),
+				'default'     => 'upload',
+				'condition'   => array(
+					'media_type' => 'lottie',
+				),
+				'frontend_available' => true,
+			)
+		);
+		
+		$this->add_control(
+			'svg_upload',
+			array(
+				'label'       => __( 'Media File', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::MEDIA,
+				'media_type'  => 'application/json',
+				'condition'   => array(
+					'lottie_source' => 'upload',
+					'media_type' => 'lottie',
+				),
+				'frontend_available' => true,
+			)
+		);
+		
+		$this->add_control(
+			'lottie_url',
+			array(
+				'label'       => __( 'External Link', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => __( 'https://lottie.demo/1.json', 'xpro-elementor-addons' ),
+				'condition'   => array(
+					'lottie_source' => 'url',
+					'media_type' => 'lottie', 
+				),
+				'frontend_available' => true,
 			)
 		);
 
@@ -220,6 +273,7 @@ class Icon_Box extends Widget_Base {
 				'label'       => esc_html__( 'Description', 'xpro-elementor-addons' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'rows'        => 5,
+				//'default'     => __( 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'xpro-elementor-addons' ),
 				'placeholder' => esc_html__( 'Type your description here', 'xpro-elementor-addons' ),
 				'label_block' => true,
 				'dynamic'     => array(
@@ -237,6 +291,69 @@ class Icon_Box extends Widget_Base {
 				'placeholder' => __( 'Type Icon Badge Text', 'xpro-elementor-addons' ),
 				'dynamic'     => array(
 					'active' => true,
+				),
+			)
+		);
+        
+		$this->add_control(
+			'box_icon_button',
+			array(
+				'label'        => __( 'Show Button', 'xpro-elementor-addons' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'xpro-elementor-addons' ),
+				'label_off'    => __( 'Hide', 'xpro-elementor-addons' ),
+				'return_value' => 'yes',
+				'default'      => 'no',
+			)
+		);
+		
+		$this->add_control(
+			'button_text',
+			array(
+				'label'       => __( ' Button Text', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'condition' => array(
+					'box_icon_button' => 'yes',
+				),
+				'default'     => __( 'Click Here', 'xpro-elementor-addons' ),
+				'placeholder' => __( 'Click Here', 'xpro-elementor-addons' ),
+			)
+			
+		);
+
+		$this->add_control(
+			'box_icon_link_option',
+			array(
+				'label'        => __( 'Add Button Link', 'xpro-elementor-addons' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'xpro-elementor-addons' ),
+				'label_off'    => __( 'Hide', 'xpro-elementor-addons' ),
+				'return_value' => 'yes',
+				'default'      => 'no',
+				'condition'    => array(
+				     'box_icon_button' => 'yes',
+				),
+			)
+		);
+		
+		$this->add_control(
+			'button_link',
+			array(
+				'label'       => __( ' Button Link', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::URL,
+				'dynamic'     => array(
+					'active' => true,
+				),
+				'placeholder' => __( 'https://your-link.com', 'xpro-elementor-addons' ),
+				'default'     => array(
+					'url' => '#',
+				),
+				'condition' => array(
+					'box_icon_link_option' => 'yes',
 				),
 			)
 		);
@@ -341,6 +458,124 @@ class Icon_Box extends Widget_Base {
 		$this->end_controls_section();
 
 		//Styling Tab
+        
+		
+		$this->start_controls_section(
+			'section_style_box',
+			array(
+				'label' => __( 'Box', 'xpro-elementor-addons' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+	
+		$this->start_controls_tabs('box_wrapper_background_tabs');
+		$this->start_controls_tab(
+			'box_wrapper_background_normal_tab',
+			array(
+				'label' => __( 'Normal', 'xpro-elementor-addons' ),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'     => 'box_wrapper_background',
+				'label'    => __( 'Background', 'xpro-elementor-addons' ),
+				'types'    => array( 'classic', 'gradient' ),
+				'selector' => '{{WRAPPER}} .xpro-box-icon-wrapper-inner',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'     => 'box_wrapper_box_shadow',
+				'label'    => __( 'Box Shadow', 'xpro-elementor-addons' ),
+				'selector' => '{{WRAPPER}} .xpro-box-icon-wrapper-inner',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'box_wrapper_background_hover_tab',
+			array(
+				'label' => __( 'Hover', 'xpro-elementor-addons' ),
+			)
+		);
+
+		$this->add_control(
+			'box_wrapper_background_hover_color',
+			array(
+				'label'     => __( 'Hover Background Color', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .xpro-box-icon-wrapper-inner:hover' => 'background-color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'     => 'box_wrapper_box_shadow_hover',
+				'label'    => __( 'Hover Box Shadow', 'xpro-elementor-addons' ),
+				'selector' => '{{WRAPPER}} .xpro-box-icon-wrapper-inner:hover',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'     => 'box_wrapper_border',
+				'selector' => '{{WRAPPER}} .xpro-box-icon-wrapper-inner',
+			)
+		);
+
+		$this->add_responsive_control(
+			'box_wrapper_border_radius',
+			array(
+				'label'      => __( 'Border Radius', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-box-icon-wrapper-inner' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'box_wrapper_padding',
+			array(
+				'label'      => __( 'Padding', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', 'em', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-box-icon-wrapper-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'box_wrapper_margin',
+			array(
+				'label'      => __( 'Margin', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', 'em', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-box-icon-wrapper-inner' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->end_controls_section();
+
+
+
 		$this->start_controls_section(
 			'section_style_icon',
 			array(
@@ -364,6 +599,12 @@ class Icon_Box extends Widget_Base {
 				'default'    => array(
 					'unit' => 'px',
 					'size' => 40,
+				),
+				'condition'  => array(
+
+					'media_type' => 'icon',
+					'media_type' => 'image',
+
 				),
 				'selectors'  => array(
 					'{{WRAPPER}} .xpro-box-icon-item' => 'font-size: {{SIZE}}{{UNIT}}; min-width: {{SIZE}}{{UNIT}}; min-height: {{SIZE}}{{UNIT}};',
@@ -393,6 +634,31 @@ class Icon_Box extends Widget_Base {
 				),
 				'condition'  => array(
 					'media_type' => 'icon',
+				),
+			)
+		);
+       //  add lottie size	
+		$this->add_responsive_control(
+			'icon_lottie_size',
+			array(
+				'label'      => __( ' Lottie Size', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 5,
+						'max' => 500,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 50,
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-box-lottie-animation svg ' => ' width: {{SIZE}}{{UNIT}} !important ;',
+				),
+				'condition'  => array(
+					'media_type' => 'lottie',
 				),
 			)
 		);
@@ -1008,6 +1274,288 @@ class Icon_Box extends Widget_Base {
 				'selector' => '{{WRAPPER}} .xpro-badge',
 			)
 		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_button',
+			array(
+				'label'     => __( 'Button', 'xpro-elementor-addons' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_control(
+			'button_icon',
+			array(
+				'label'       => __( 'Icon', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::ICONS,
+				'skin'        => 'inline',
+				'label_block' => false,
+			)
+		);
+
+		$this->add_control(
+			'button_icon_align',
+			array(
+				'label'     => __( 'Icon Position', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'left',
+				'options'   => array(
+					'left'  => __( 'Before', 'xpro-elementor-addons' ),
+					'right' => __( 'After', 'xpro-elementor-addons' ),
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'icon_indent',
+			array(
+				'label'     => __( 'Icon Spacing', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'max' => 100,
+					),
+				),
+				'default'   => array(
+					'unit' => 'px',
+					'size' => 8,
+				),
+				'selectors' => array(
+					'{{WRAPPER}} a.xpro-elementor-button-info-box.icon-after i' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} a.xpro-elementor-button-info-box.icon-before i'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} a.xpro-elementor-button-info-box.icon-after svg' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} a.xpro-elementor-button-info-box.icon-before svg'  => 'margin-right: {{SIZE}}{{UNIT}};',
+				),	
+			)
+		);
+
+		$this->add_responsive_control(
+			'info_box_button_icon_size',
+			array(
+				'label'     => __( 'Icon Size', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => array(
+					'size' => 16,
+				),
+				'range'     => array(
+					'px' => array(
+						'min' => 10,
+						'max' => 100,
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .xpro-info-box-button-wrapper i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .xpro-info-box-button-wrapper svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+					
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'button_typo',
+				'selector' => '{{WRAPPER}} .xpro-info-box-button-wrapper .xpro-elementor-button-info-box span.info-box-button-text',
+			)
+		);
+		
+		$this->add_responsive_control(
+			'info_box_button_icon_alignment',
+			array(
+				'label'     => __( 'Text Alignment', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'center',
+				'label_block' => true,
+				'options'   => array(
+					'top'   => __( 'Top', 'xpro-elementor-addons' ),
+					'center' => __( 'Center', 'xpro-elementor-addons' ),
+					'end'  => __( 'End', 'xpro-elementor-addons' ),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} a.xpro-elementor-button-info-box ' => 'display: flex; align-items: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'info_box_button_postion',
+			array(
+				'label'        => __( 'Button Alignment', 'xpro-elementor-addons' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'label_block'  => true,
+				'options'      => array(
+					'left'   => array(
+						'title' => __( 'Left', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-h-align-left',
+					),
+					'center' => array(
+						'title' => __( 'Center', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-h-align-center',
+					),
+					'right'  => array(
+						'title' => __( 'Right', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-h-align-right',
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .xpro-info-box-button-wrapper' => 'display: flex; justify-content: {{VALUE}};',
+				),
+				'default' => 'center',
+			)
+		);
+
+		$this->add_responsive_control(
+			'info_box_button_padding',
+			array(
+				'label'      => __( 'Padding', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'selectors'  => array(
+					'{{WRAPPER}}  .xpro-info-box-button-wrapper  button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+		
+		$this->add_responsive_control(
+			'info_box_button_margin',
+			array(
+				'label'      => __( 'Margin', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%', 'em' ),
+				'default'    => array(
+					'top'    => '10',
+					'right'  => '10',
+					'bottom' => '10',
+					'left'   => '10',
+					'unit'   => 'px',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-info-box-button-wrapper  button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+				),
+			)
+		);
+		
+		// Button Border Control
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'        => 'info_box_button_border',
+				'label'       => __( 'Border', 'xpro-elementor-addons' ),
+				'selector'    => '{{WRAPPER}} .xpro-info-box-button-wrapper button',
+			)
+		);
+        
+		$this->add_responsive_control(
+			'info_box_button_border_radius',
+			 array(
+				 'label'      => __( 'Border Radius', 'xpro-elementor-addons' ),
+				 'type'       => Controls_Manager::DIMENSIONS,
+				 'size_units' => array( 'px', '%' ),
+				 'selectors'  => array(
+					 '{{WRAPPER}} .xpro-info-box-button-wrapper button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				 ),
+			 )
+		 );
+		
+		$this->start_controls_tabs('info_box_button_color_tabs');
+
+		$this->start_controls_tab(
+			'info_box_button_normal_tab',
+			array(
+				'label' => __( 'Normal', 'xpro-elementor-addons' ),
+			)
+		);
+		
+		$this->add_control(
+			'info_box_button_background',
+			array(
+				'label'     => __( 'Background Color', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#61ce70', 
+				'selectors' => array(
+					'{{WRAPPER}} .xpro-info-box-button-wrapper  button' => 'background-color: {{VALUE}};',
+				),
+			)
+		);
+		
+		$this->add_control(
+			'info_box_button_text_color',
+			array(
+				'label'     => __( 'Text Color', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#ffffff', 
+				'selectors' => array(
+					'{{WRAPPER}} .xpro-info-box-button-wrapper .xpro-elementor-button-info-box  span.info-box-button-text' => 'color: {{VALUE}};',
+				),
+			)
+		);
+		
+		$this->add_control(
+			'info_box_button_icon_color',
+			array(
+				'label'     => __( 'Icon Color', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#ffffff', 
+				'selectors' => array(
+					'{{WRAPPER}} a.xpro-elementor-button-info-box svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} a.xpro-elementor-button-info-box svg path' => 'fill: {{VALUE}};',
+
+				),
+			)
+		);
+		
+		$this->end_controls_tab();
+		
+		$this->start_controls_tab(
+			'info_box_button_hover_tab',
+			array(
+				'label' => __( 'Hover', 'xpro-elementor-addons' ),
+			)
+		);
+		
+		$this->add_control(
+			'info_box_button_hover_background',
+			array(
+				'label'     => __( 'Hover Background Color', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#55a960',
+				'selectors' => array(
+					'{{WRAPPER}} .xpro-info-box-button-wrapper button:hover' => 'background-color: {{VALUE}};',
+				),
+			)
+		);
+		
+		$this->add_control(
+			'info_box_button_hover_text_color',
+			array(
+				'label'     => __( 'Hover Text Color', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#ffffff',
+				'selectors' => array(
+					'{{WRAPPER}} .xpro-info-box-button-wrapper .xpro-elementor-button-info-box:hover span.info-box-button-text' => 'color: {{VALUE}};',
+				),
+			)
+		);
+		
+		$this->add_control(
+			'info_box_button_hover_icon_color',
+			array(
+				'label'     => __( 'Hover Icon Color', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#ffffff',
+				'selectors' => array(
+
+					'{{WRAPPER}} a.xpro-elementor-button-info-box:hover svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} a.xpro-elementor-button-info-box:hover svg path' => 'fill: {{VALUE}};',
+
+				),
+			)
+		);
+		
+		$this->end_controls_tab(); 
+		$this->end_controls_tabs(); 
 
 		$this->end_controls_section();
 	}

@@ -69,8 +69,9 @@ class Hero_Slider extends Widget_Base {
 	 * @access public
 	 *
 	 */
+	// add xpro labels icon
 	public function get_icon() {
-		return 'xi-banner widget-label';
+		return 'xi-banner  xpro-widget-label';
 	}
 
 	/**

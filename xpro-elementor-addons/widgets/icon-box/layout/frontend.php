@@ -29,8 +29,8 @@ if ( $settings['link'] && $settings['link']['custom_attributes'] ) {
 	<?php if ( $settings['badge_text'] ) : ?>
 		<span <?php $this->print_render_attribute_string( 'badge_text' ); ?>><?php echo esc_html( $settings['badge_text'] ); ?></span>
 	<?php endif; ?>
-
-	<?php if ( 'icon' === $settings['media_type'] || 'image' === $settings['media_type'] ) : ?>
+     
+	<?php if ( 'icon' === $settings['media_type'] || 'image' === $settings['media_type'] || 'lottie' === $settings['media_type'] ) : ?>
 		<span class="xpro-box-icon-item">
 				<?php
 				if ( 'icon' === $settings['media_type'] && $settings['icon'] ) {
@@ -40,6 +40,9 @@ if ( $settings['link'] && $settings['link']['custom_attributes'] ) {
 					$image_markup = ( ! empty( $settings['image']['id'] ) ) ? wp_get_attachment_image( $settings['image']['id'], $settings['thumbnail_size'] ) : '';
 					echo ! empty( $image_markup ) ? $image_markup : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
 				}
+				if ( 'lottie' === $settings['media_type'] ) {
+					?> <div id="xpro-icon-box-lottie"  class="xpro-box-lottie-animation"></div> 
+					<?php } 
 				?>
 			</span>
 	<?php endif; ?>
@@ -54,7 +57,29 @@ if ( $settings['link'] && $settings['link']['custom_attributes'] ) {
 		<?php if ( $settings['description'] ) : ?>
 			<p <?php $this->print_render_attribute_string( 'description' ); ?>><?php xpro_elementor_kses( $settings['description'] ); ?></p>
 		<?php endif; ?>
-			</span>
+		<?php if ( $settings['button_text'] ) : 
+					$button_link = !empty($settings['button_link']['url']) ? esc_url($settings['button_link']['url']) : '#';
+					$icon_position = $settings['button_icon_align'] === 'right' ? 'icon-after' : 'icon-before';
 
-</div>
+				?>
+				<div class="xpro-info-box-button-wrapper">
+					<Button>  
+						<a href="<?php echo esc_url( $button_link ); ?>"  class="xpro-elementor-button-info-box <?php echo esc_attr( $icon_position ); ?>"> 
+								<?php 
+								if ( 'left' === $settings['button_icon_align'] && !empty($settings['button_icon']) ) {
+									\Elementor\Icons_Manager::render_icon( $settings['button_icon'], [ 'aria-hidden' => 'true' ] );
+								}
+								?>
+								<span class="info-box-button-text"> <?php echo esc_html( $settings['button_text'] ); ?></span>
+								<?php
+								if ( 'right' === $settings['button_icon_align'] && !empty($settings['button_icon']) ) {
+									\Elementor\Icons_Manager::render_icon( $settings['button_icon'], [ 'aria-hidden' => 'true' ] );
+								}
+							?>						
+						</a>
+					</Button>  
+				</div>
+			<?php endif; ?>
+   </span>	
+   </div>
 </<?php echo esc_attr( $html_tag ); ?>>
