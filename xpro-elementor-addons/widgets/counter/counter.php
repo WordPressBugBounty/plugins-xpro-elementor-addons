@@ -108,7 +108,7 @@ class Counter extends Widget_Base {
 	 */
 
 	public function get_script_depends() {
-		return array( 'elementor-waypoints' );
+		return array( 'waypoints' );
 	}
 
 	/**
