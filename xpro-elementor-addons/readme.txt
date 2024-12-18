@@ -1,10 +1,10 @@
 === 140+ Widgets | Xpro Addons For Elementor - FREE ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.4.6.1
+Version: 1.4.6.2
 Contributors: Xpro
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
-Tested up to: 6.6.2
+Tested up to: 6.7.1
 Stable tag: trunk
 Requires PHP: 7.4
 License: GPLv2
@@ -264,6 +264,12 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 
 == Changelog ==
+
+= V 1.4.6.2 – 18 Dec 2024
+
+Fix: Alignment issues and icon appearance in the Pricing Widget.
+Fix: Icon appearance issue in the Pricing Matrix Widget.
+
 
 = V 1.4.6.1 – 31 Oct 2024
 

@@ -624,7 +624,7 @@ class Pricing extends Widget_Base {
 			)
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'align',
 			array(
 				'label'        => __( 'Alignment', 'xpro-elementor-addons' ),
@@ -1137,6 +1137,7 @@ class Pricing extends Widget_Base {
 				),
 				'selectors'  => array(
 					'{{WRAPPER}} .xpro-pricing-feature-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .xpro-pricing-feature-icon' => 'width: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
