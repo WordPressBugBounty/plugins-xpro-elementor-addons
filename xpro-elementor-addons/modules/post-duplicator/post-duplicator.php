@@ -55,6 +55,46 @@ class Xpro_Elementor_Duplicator {
 	}
 
 	/**
+	 * Check if a post can be duplicated by the current user.
+	 *
+	 * @param int $post_id Post ID to check.
+	 * @return bool
+	 */
+
+	private static function can_duplicate_post( $post_id ) {
+		$post = get_post( $post_id );
+	
+		if ( ! $post ) {
+			return false;
+		}
+	
+		// Allow administrators to duplicate any post
+		if ( current_user_can( 'administrator' ) ) {
+			return true;
+		}
+
+		// Allow users to duplicate published posts created by administrators
+		if ( $post->post_status === 'publish' && user_can( $post->post_author, 'administrator' ) ) {
+			return true;
+		}
+	
+		// Ensure the current user can edit this post type
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return false;
+		}
+	
+		// Allow users to duplicate their own posts
+		if ( get_current_user_id() === (int) $post->post_author ) {
+			// Allow duplication of publicly visible posts or drafts/private posts they own
+			if ( ! post_password_required( $post_id ) ) {
+				return true;
+			}
+		}
+	
+		return false;
+	}
+	
+	/**
 	 * Duplicate requested post
 	 *
 	 * @return void
@@ -89,6 +129,11 @@ class Xpro_Elementor_Duplicator {
 
 		if ( ! wp_verify_nonce( $nonce, self::ACTION ) ) {
 			return;
+		}
+
+		// Validate if the post can be duplicated
+		if ( ! self::can_duplicate_post( $post_id ) ) {
+			wp_die( __( 'You are not allowed to duplicate this post.', 'xpro-elementor-addons' ), 403 );
 		}
 
 		if ( is_null( ( $post = get_post( $post_id ) ) ) ) {
