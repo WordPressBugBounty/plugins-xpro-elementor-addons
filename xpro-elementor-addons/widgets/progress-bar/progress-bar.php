@@ -107,7 +107,7 @@ class Progress_Bar extends Widget_Base {
 	 */
 
 	public function get_script_depends() {
-		return array( 'elementor-waypoints' );
+		return array( 'waypoints' );
 	}
 
 	/**

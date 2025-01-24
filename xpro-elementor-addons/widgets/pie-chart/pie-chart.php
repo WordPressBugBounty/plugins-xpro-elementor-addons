@@ -104,7 +104,7 @@ class Pie_Chart extends Widget_Base {
 	 */
 
 	public function get_script_depends() {
-		return array( 'elementor-waypoints', 'easypiechart' );
+		return array( 'waypoints', 'easypiechart' );
 	}
 
 	/**

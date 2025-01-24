@@ -1,6 +1,6 @@
 === 140+ Widgets | Xpro Addons For Elementor - FREE ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.4.6.4
+Version: 1.4.6.5
 Contributors: Xpro
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
@@ -264,6 +264,20 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 
 == Changelog ==
+
+= V 1.4.6.5 – 25 Jan 2025
+
+New: Added an option "include taxonomy" in the Taxonomy Widget.
+New: Added Site Field in Dynamic Tags.
+New: Added "load more number of items" control in Advanced Gallery Widget.
+New: Added "load more number of items" control in Video Gallery Widget.
+Fix: Resolved an issue in Pie Chart Widget.
+Fix: Resolved an issue in Horizontal Menu Widget.
+Fix: Resolved an issue in Progress Bar Widget.
+Fix: Resolved badge alignment issue in Pricing Carousel Widget.
+Fix: Resolved an issue in Floating Effect Extension.
+Fix: Resolved an issue in Background Particles Extension.
+
 
 = V 1.4.6.4 – 26 Dec 2024
 

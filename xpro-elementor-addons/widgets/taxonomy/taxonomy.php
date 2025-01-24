@@ -157,8 +157,37 @@ class Taxonomy extends Widget_Base {
 				'multiple'    => true,
 				'label_block' => true,
 				'options'     => $this->taxonomies_exclude(),
+				'condition'   => array(
+                    'show_include!' => 'true',
+                ),
 			)
 		);
+
+		$this->add_control(
+            'show_include',
+            array(
+                'label'        => __( 'Enable Include', 'xpro-elementor-addons' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'     => __( 'Yes', 'xpro-elementor-addons' ),
+                'label_off'    => __( 'No', 'xpro-elementor-addons' ),
+                'return_value' => 'true',
+                'default'      => '',
+            )
+        );
+       
+        $this->add_control(
+            'include',
+            array(
+                'label'       => __( 'Include', 'xpro-elementor-addons' ),
+                'type'        => Controls_Manager::SELECT2,
+                'multiple'    => true,
+                'label_block' => true,
+                'options'     => $this->taxonomies_exclude(),
+                'condition'   => array(
+                    'show_include' => 'true',
+                ),
+            )
+        );
 
 		$this->add_control(
 			'orderby',

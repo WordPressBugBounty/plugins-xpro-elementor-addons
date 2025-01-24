@@ -21,6 +21,7 @@ class Xpro_Elementor_Floating {
 		add_action( 'elementor/element/common/_section_style/after_section_end', array( __CLASS__, 'register' ), 1 );
 		add_action( 'elementor/frontend/widget/before_render', array( __CLASS__, 'should_script_enqueue' ) );
 		add_action( 'elementor/preview/enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
 	}
 
 	/**

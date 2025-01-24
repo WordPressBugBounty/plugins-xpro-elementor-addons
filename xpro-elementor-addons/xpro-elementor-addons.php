@@ -3,17 +3,17 @@
  * Plugin Name: Xpro Elementor Addons
  * Description: A complete Elementor Addons Pack to enhance your web designing experience. Create amazing websites with 50+ FREE Widgets, Extensions & more.
  * Plugin URI:  https://elementor.wpxpro.com/
- * Version:     1.4.6.4
+ * Version:     1.4.6.5
  * Author:      Xpro
  * Author URI:  https://www.wpxpro.com/
  * Developer:   Xpro Team
  * Text Domain: xpro-elementor-addons
- * Elementor tested up to: 3.26.3
+ * Elementor tested up to: 3.27.1
  */
 
 defined( 'ABSPATH' ) || die();
 
-define( 'XPRO_ELEMENTOR_ADDONS_VERSION', '1.4.6.4' );
+define( 'XPRO_ELEMENTOR_ADDONS_VERSION', '1.4.6.5' );
 define( 'XPRO_ELEMENTOR_ADDONS__FILE__', __FILE__ );
 define( 'XPRO_ELEMENTOR_ADDONS_BASE', plugin_basename( __FILE__ ) );
 define( 'XPRO_ELEMENTOR_ADDONS_DIR_PATH', plugin_dir_path( XPRO_ELEMENTOR_ADDONS__FILE__ ) );
@@ -65,7 +65,7 @@ final class Xpro_Elementor_Addons {
 	 * @since 1.0.0
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.4.6.4';
+	const VERSION = '1.4.6.5';
 
 	/**
 	 * Minimum Elementor Version
@@ -149,13 +149,6 @@ final class Xpro_Elementor_Addons {
 		if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
 			add_action( 'admin_notices', array( $this, 'admin_notice_minimum_php_version' ) );
 			return;
-		}
-
-		//Render New Year Sales Notice
-		if ( is_admin() && ! did_action( 'xpro_theme_builder_loaded' ) && ! file_exists( WP_PLUGIN_DIR . '/xpro-theme-builder/xpro-theme-builder.php' ) && ! get_option( 'xpro_sales_dismiss_notice' ) ){
-			add_action( 'admin_notices', array( $this, 'latest_sales_notices' ) );
-			add_action( 'admin_head', array( $this, 'notices_enqueue_scripts' ) );
-			add_action( 'wp_ajax_xpro_sales_dismiss_notice', array( $this, 'xpro_sales_dismiss_notice' ) );
 		}
 
 		//Render Theme Builder Notice
@@ -284,38 +277,11 @@ final class Xpro_Elementor_Addons {
 						<div class="xpro-features-action">
 							<a href="<?php echo esc_attr( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=xpro-theme-builder' ), 'install-plugin_xpro-theme-builder' ) ); ?>" class="xpro-feature-install-button"><?php echo esc_html__( 'Install Now', 'xpro-elementor-addons' ); ?></a>
 							<a href="https://elementor.wpxpro.com/theme-builder/" target="_blank" class="xpro-feature-learn-more-button">Learn More</a>
+							<a href="https://www.youtube.com/@ElementorXPRO" target="_blank" class="xpro-feature-learn-more-button">Watch a guide</a>
 						</div>
 					</div>
 					<div class="xpro-features-col-right">
 						<img src="<?php echo esc_url( XPRO_ELEMENTOR_ADDONS_ASSETS . 'admin/images/theme-builder.png' ); ?>" alt="theme-builder"/>
-					</div>
-				</div>
-			</div>
-			<?php
-		}
-	}
-
-	/**
-	 * latest Sales notices
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function latest_sales_notices() {
-		$screen = get_current_screen();
-		if ( 'plugins' === $screen->base ) { ?>
-			<div class="notice xpro-sales-notice is-dismissible xpro-features-wrapper">
-				<div class="xpro-features-inner">
-					<div class="xpro-features-col-left">
-						<h3 class="xpro-features-heading"><?php echo esc_html__( 'Biggest New Year Sale 2025', 'xpro-elementor-addons' ); ?></h3>
-						<p class="xpro-features-desc"><?php echo esc_html__( 'Level Up Your Website This Holiday Season! ✨ XPro Elementor Addons is offering upto 50% Off on all its Pro Plans. Get ready to upgrade your plan at a discounted price. Limited Time Offer!', 'xpro-elementor-addons' ); ?></p>
-						<div class="xpro-features-action">
-							<a href="https://elementor.wpxpro.com/new-year-sale/" target="_blank" class="xpro-feature-install-button"><?php echo esc_html__( 'Grab The Deal', 'xpro-elementor-addons' ); ?></a>
-							<!-- <a href="https://elementor.wpxpro.com/theme-builder/" target="_blank" class="xpro-feature-learn-more-button">Learn More</a> -->
-						</div>
-					</div>
-					<div class="xpro-features-col-right">
-						<img src="<?php echo esc_url( XPRO_ELEMENTOR_ADDONS_ASSETS . 'admin/images/new-year-sale.png' ); ?>" alt="theme-builder"/>
 					</div>
 				</div>
 			</div>
@@ -330,9 +296,6 @@ final class Xpro_Elementor_Addons {
 
 	public function xpro_theme_builder_dismiss_notice() {
 		add_option( 'xpro_theme_builder_dismiss_notice', true );
-	}
-	public function xpro_sales_dismiss_notice() {
-		add_option( 'xpro_sales_dismiss_notice', true );
 	}
 
 }

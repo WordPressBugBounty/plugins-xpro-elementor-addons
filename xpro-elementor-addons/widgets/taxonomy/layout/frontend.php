@@ -5,15 +5,22 @@ use Elementor\Icons_Manager;
 global $wp;
 $hierarchical = isset( $item['hierarchical'] ) ? $item['hierarchical'] : true;
 
-$term_data = get_terms(
-	array(
-		'taxonomy'   => $settings['taxonomy_type'],
-		'orderby'    => $settings['orderby'],
-		'order'      => $settings['order'],
-		'hide_empty' => ( 'yes' === $settings['hide_empty'] ),
-		'exclude'    => $settings['exclude'],
-	)
+$term_args = array(
+    'taxonomy'   => $settings['taxonomy_type'],
+    'orderby'    => $settings['orderby'],
+    'order'      => $settings['order'],
+    'hide_empty' => ( 'yes' === $settings['hide_empty'] ),
 );
+
+if ($settings['include']) {
+    $term_args['include'] = $settings['include'];
+} else {
+    $term_args['exclude'] = $settings['exclude'];
+}
+
+$term_data = get_terms( $term_args );
+
+
 
 $current_term_id = get_queried_object() && isset( get_queried_object()->term_id ) ? get_queried_object()->term_id : '';
 $current_url     = home_url( $wp->request . '/' );
