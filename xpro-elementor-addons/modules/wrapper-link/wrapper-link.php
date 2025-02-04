@@ -45,7 +45,7 @@ class Wrapper_Link {
 	public static function before_section_render( Element_Base $element ) {
 		$link_settings = $element->get_settings_for_display( 'xpro_elementor_element_link' );
 
-		if ( $link_settings && ! empty( $link_settings['url'] ) ) {
+		if ( $link_settings && ! empty( esc_url($link_settings['url'])) ) {
 			$element->add_render_attribute(
 				'_wrapper',
 				array(

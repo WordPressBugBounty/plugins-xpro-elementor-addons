@@ -7,7 +7,8 @@ $attr     = ( $settings['button_css_id'] ) ? ' id="' . esc_attr ( $settings['but
 $attr    .= $settings['link']['is_external'] ? ' target="_blank"' : '';
 $attr    .= $settings['link']['nofollow'] ? ' rel="nofollow"' : '';
 $attr    .= $settings['link']['url'] ? ' href="' . esc_url ( $settings['link']['url'] ) . '"' : '';
-$attr    .= ( $settings['onclick_event'] ) ? ' onclick="' . esc_js ( $settings['onclick_event'] ) . '"' : '';
+// $attr    .= ( $settings['onclick_event'] ) ? ' onclick="' . esc_js ( $settings['onclick_event'] ) . '"' : '';
+$attr .= !empty( $settings['onclick_event'] ?? '' )  ? ' onclick="' . esc_js( $settings['onclick_event'] ) . '"'  : '';
 
 if ( $settings['link'] && $settings['link']['custom_attributes'] ) {
 	$attributes = explode( ',', $settings['link']['custom_attributes'] );

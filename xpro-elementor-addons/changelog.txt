@@ -1,3 +1,13 @@
+= V 1.4.6.6 – 05 Feb 2025
+
+Fix: Resolved vulnerability issue in the Wrapper Link Extension.
+Fix: Resolved vulnerability issue in the Simple Portfolio Widget.
+Fix: Resolved vulnerability issue in the Animated Link Widget.
+Fix: Resolved vulnerability issue in the Contact Form Widget.
+Fix: Resolved vulnerability issue in the Hero Slider Widget.
+Fix: Resolved vulnerability issue in the Button Widget.
+
+
 = V 1.4.6.5 – 25 Jan 2025
 
 New: Added an option "include taxonomy" in the Taxonomy Widget.

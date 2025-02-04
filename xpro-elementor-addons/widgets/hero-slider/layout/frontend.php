@@ -57,7 +57,7 @@ $slider_settings = wp_json_encode(
 
 							if ( 'yes' === $item['enable_primary_button'] ) {
 								$primary_btn_tag   = ( $item['primary_button_link']['url'] ) ? 'a' : 'button';
-								$primary_btn_attr  = ( $item['primary_button_css_id'] ) ? ' id="' . $item['primary_button_css_id'] . '"' : '';
+								$primary_btn_attr  = ( $item['primary_button_css_id'] ) ? ' id="' . sanitize_html_class($item['primary_button_css_id']). '"' : '';
 								$primary_btn_attr .= $item['primary_button_link']['is_external'] ? ' target="_blank"' : '';
 								$primary_btn_attr .= $item['primary_button_link']['nofollow'] ? ' rel="nofollow"' : '';
 								$primary_btn_attr .= $item['primary_button_link']['url'] ? ' href="' . esc_url( $item['primary_button_link']['url'] ) . '"' : '';
@@ -87,7 +87,7 @@ $slider_settings = wp_json_encode(
 
 							if ( 'yes' === $item['enable_secondary_button'] ) {
 								$secondary_btn_tag   = ( $item['secondary_button_link']['url'] ) ? 'a' : 'button';
-								$secondary_btn_attr  = ( $item['secondary_button_css_id'] ) ? ' id="' . $item['secondary_button_css_id'] . '"' : '';
+								$secondary_btn_attr  = ( $item['secondary_button_css_id'] ) ? ' id="' . sanitize_html_class($item['secondary_button_css_id']) . '"' : '';
 								$secondary_btn_attr .= $item['secondary_button_link']['is_external'] ? ' target="_blank"' : '';
 								$secondary_btn_attr .= $item['secondary_button_link']['nofollow'] ? ' rel="nofollow"' : '';
 								$secondary_btn_attr .= $item['secondary_button_link']['url'] ? ' href="' . esc_url( $item['secondary_button_link']['url'] ) . '"' : '';

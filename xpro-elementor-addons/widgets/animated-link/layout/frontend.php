@@ -13,7 +13,8 @@ $attr    .= $settings['link']['nofollow'] ? ' rel="nofollow"' : '';
 $attr    .= $settings['link']['url'] ? ' href="' . esc_url( $settings['link']['url'] ) . '"' : '';
 
 // Sanitize the onclick event
-$attr    .= ( $settings['onclick_event'] ) ? ' onclick="' . esc_js( $settings['onclick_event'] ) . '"' : '';
+// $attr    .= ( $settings['onclick_event'] ) ? ' onclick="' . esc_js( $settings['onclick_event'] ) . '"' : '';
+$attr .= !empty( $settings['onclick_event'] ?? '' )  ? ' onclick="' . esc_js( $settings['onclick_event'] ) . '"'  : '';
 
 if ( $settings['link'] && $settings['link']['custom_attributes'] ) {
     $attributes = explode( ',', $settings['link']['custom_attributes'] );

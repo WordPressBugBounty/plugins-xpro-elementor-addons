@@ -44,7 +44,7 @@
 			?>
 
 			<!--Item-->
-			<div class="cbp-item xpro-elementor-gallery-item xpro-preview-type-<?php echo esc_attr( $settings['preview_type'] ); ?> <?php echo esc_attr( xpro_elementor_friendly_str_replace( $item['filter'] ) ); ?>" data-title="<?php echo esc_html( $item['title_text'] ); ?>" data-src-preview="<?php echo esc_url( $item['preview_link'] ); ?>">
+			<div class="cbp-item xpro-elementor-gallery-item xpro-preview-type-<?php echo esc_attr( $settings['preview_type'] ); ?> <?php echo esc_attr( xpro_elementor_friendly_str_replace( $item['filter'] ) ); ?>" data-title="<?php echo htmlentities( strip_tags( $item['title_text'] ), ENT_QUOTES, 'UTF-8' ); ?>" data-src-preview="<?php echo esc_url( $item['preview_link'] ); ?>">
 				<div class="cbp-caption">
 					<?php
 					$thumb_url = ( ! empty( $item['image']['id'] ) ) ? wp_get_attachment_image_url( $item['image']['id'], 'thumbnail' ) : '';

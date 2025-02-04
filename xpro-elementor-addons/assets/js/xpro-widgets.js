@@ -643,6 +643,9 @@
                 r = (t.find(".xpro-contact-form-submit-button"), t.find(".xpro-contact-form-submit-button > i")),
                 a = !1,
                 l = n.attr("action");
+                function safe_tags(str) {
+                    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') ;
+                }
             n.on("submit", function (o) {
                 o.preventDefault(), r.show();
                 let s = n.serializeArray(),
@@ -662,18 +665,18 @@
                     }),
                     !d)
                 ) {
-                    (c = '<div class="xpro-alert xpro-alert-danger">' + i.required_field_message + "</div>"), t.find(".xpro-contact-form-message").hide().html(c).slideDown(), r.hide();
+                    (c = '<div class="xpro-alert xpro-alert-danger">' + safe_tags(i.required_field_message) + "</div>"), t.find(".xpro-contact-form-message").hide().html(c).slideDown(), r.hide();
                     return;
                 }
                 if (i.recaptcha && !a) {
-                    (c = '<div class="xpro-alert xpro-alert-danger">' + i.captcha_message + "</div>"), t.find(".xpro-contact-form-message").hide().html(c).slideDown(), r.hide();
+                    (c = '<div class="xpro-alert xpro-alert-danger">' + safe_tags(i.captcha_message) + "</div>"), t.find(".xpro-contact-form-message").hide().html(c).slideDown(), r.hide();
                     return;
                 }
                 t.find(".xpro-contact-form-message").slideUp(),
                     e.ajax({ method: "POST", url: l, data: { postData: JSON.stringify(f), formName: i.form_name, formSubject: i.form_subject, captcha: a } }).done(function (e) {
                         e.success
-                            ? ((c = '<div class="xpro-alert xpro-alert-success">' + i.success_message + "</div>"), t.find(".xpro-contact-form-message").hide().html(c).slideDown())
-                            : ((c = '<div class="xpro-alert xpro-alert-danger">' + i.error_message + "</div>"), t.find(".xpro-contact-form-message").hide().html(c).slideDown()),
+                            ? ((c = '<div class="xpro-alert xpro-alert-success">' + safe_tags(i.success_message) + "</div>"), t.find(".xpro-contact-form-message").hide().html(c).slideDown())
+                            : ((c = '<div class="xpro-alert xpro-alert-danger">' + safe_tags(i.error_message) + "</div>"), t.find(".xpro-contact-form-message").hide().html(c).slideDown()),
                             r.hide(),
                             i.recaptcha && grecaptcha.reset();
                     });

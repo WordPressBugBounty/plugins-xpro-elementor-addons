@@ -246,14 +246,16 @@ class Button extends Widget_Base {
 			)
 		);
 
-		$this->add_control(
-			'onclick_event',
-			array(
-				'label'       => esc_html__( 'onClick Event', 'xpro-elementor-addons' ),
-				'type'        => Controls_Manager::TEXT,
-				'placeholder' => 'myFunction()',
-			)
-		);
+		if ( current_user_can( 'administrator' ) ) {
+			$this->add_control(
+				'onclick_event',
+				array(
+					'label'       => esc_html__( 'onClick Event', 'xpro-elementor-addons' ),
+					'type'        => Controls_Manager::TEXT,
+					'placeholder' => 'myFunction()',
+				)
+			);
+		}
 
 		$this->end_controls_section();
 
