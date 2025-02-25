@@ -34,6 +34,16 @@ class Woo_Product_Price extends Widget_Base {
 	}
 
 	/**
+	 * Get widget inner wrapper.
+	 *
+	 * Retrieve widget require the inner wrapper or not.
+	 *
+	 */
+	public function has_widget_inner_wrapper(): bool {
+		return INNER_ELEMENTOR_WIDGET_CONTAINER;
+	}
+
+	/**
 	 * Get widget title.
 	 *
 	 * Retrieve image widget title.
@@ -157,7 +167,7 @@ class Woo_Product_Price extends Widget_Base {
 					),
 				),
 				'selectors' => array(
-					'{{WRAPPER}} .elementor-widget-container' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}}.elementor-widget-xpro-woo-product-price' => 'text-align: {{VALUE}};',
 				),
 			)
 		);

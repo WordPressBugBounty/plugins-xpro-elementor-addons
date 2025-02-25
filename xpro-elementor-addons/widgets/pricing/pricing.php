@@ -64,6 +64,16 @@ class Pricing extends Widget_Base {
 	}
 
 	/**
+	 * Get widget inner wrapper.
+	 *
+	 * Retrieve widget require the inner wrapper or not.
+	 *
+	 */
+	public function has_widget_inner_wrapper(): bool {
+		return INNER_ELEMENTOR_WIDGET_CONTAINER;
+	}
+
+	/**
 	 * Get widget title.
 	 *
 	 * Retrieve image widget title.
@@ -1932,7 +1942,7 @@ class Pricing extends Widget_Base {
 				),
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}}.elementor-widget-xpro-pricing > .elementor-widget-container' => 'overflow: {{VALUE}};',
+					'{{WRAPPER}}.elementor-widget-xpro-pricing' => 'overflow: {{VALUE}};',
 				),
 			)
 		);

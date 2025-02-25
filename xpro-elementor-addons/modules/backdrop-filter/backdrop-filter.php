@@ -55,7 +55,7 @@ class Xpro_Elementor_Backdrop_Filter {
 					'size' => 0,
 				),
 				'selectors' => array(
-					'{{WRAPPER}}:not(.elementor-widget),{{WRAPPER}} > .elementor-widget-container' => 'backdrop-filter: brightness( {{xpro_backdrop_filter_brightness.SIZE}} ) contrast( {{xpro_backdrop_filter_contrast.SIZE}} ) saturate( {{xpro_backdrop_filter_saturation.SIZE}} ) blur( {{xpro_backdrop_filter_blur.SIZE}}px ) hue-rotate( {{xpro_backdrop_filter_hue.SIZE}}deg ); -webkit-backdrop-filter: brightness( {{xpro_backdrop_filter_brightness.SIZE}} ) contrast( {{xpro_backdrop_filter_contrast.SIZE}} ) saturate( {{xpro_backdrop_filter_saturation.SIZE}} ) blur( {{xpro_backdrop_filter_blur.SIZE}}px ) hue-rotate( {{xpro_backdrop_filter_hue.SIZE}}deg )',
+					'{{WRAPPER}}:not(.elementor-widget),{{WRAPPER}}' => 'backdrop-filter: brightness( {{xpro_backdrop_filter_brightness.SIZE}} ) contrast( {{xpro_backdrop_filter_contrast.SIZE}} ) saturate( {{xpro_backdrop_filter_saturation.SIZE}} ) blur( {{xpro_backdrop_filter_blur.SIZE}}px ) hue-rotate( {{xpro_backdrop_filter_hue.SIZE}}deg ); -webkit-backdrop-filter: brightness( {{xpro_backdrop_filter_brightness.SIZE}} ) contrast( {{xpro_backdrop_filter_contrast.SIZE}} ) saturate( {{xpro_backdrop_filter_saturation.SIZE}} ) blur( {{xpro_backdrop_filter_blur.SIZE}}px ) hue-rotate( {{xpro_backdrop_filter_hue.SIZE}}deg )',
 				),
 				'condition' => array(
 					'xpro_backdrop_filter' => 'yes',

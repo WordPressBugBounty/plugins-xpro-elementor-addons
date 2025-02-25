@@ -66,7 +66,7 @@ class Xpro_Elementor_Entrance_Animation {
 				'selectors'   => array(
 					'{{WRAPPER}}[class*=xpro-anim-reveal-from] > .elementor-container::after'   => 'background-color: {{VALUE}};',
 					'{{WRAPPER}}[class*=xpro-anim-reveal-from] > .elementor-element-populated::after'   => 'background-color: {{VALUE}};',
-					'{{WRAPPER}}[class*=xpro-anim-reveal-from] > .elementor-widget-container::after'   => 'background-color: {{VALUE}};',
+					'{{WRAPPER}}[class*=xpro-anim-reveal-from]::after'   => 'background-color: {{VALUE}};',
 					'{{WRAPPER}}[class*=xpro-anim-reveal-from] > .e-con-inner::after'   => 'background-color: {{VALUE}};',
 				),
 				'condition'   => array(
@@ -84,7 +84,7 @@ class Xpro_Elementor_Entrance_Animation {
 				'selectors'   => array(
 					'{{WRAPPER}}[class*=xpro-anim-reveal-from] > .elementor-container::after'   => 'background-color: {{VALUE}};',
 					'{{WRAPPER}}[class*=xpro-anim-reveal-from] > .elementor-element-populated::after'   => 'background-color: {{VALUE}};',
-					'{{WRAPPER}}[class*=xpro-anim-reveal-from] > .elementor-widget-container::after'   => 'background-color: {{VALUE}};',
+					'{{WRAPPER}}[class*=xpro-anim-reveal-from]::after'   => 'background-color: {{VALUE}};',
 					'{{WRAPPER}}[class*=xpro-anim-reveal-from] > .e-con-inner::after'   => 'background-color: {{VALUE}};',
 				),
 				'condition'   => array(

@@ -51,7 +51,7 @@
                     var t = e(this),
                         o = e(this).data("xpro-equal-height");
                     if ("widgets" === o) {
-                        let i = e(this).find(".elementor-widget > .elementor-widget-container"),
+                        let i = e(this).find(".elementor-widget"),
                             n = 0;
                         i.each(function () {
                             n = Math.max(n, e(this).outerHeight());
@@ -512,10 +512,11 @@
         },
         IconBox: function (e) {
             let t = o.getElementSettings(e),
-                i = e.find(".elementor-widget-container"),
+                i = e.find(".elementor-widget-xpro-icon-box"),
                 n = e.find(".xpro-box-icon-item"),
                 r = "",
                 a = e.find("#xpro-icon-box-lottie");
+                console.log(i);
             "" !== t.hover_animation &&
                 i.hover(
                     function () {

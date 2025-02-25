@@ -41,7 +41,7 @@ class Background_Overlay {
 			Group_Control_Background::get_type(),
 			array(
 				'name'     => 'xpro_elementor_background_overlay',
-				'selector' => '{{WRAPPER}}.xpro-widget-bg-overlay > .elementor-widget-container:before',
+				'selector' => '{{WRAPPER}}.xpro-widget-bg-overlay:before',
 			)
 		);
 
@@ -60,8 +60,8 @@ class Background_Overlay {
 					),
 				),
 				'selectors' => array(
-					'{{WRAPPER}}.xpro-widget-bg-overlay > .elementor-widget-container' => 'position: relative; z-index: 1;',
-					'{{WRAPPER}}.xpro-widget-bg-overlay > .elementor-widget-container:before' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}}.xpro-widget-bg-overlay' => 'position: relative; z-index: 1;',
+					'{{WRAPPER}}.xpro-widget-bg-overlay:before' => 'opacity: {{SIZE}};',
 				),
 				'condition' => array(
 					'xpro_elementor_background_overlay_background' => array( 'classic', 'gradient' ),
@@ -73,7 +73,7 @@ class Background_Overlay {
 			Group_Control_Css_Filter::get_type(),
 			array(
 				'name'     => 'xpro_elementor_css_filters',
-				'selector' => '{{WRAPPER}}.xpro-widget-bg-overlay > .elementor-widget-container:before',
+				'selector' => '{{WRAPPER}}.xpro-widget-bg-overlay:before',
 			)
 		);
 
@@ -95,7 +95,7 @@ class Background_Overlay {
 					'luminosity'  => 'Luminosity',
 				),
 				'selectors' => array(
-					'{{WRAPPER}}.xpro-widget-bg-overlay > .elementor-widget-container:before' => 'mix-blend-mode: {{VALUE}}',
+					'{{WRAPPER}}.xpro-widget-bg-overlay:before' => 'mix-blend-mode: {{VALUE}}',
 				),
 			)
 		);
@@ -113,7 +113,7 @@ class Background_Overlay {
 			Group_Control_Background::get_type(),
 			array(
 				'name'     => 'xpro_elementor_background_overlay_hover',
-				'selector' => '{{WRAPPER}}.xpro-widget-bg-overlay:hover > .elementor-widget-container:before',
+				'selector' => '{{WRAPPER}}.xpro-widget-bg-overlay:hover:before',
 			)
 		);
 
@@ -132,7 +132,7 @@ class Background_Overlay {
 					),
 				),
 				'selectors' => array(
-					'{{WRAPPER}}.xpro-widget-bg-overlay:hover > .elementor-widget-container:before' => 'opacity: {{SIZE}};',
+					'{{WRAPPER}}.xpro-widget-bg-overlay:hover:before' => 'opacity: {{SIZE}};',
 				),
 				'condition' => array(
 					'xpro_elementor_background_overlay_hover_background' => array( 'classic', 'gradient' ),
@@ -144,7 +144,7 @@ class Background_Overlay {
 			Group_Control_Css_Filter::get_type(),
 			array(
 				'name'     => 'xpro_elementor_css_filters_hover',
-				'selector' => '{{WRAPPER}}.xpro-widget-bg-overlay:hover > .elementor-widget-container:before',
+				'selector' => '{{WRAPPER}}.xpro-widget-bg-overlay:hover:before',
 			)
 		);
 
@@ -164,7 +164,7 @@ class Background_Overlay {
 				),
 				'separator' => 'before',
 				'selectors' => array(
-					'{{WRAPPER}}.xpro-widget-bg-overlay > .elementor-widget-container:before' => 'transition: background {{SIZE}}s;',
+					'{{WRAPPER}}.xpro-widget-bg-overlay:before' => 'transition: background {{SIZE}}s;',
 				),
 			)
 		);

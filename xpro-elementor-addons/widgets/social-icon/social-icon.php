@@ -37,6 +37,16 @@ class Social_Icon extends Widget_Base {
 	}
 
 	/**
+	 * Get widget inner wrapper.
+	 *
+	 * Retrieve widget require the inner wrapper or not.
+	 *
+	 */
+	public function has_widget_inner_wrapper(): bool {
+		return INNER_ELEMENTOR_WIDGET_CONTAINER;
+	}
+
+	/**
 	 * Get widget title.
 	 *
 	 * Retrieve image widget title.
@@ -424,7 +434,7 @@ class Social_Icon extends Widget_Base {
 				'toggle'    => false,
 				'default'   => 'center',
 				'selectors' => array(
-					'{{WRAPPER}} .elementor-widget-container' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}}.elementor-widget-xpro-social-icon' => 'text-align: {{VALUE}};',
 				),
 			)
 		);

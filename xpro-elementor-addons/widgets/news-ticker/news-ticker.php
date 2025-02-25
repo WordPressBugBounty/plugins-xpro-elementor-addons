@@ -39,6 +39,16 @@ class News_Ticker extends Widget_Base {
 	}
 
 	/**
+	 * Get widget inner wrapper.
+	 *
+	 * Retrieve widget require the inner wrapper or not.
+	 *
+	 */
+	public function has_widget_inner_wrapper(): bool {
+		return INNER_ELEMENTOR_WIDGET_CONTAINER;
+	}
+
+	/**
 	 * Get widget title.
 	 *
 	 * Retrieve image widget title.
@@ -675,7 +685,7 @@ class News_Ticker extends Widget_Base {
 				'name'     => 'sticky_content_bg',
 				'label'    => __( 'Background', 'xpro-elementor-addons' ),
 				'types'    => array( 'classic', 'gradient' ),
-				'selector' => '{{WRAPPER}} .elementor-widget-container',
+				'selector' => '{{WRAPPER}}.elementor-widget-xpro-news-ticker',
 			)
 		);
 		// End Content Background Control For news-ticker
@@ -686,7 +696,7 @@ class News_Ticker extends Widget_Base {
 			array(
 				'name'     => 'sticky_content_border',
 				'label'    => __( 'Border', 'xpro-elementor-addons' ),
-				'selector' => '{{WRAPPER}} .elementor-widget-container',
+				'selector' => '{{WRAPPER}}.elementor-widget-xpro-news-ticker',
 			)
 		);
 		// End Content Border style Control For news-ticker 
@@ -698,7 +708,7 @@ class News_Ticker extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .elementor-widget-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}}.elementor-widget-xpro-news-ticker' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
