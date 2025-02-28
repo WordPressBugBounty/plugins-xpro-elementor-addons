@@ -228,7 +228,7 @@ class Animated_Link extends Widget_Base {
 			)
 		);
 
-		if ( current_user_can( 'administrator' ) ) {
+		if ( current_user_can( 'manage_options' ) ) { 
 			$this->add_control(
 				'onclick_event',
 				array(
@@ -360,6 +360,15 @@ class Animated_Link extends Widget_Base {
 
 		$this->end_controls_section();
 
+	}
+
+	public static function check_capability( $capability ) {
+		$post = get_post();
+		if ( ! $post ) {
+			return false;
+		}
+		$post_author_id = $post->post_author;
+		return user_can( $post_author_id, $capability );
 	}
 
 	/**

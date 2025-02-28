@@ -1,3 +1,9 @@
+= V 1.4.6.8 – 28 Feb 2025
+
+Fix: Resolved vulnerability issue in the Button Widget.
+Fix: Resolved vulnerability issue in the Animated Link Widget.
+
+
 = V 1.4.6.7 – 25 Feb 2025
 
 Enhancement: Added has_widget_inner_wrapper to support the "Optimized Markup" experiment.

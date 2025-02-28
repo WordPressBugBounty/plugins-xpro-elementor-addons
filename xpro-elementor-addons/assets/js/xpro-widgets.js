@@ -516,7 +516,6 @@
                 n = e.find(".xpro-box-icon-item"),
                 r = "",
                 a = e.find("#xpro-icon-box-lottie");
-                console.log(i);
             "" !== t.hover_animation &&
                 i.hover(
                     function () {
