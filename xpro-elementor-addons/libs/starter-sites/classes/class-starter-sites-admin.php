@@ -1110,6 +1110,9 @@ class Xpro_Elementor_Starter_Sites_Admin {
 				$request  = wp_remote_get( $this->current_template_url[ $type ] );
 				$response = wp_remote_retrieve_body( $request );
 				$result   = json_decode( $response, true );
+				if ( ! is_array( $result ) ) {
+					$result = [];
+				}
 				set_transient( $file, $result, 1000 );
 
 				return $result;
