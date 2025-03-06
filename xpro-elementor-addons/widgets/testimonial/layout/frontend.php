@@ -4,7 +4,7 @@ $title_attr  = $settings['name_link']['is_external'] ? ' target="_blank"' : '';
 $title_attr .= $settings['name_link']['nofollow'] ? ' rel="nofollow"' : '';
 $title_attr .= $settings['name_link']['url'] ? ' href="' . esc_url( $settings['name_link']['url'] ) . '"' : '';
 ?>
-
+<div class="xpro-testimonial-wrap">
 <?php if ( '4' === $settings['layout'] || '5' === $settings['layout'] || '10' === $settings['layout'] ) { ?>
 	<?php if ( $settings['image']['id'] || $settings['image']['url'] ) : ?>
 		<div class="xpro-testimonial-image">
@@ -111,3 +111,4 @@ $title_attr .= $settings['name_link']['url'] ? ' href="' . esc_url( $settings['n
 <?php } ?>
 </div>
 <?php echo ( '4' === $settings['layout'] || '5' === $settings['layout'] || '6' === $settings['layout'] ) ? '</div>' : ''; ?>
+</div>

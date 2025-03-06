@@ -1,3 +1,8 @@
+= V 1.4.7.1 – 06 Mar 2025
+
+Fix: Resolved the wrapper issue in the Testimonial Widget.
+
+
 = V 1.4.7 – 05 Mar 2025
 
 Fix: Resolved issue with Starter Sites header and footer not importing.
