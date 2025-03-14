@@ -8,6 +8,7 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
+use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -43,7 +44,8 @@ class Donation_Form_Grid extends Widget_Base {
 	 *
 	 */
 	public function has_widget_inner_wrapper(): bool {
-		return INNER_ELEMENTOR_WIDGET_CONTAINER;
+		$has_wrapper = ! Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+		return $has_wrapper;
 	}
 
 	/**

@@ -1,102 +1,108 @@
+= V 1.4.8 – 14 Mar 2025
+
+- Fix: Resolved vulnerability issue in the Site Title Widget.
+- Fix: Resolved Optimized Markup experiment margin padding issue.
+
+
 = V 1.4.7.1 – 06 Mar 2025
 
-Fix: Resolved the wrapper issue in the Testimonial Widget.
+- Fix: Resolved the wrapper issue in the Testimonial Widget.
 
 
 = V 1.4.7 – 05 Mar 2025
 
-Fix: Resolved issue with Starter Sites header and footer not importing.
+- Fix: Resolved issue with Starter Sites header and footer not importing.
 
 
 = V 1.4.6.8 – 28 Feb 2025
 
-Fix: Resolved vulnerability issue in the Button Widget.
-Fix: Resolved vulnerability issue in the Animated Link Widget.
+- Fix: Resolved vulnerability issue in the Button Widget.
+- Fix: Resolved vulnerability issue in the Animated Link Widget.
 
 
 = V 1.4.6.7 – 25 Feb 2025
 
-Enhancement: Added has_widget_inner_wrapper to support the "Optimized Markup" experiment.
+- Enhancement: Added has_widget_inner_wrapper to support the "Optimized Markup" experiment.
 
 
 = V 1.4.6.6 – 05 Feb 2025
 
-Fix: Resolved vulnerability issue in the Wrapper Link Extension.
-Fix: Resolved vulnerability issue in the Simple Portfolio Widget.
-Fix: Resolved vulnerability issue in the Animated Link Widget.
-Fix: Resolved vulnerability issue in the Contact Form Widget.
-Fix: Resolved vulnerability issue in the Hero Slider Widget.
-Fix: Resolved vulnerability issue in the Button Widget.
+- Fix: Resolved vulnerability issue in the Wrapper Link Extension.
+- Fix: Resolved vulnerability issue in the Simple Portfolio Widget.
+- Fix: Resolved vulnerability issue in the Animated Link Widget.
+- Fix: Resolved vulnerability issue in the Contact Form Widget.
+- Fix: Resolved vulnerability issue in the Hero Slider Widget.
+- Fix: Resolved vulnerability issue in the Button Widget.
 
 
 = V 1.4.6.5 – 25 Jan 2025
 
-New: Added an option "include taxonomy" in the Taxonomy Widget.
-New: Added Site Field in Dynamic Tags.
-New: Added "load more number of items" control in Advanced Gallery Widget.
-New: Added "load more number of items" control in Video Gallery Widget.
-Fix: Resolved an issue in Pie Chart Widget.
-Fix: Resolved an issue in Horizontal Menu Widget.
-Fix: Resolved an issue in Progress Bar Widget.
-Fix: Resolved badge alignment issue in Pricing Carousel Widget.
-Fix: Resolved an issue in Floating Effect Extension.
-Fix: Resolved an issue in Background Particles Extension.
+- New: Added an option "include taxonomy" in the Taxonomy Widget.
+- New: Added Site Field in Dynamic Tags.
+- New: Added "load more number of items" control in Advanced Gallery Widget.
+- New: Added "load more number of items" control in Video Gallery Widget.
+- Fix: Resolved an issue in Pie Chart Widget.
+- Fix: Resolved an issue in Horizontal Menu Widget.
+- Fix: Resolved an issue in Progress Bar Widget.
+- Fix: Resolved badge alignment issue in Pricing Carousel Widget.
+- Fix: Resolved an issue in Floating Effect Extension.
+- Fix: Resolved an issue in Background Particles Extension.
 
 
 = V 1.4.6.4 – 26 Dec 2024
 
-Tweak: Update Minor Changes In Widgets
+- Tweak: Update Minor Changes In Widgets
 
 
 = V 1.4.6.3 – 24 Dec 2024
 
-Fix: Resolved vulnerability in the post duplicator extension.
+- Fix: Resolved vulnerability in the post duplicator extension.
 
 
 = V 1.4.6.2 – 18 Dec 2024
 
-Fix: Alignment issues and icon appearance in the Pricing Widget.
-Fix: Icon appearance issue in the Pricing Matrix Widget.
+- Fix: Alignment issues and icon appearance in the Pricing Widget.
+- Fix: Icon appearance issue in the Pricing Matrix Widget.
 
 
 = V 1.4.6.1 – 31 Oct 2024
 
-Fix: Resolved vulnerability in the Content Toggle Widget.
+- Fix: Resolved vulnerability in the Content Toggle Widget.
 
 
 = V 1.4.6 – 25 Oct 2024
 
-New: Added options for Lottie files, button, and color customization for the entire icon box in the Icon Box Widget.
-New: Added an option to change the button text in the Woo Product Grid Widget.
-New: Added an option for styling and text customization in the Add to Cart Widget.
-Fix: Resolved issues with the headline and content icons in the News Ticker Widget.
-Fix: Resolved the issue where content merged automatically when switching to the second tab in the Advanced Tab Widget.
-Fix: Addressed the issue of the missing responsive icon and corrected the icon positioning in the Hover Card Widget.
-Fix: Adjusted the alignment of the "Add to Cart" icon in the Woo Product Grid Widget.
-Fix: Resolved the issue of inconsistent icon size after changes has been fixed, and a responsive icon feature has been added in the Team Widget.
-Fix: Resolved the issue of icons and SVGs not displaying with accordion titles in the Advanced Accordion Widget.
-Fix: Resolved the missing Xpro badge in the widget panel in the Hero Slider widget.
-Fix: Corrected the type in the media type in Promo Box widget.
-Fix: Resolved issues with social icons in the pre-built layout styles of the Team Carousel widget.
-Fix: Resolved the issue with the source option not working in the Search widget.
-Fix: Resolved the issue with the checkbox inline list not functioning in the Contact Form widget.
-Fix: Resolved the lack of border width options for list items in the Business Hours widget.
-Fix: Resolved the x-axis alignment issue in the Woo mini cart widget.
-Fix: Resolved the issue images were not rotating properly in product view 360 Widget.
+- New: Added options for Lottie files, button, and color customization for the entire icon box in the Icon Box Widget.
+- New: Added an option to change the button text in the Woo Product Grid Widget.
+- New: Added an option for styling and text customization in the Add to Cart Widget.
+- Fix: Resolved issues with the headline and content icons in the News Ticker Widget.
+- Fix: Resolved the issue where content merged automatically when switching to the second tab in the Advanced Tab Widget.
+- Fix: Addressed the issue of the missing responsive icon and corrected the icon positioning in the Hover Card Widget.
+- Fix: Adjusted the alignment of the "Add to Cart" icon in the Woo Product Grid Widget.
+- Fix: Resolved the issue of inconsistent icon size after changes has been fixed, and a responsive icon feature has been added in the Team Widget.
+- Fix: Resolved the issue of icons and SVGs not displaying with accordion titles in the Advanced Accordion Widget.
+- Fix: Resolved the missing Xpro badge in the widget panel in the Hero Slider widget.
+- Fix: Corrected the type in the media type in Promo Box widget.
+- Fix: Resolved issues with social icons in the pre-built layout styles of the Team Carousel widget.
+- Fix: Resolved the issue with the source option not working in the Search widget.
+- Fix: Resolved the issue with the checkbox inline list not functioning in the Contact Form widget.
+- Fix: Resolved the lack of border width options for list items in the Business Hours widget.
+- Fix: Resolved the x-axis alignment issue in the Woo mini cart widget.
+- Fix: Resolved the issue images were not rotating properly in product view 360 Widget.
 
 
 = V 1.4.5 – 29 Sep 2024
 
-New: Added icon size and alignment options in the Info Box widget.
-Fixed: Icon styling issues in the Info Box widget.
-Fixed: Icon hover color issue in the Carousel Gallery widget.
-Fixed: Removed One Page Navigation feature from the Vertical Menu widget.
-Fixed: Icon and icon color issues in the Pricing Carousel widget.
-Fixed: Vertical sliding issue in the Split Slider widget.
-Fixed: Icon hover color issue in the Carousel Portfolio widget.
-Fixed: Icon, icon color, and icon hover color issues in inline styles for the One Page Navigation widget.
-Fixed: Media type icon and custom inline style issues in the Restaurant Menu widget.
-Fixed: Icon hover color issue in the Video Carousel widget.
+- New: Added icon size and alignment options in the Info Box widget.
+- Fixed: Icon styling issues in the Info Box widget.
+- Fixed: Icon hover color issue in the Carousel Gallery widget.
+- Fixed: Removed One Page Navigation feature from the Vertical Menu widget.
+- Fixed: Icon and icon color issues in the Pricing Carousel widget.
+- Fixed: Vertical sliding issue in the Split Slider widget.
+- Fixed: Icon hover color issue in the Carousel Portfolio widget.
+- Fixed: Icon, icon color, and icon hover color issues in inline styles for the One Page Navigation widget.
+- Fixed: Media type icon and custom inline style issues in the Restaurant Menu widget.
+- Fixed: Icon hover color issue in the Video Carousel widget.
 
 
 = V 1.4.4.4 – 27 Aug 2024

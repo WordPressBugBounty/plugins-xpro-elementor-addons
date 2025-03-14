@@ -11,6 +11,7 @@ use Elementor\Group_Control_Typography;
 use Elementor\Utils;
 use Elementor\Widget_Base;
 use XproElementorAddons\Control\Xpro_Elementor_Image_Selector;
+use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -46,7 +47,8 @@ class Image_Scroller extends Widget_Base {
 	 *
 	 */
 	public function has_widget_inner_wrapper(): bool {
-		return INNER_ELEMENTOR_WIDGET_CONTAINER;
+		$has_wrapper = ! Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+		return $has_wrapper;
 	}
 
 	/**

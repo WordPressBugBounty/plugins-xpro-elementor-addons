@@ -10,6 +10,7 @@ use Elementor\Group_Control_Typography;
 use Elementor\Utils;
 use Elementor\Widget_Base;
 use XproElementorAddons\Control\Xpro_Elementor_Group_Control_Foreground;
+use Elementor\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -44,8 +45,9 @@ class Author_Box extends Widget_Base {
 	 * Retrieve widget require the inner wrapper or not.
 	 *
 	 */
-	public function has_widget_inner_wrapper(): bool {
-		return INNER_ELEMENTOR_WIDGET_CONTAINER;
+	 public function has_widget_inner_wrapper(): bool {
+		$has_wrapper = ! Plugin::$instance->experiments->is_feature_active('e_optimized_markup');
+		return $has_wrapper;
 	}
 
 	/**

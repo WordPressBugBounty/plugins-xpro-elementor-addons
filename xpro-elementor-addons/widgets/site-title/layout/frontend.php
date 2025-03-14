@@ -26,6 +26,10 @@ $class .= ( $settings['icon']['value'] ) ? ' xpro-site-title-icon-' . $settings[
 ?>
 
 <a href="<?php echo esc_url( $url ); ?>"<?php xpro_elementor_kses( $attr ); ?>>
+    <?php
+	     $allowed_tags = array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' );
+	     $html_tag = in_array( strtolower( $html_tag ), $allowed_tags ) ? strtolower( $html_tag ) : 'h2';
+	?>
 	<<?php echo esc_attr( $html_tag ); ?> class="<?php echo esc_attr( $class ); ?>">
 	<?php if ( $settings['icon']['value'] ) : ?>
 		<span class="xpro-site-title-icon">
