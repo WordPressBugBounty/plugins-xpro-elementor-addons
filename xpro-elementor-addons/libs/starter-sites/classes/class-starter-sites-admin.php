@@ -1860,12 +1860,25 @@ class Xpro_Elementor_Starter_Sites_Admin {
 		/*
 		 * todo it may not required
 		 * backwards compat with old import format.*/
-		if ( isset( $post_data['meta'] ) ) {
-			foreach ( $post_data['meta'] as $key => $meta ) {
-				if ( is_array( $meta ) && count( $meta ) == 1 ) {
-					$single_meta = current( $meta );
-					if ( ! is_array( $single_meta ) ) {
-						$post_data['meta'][ $key ] = $single_meta;
+		// if ( isset( $post_data['meta'] ) ) {
+		// 	foreach ( $post_data['meta'] as $key => $meta ) {
+		// 		if ( is_array( $meta ) && count( $meta ) == 1 ) {
+		// 			$single_meta = current( $meta );
+		// 			if ( ! is_array( $single_meta ) ) {
+		// 				$post_data['meta'][ $key ] = $single_meta;
+		// 			}
+		// 		}
+		// 	}
+		// }
+
+		if ( isset( $post_data['meta'] ) && is_array( $post_data['meta'] ) ) {
+			foreach ( $post_data['meta'] as $key => $value ) {
+				if ( '_elementor_page_settings' === $key || '_elementor_data' === $key ) {
+					if ( ! is_array( $value ) ) {
+						$post_data['meta'][ $key ] = json_decode( $value, true );
+						if ( json_last_error() !== JSON_ERROR_NONE ) {
+							$post_data['meta'][ $key ] = [];
+						}
 					}
 				}
 			}
