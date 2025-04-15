@@ -1,3 +1,9 @@
+= V 1.4.10 – 15 April 2025
+
+- Fix: Resolved vulnerability issue in the Post Title Widget.
+- Fix: Resolved vulnerability issue in the Product Title Widget.
+
+
 = V 1.4.9 – 19 Mar 2025
 
 - Fix: Resolved an issue where starter sites failed to import xpro Theme Builder-related layouts.

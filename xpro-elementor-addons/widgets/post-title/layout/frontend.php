@@ -2,7 +2,7 @@
 
 use Elementor\Icons_Manager;
 
-$html_tag = $settings['title_tag'];
+$html_tag = sanitize_key($settings['title_tag']);
 $class    = 'xpro-post-title';
 $class   .= ( $settings['icon']['value'] && $settings['icon_align'] ) ? ' xpro-post-title-icon-' . $settings['icon_align'] : '';
 

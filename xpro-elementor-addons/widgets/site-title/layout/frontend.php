@@ -2,7 +2,7 @@
 
 use Elementor\Icons_Manager;
 
-$html_tag = $settings['title_tag'];
+$html_tag = sanitize_key($settings['title_tag']);
 $url      = ( 'custom' === $settings['custom_link'] && $settings['title_link']['url'] ) ? $settings['title_link']['url'] : get_home_url();
 $attr     = ( 'custom' === $settings['custom_link'] && $settings['title_link']['is_external'] ) ? ' target="_blank"' : '';
 $attr    .= ( 'custom' === $settings['custom_link'] && $settings['title_link']['nofollow'] ) ? ' rel="nofollow"' : '';

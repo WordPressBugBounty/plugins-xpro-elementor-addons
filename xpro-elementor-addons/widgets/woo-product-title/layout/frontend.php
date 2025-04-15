@@ -49,7 +49,7 @@ if ( is_single() && 'xpro-themer' !== $post_type && 'xpro_content' !== $post_typ
 	}
 }
 
-$html_tag = $settings['title_tag'];
+$html_tag = sanitize_key($settings['title_tag']);
 $class    = 'xpro-woo-product-title';
 $class   .= ( $settings['icon']['value'] && $settings['icon_align'] ) ? ' xpro-woo-product-title-icon-' . $settings['icon_align'] : '';
 
