@@ -35,6 +35,9 @@ if ( is_page() ) {
 } else {
 	$title_text = get_the_title();
 }
+
+$allowed_tags = array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' );
+$html_tag = in_array( strtolower( $html_tag ), $allowed_tags ) ? strtolower( $html_tag ) : 'h2';
 ?>
 
 <<?php echo esc_attr( $html_tag ); ?> class="<?php echo esc_attr( $class ); ?>">
