@@ -10,6 +10,8 @@ use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 use Elementor\Plugin;
+use Elementor\Utils;
+use Elementor\Group_Control_Image_Size;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -120,7 +122,7 @@ class Counter extends Widget_Base {
 	 */
 
 	public function get_script_depends() {
-		return array( 'waypoints' );
+		return array( 'waypoints', 'lottie' );
 	}
 
 	/**
@@ -308,6 +310,130 @@ class Counter extends Widget_Base {
 				),
 				'condition'          => array(
 					'animate_counter' => array( 'yes' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'show_media_icons',
+			array(
+				'label'              => __( 'Show Media', 'xpro-elementor-addons' ),
+				'type'               => Controls_Manager::SWITCHER,
+				'label_on'           => __( 'Show', 'xpro-elementor-addons' ),
+				'label_off'          => __( 'Hide', 'xpro-elementor-addons' ),
+				'return_value'       => 'yes',
+				'default'            => 'no',
+				'frontend_available' => true,
+			)
+		);
+		
+		$this->add_control(
+			'media_type',
+			array(
+				'label'       => __( 'Media Type', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::CHOOSE,
+				'label_block' => false,
+				'options'     => array(
+					'icon'  => array(
+						'title' => __( 'Icon', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-star-o',
+					),
+					'image' => array(
+						'title' => __( 'Image', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-image',
+					),
+					'lottie' => array(
+						'title' => __( 'Lottie', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-animation',
+					),
+				),
+				'default'     => 'icon',
+				'toggle'      => false,
+				'condition'   => array(
+					'show_media_icons' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'lottie_source',
+			array(
+				'label'       => __( 'Select Source', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::SELECT,
+				'options'     => array(
+					'upload' => __( 'Media File', 'xpro-elementor-addons' ),
+					'url'    => __( 'External Link', 'xpro-elementor-addons' ),
+				),
+				'default'     => 'upload',
+				'condition'   => array(
+					'media_type' => 'lottie',
+					'show_media_icons' => 'yes',
+				),
+				'frontend_available' => true,
+			)
+		);
+		
+		$this->add_control(
+			'svg_upload',
+			array(
+				'label'       => __( 'Media File', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::MEDIA,
+				'media_type'  => 'application/json',
+				'condition'   => array(
+					'lottie_source' => 'upload',
+					'media_type' => 'lottie',
+					'show_media_icons' => 'yes',
+				),
+				'frontend_available' => true,
+			)
+		);
+		
+		$this->add_control(
+			'lottie_url',
+			array(
+				'label'       => __( 'External Link', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => __( 'https://lottie.demo/1.json', 'xpro-elementor-addons' ),
+				'condition'   => array(
+					'lottie_source' => 'url',
+					'media_type' => 'lottie', 
+					'show_media_icons' => 'yes',
+				),
+				'frontend_available' => true,
+			)
+		);
+
+		$this->add_control(
+			'icon',
+			array(
+				'show_label'  => false,
+				'type'        => Controls_Manager::ICONS,
+				'label_block' => true,
+				'default'     => array(
+					'value'   => 'fas fa-fingerprint',
+					'library' => 'fa-solid',
+				),
+				'condition'   => array(
+					'media_type' => 'icon',
+					'show_media_icons' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'image',
+			array(
+				'label'     => __( 'Image', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::MEDIA,
+				'default'   => array(
+					'url' => Utils::get_placeholder_image_src(),
+				),
+				'condition' => array(
+					'media_type' => 'image',
+					'show_media_icons' => 'yes',
+				),
+				'dynamic'   => array(
+					'active' => true,
 				),
 			)
 		);
@@ -839,6 +965,269 @@ class Counter extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+		
+		$this->start_controls_section(
+			'section_style_icon',
+			array(
+				'label' => __( 'Media', 'xpro-elementor-addons' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_responsive_control(
+			'icon_size',
+			array(
+				'label'      => __( 'Size', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 5,
+						'max' => 300,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 40,
+				),
+				'condition'  => array(
+					'media_type' => array( 'icon','image' ),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item img' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item i'   => 'font-size: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);	
+
+		$this->add_responsive_control(
+			'icon_lottie_size_height',
+			array(
+				'label'      => __( ' Lottie Size', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 5,
+						'max' => 500,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 50,
+				),
+				'selectors'  => array(
+			         '{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item div#xpro-counter-box-lottie svg' => 'width: {{SIZE}}{{UNIT}} !important; Height: {{SIZE}}{{UNIT}} !important;' ,
+				),
+				'condition'  => array(
+					 'media_type' => 'lottie',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'object-fit',
+			array(
+				'label'     => __( 'Object Fit', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => array(
+					''        => __( 'Default', 'xpro-elementor-addons' ),
+					'fill'    => __( 'Fill', 'xpro-elementor-addons' ),
+					'cover'   => __( 'Cover', 'xpro-elementor-addons' ),
+					'contain' => __( 'Contain', 'xpro-elementor-addons' ),
+				),
+				'default'   => '',
+				'condition' => array(
+					'media_type'          => 'image',
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item img' => 'object-fit: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'icon_vertical_align',
+			array(
+				'label'     => __( 'Vertical Align', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => array(
+					'row' => array(
+						'title' => __( 'Left', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-h-align-left',
+					),
+					'column'     => array(
+						'title' => __( 'Top', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-v-align-top',
+					),
+					'column-reverse'   => array(
+						'title' => __( 'Bottom', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-v-align-bottom',
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .xpro-counter-wrapper-inner' => 'align-items: center; display:flex; flex-direction:{{VALUE}} ',
+				),
+			)
+		);
+
+		$this->add_group_control(
+		Group_Control_Border::get_type(),
+				array(
+					'name'     => 'icon_border',
+					'selector' => '{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item svg,
+					               {{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item img, 
+								   {{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item i',
+			)
+		);
+
+		$this->add_responsive_control(
+			'icon_border_radius',
+			array(
+				'label'      => __( 'Border Radius', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item svg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item i'   => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'icon_padding',
+			array(
+				'label'      => __( 'Padding', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item,
+					{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item svg,
+					{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item img,
+					{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item i' => 
+					'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'icon_margin',
+			array(
+				'label'      => __( 'Margin', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'     => 'icon_shadow',
+				'exclude'  => array(
+					'box_shadow_position',
+				),
+				'selector' => '{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item svg,
+					               {{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item img, 
+								   {{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item i',
+			)
+		);
+
+		$this->start_controls_tabs( 'tabs_icon_style' ); 
+
+		// Normal Tab
+		$this->start_controls_tab(
+			'tab_icon_normal', 
+			array(
+				'label' => __( 'Normal', 'xpro-elementor-addons' ),
+			)
+		);
+
+		$this->add_control(
+			'icon_color',
+			array(
+				'label'     => __( 'Color', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'condition' => array(
+					'media_type!' => 'image',
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item i'   => 'color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'icon_bg_color',
+				'label'     => __( 'Background', 'xpro-elementor-addons' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'exclude'   => array( 'image' ),
+				'condition' => array(
+					'media_type!' => 'image',
+				),
+				'selector' => '{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item svg,
+							{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item img,
+							{{WRAPPER}} .xpro-counter-wrapper .xpro-counter-icon-item i',
+			)
+		);
+
+		$this->end_controls_tab();
+
+		// Hover Tab
+		$this->start_controls_tab(
+			'tab_icon_hover',
+			array(
+				'label' => __( 'Hover', 'xpro-elementor-addons' ),
+			)
+		);
+
+		$this->add_control(
+			'icon_hover_color',
+			array(
+				'label'     => __( 'Color', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'condition' => array(
+					'media_type!' => 'image',
+				),
+				'selectors' => array(
+					'{{WRAPPER}}:hover .xpro-counter-wrapper .xpro-counter-icon-item i'   => 'color: {{VALUE}};',
+					'{{WRAPPER}}:hover .xpro-counter-wrapper .xpro-counter-icon-item svg' => 'fill: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'      => 'icon_hover_bg_color',
+				'label'     => __( 'Background', 'xpro-elementor-addons' ),
+				'types'     => array( 'classic', 'gradient' ),
+				'exclude'   => array( 'image' ),
+				'condition' => array(
+					'media_type!' => 'image',
+				),
+				'selector' => '{{WRAPPER}}:hover .xpro-counter-wrapper .xpro-counter-icon-item svg,
+							{{WRAPPER}}:hover .xpro-counter-wrapper .xpro-counter-icon-item img,
+							{{WRAPPER}}:hover .xpro-counter-wrapper .xpro-counter-icon-item i',
+			)
+		);
+
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+
+		$this->end_controls_section();
+
 
 	}
 

@@ -108,6 +108,10 @@ class Hot_Spot extends Widget_Base {
 		return array( 'xpro', 'hot', 'spot', 'spots' );
 	}
 
+	public function get_style_depends() {
+		return array( 'hover' );
+	}
+
 	/**
 	 * Register widget controls.
 	 *
@@ -125,16 +129,36 @@ class Hot_Spot extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			)
 		);
-
+		
 		$this->add_control(
 			'type',
 			array(
-				'label'   => __( 'Type', 'xpro-elementor-addons' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'hover',
-				'options' => array(
-					'hover' => __( 'On Hover', 'xpro-elementor-addons' ),
-					'click' => __( 'On Click', 'xpro-elementor-addons' ),
+				'label'        => __( 'Type', 'xpro-elementor-addons' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'hover',
+				'options'      => array(
+				'hover'        => __( 'On Hover', 'xpro-elementor-addons' ),
+				'click'        => __( 'On Click', 'xpro-elementor-addons' ),
+				'virtual-tour' => __( 'Virtual Tour', 'xpro-elementor-addons' ),
+				'auto'         => __( 'Auto', 'xpro-elementor-addons' ),
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'hot_spot_animation_duration',
+			array(
+				'label'      => __( 'Animation Duration(s)', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'range' => array(
+					'px' => array(
+						'min'  => 0.1,
+						'max'  => 5,
+						'step' => 0.1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .xpro-hotspot-item-wrap:after' => 'animation: xproShadowPulse {{SIZE}}s infinite;',
 				),
 			)
 		);
@@ -161,6 +185,73 @@ class Hot_Spot extends Widget_Base {
 				'separator' => 'none',
 				'exclude'   => array(
 					'custom',
+				),
+			)
+		);
+
+		$this->add_control(
+			'social_hot_spot_hover_animation',
+			array(
+				'label'   => __( ' Tooltip Hover Animation', 'xpro-elementor-addons' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'none',
+				'label_block' => true,
+				'options' => array(
+					'none'                  => __( 'None', 'xpro-elementor-addons' ),
+					'2d-transition'         => __( '2D', 'xpro-elementor-addons' ),
+					'hover-effect'          => __( 'Unique', 'xpro-elementor-addons' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'social_hot_spot_hover_2d_css_animation',
+			array(
+				'label'     => __( 'Animation', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'hvr-grow',
+				'options'   => array(
+					'hvr-grow'                   => __( 'Grow', 'xpro-elementor-addons' ),
+					'hvr-shrink'                 => __( 'Shrink', 'xpro-elementor-addons' ),
+					'hvr-pulse'                  => __( 'Pulse', 'xpro-elementor-addons' ),
+					'hvr-pulse-grow'             => __( 'Pulse Grow', 'xpro-elementor-addons' ),
+					'hvr-pulse-shrink'           => __( 'Pulse Shrink', 'xpro-elementor-addons' ),
+					'hvr-push'                   => __( 'Push', 'xpro-elementor-addons' ),
+					'hvr-pop'                    => __( 'Pop', 'xpro-elementor-addons' ),
+					'hvr-bounce-in'              => __( 'Bounce In', 'xpro-elementor-addons' ),
+					'hvr-bounce-out'             => __( 'Bounce Out', 'xpro-elementor-addons' ),
+					'hvr-rotate'                 => __( 'Rotate', 'xpro-elementor-addons' ),
+					'hvr-grow-rotate'            => __( 'Grow Rotate', 'xpro-elementor-addons' ),
+					'hvr-float'                  => __( 'Float', 'xpro-elementor-addons' ),
+					'hvr-sink'                   => __( 'Sink', 'xpro-elementor-addons' ),
+					'hvr-bob'                    => __( 'Bob', 'xpro-elementor-addons' ),
+					'hvr-hang'                   => __( 'Hang', 'xpro-elementor-addons' ),
+					'hvr-wobble-vertical'        => __( 'Wobble Vertical', 'xpro-elementor-addons' ),
+					'hvr-wobble-horizontal'      => __( 'Wobble Horizontal', 'xpro-elementor-addons' ),
+					'hvr-wobble-to-bottom-right' => __( 'Wobble To Bottom Right', 'xpro-elementor-addons' ),
+					'hvr-wobble-to-top-right'    => __( 'Wobble To Top Right', 'xpro-elementor-addons' ),
+					'hvr-buzz'                   => __( 'Buzz', 'xpro-elementor-addons' ),
+					'hvr-buzz-out'               => __( 'Buzz Out', 'xpro-elementor-addons' ),
+				),
+				'condition' => array(
+					'social_hot_spot_hover_animation' => '2d-transition',
+				),
+			)
+		);
+
+		$this->add_control(
+			'social_hot_spot_hover_effect_animation',
+			array(
+				'label'     => __( 'Animation', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'slide-shape',
+				'options'   => array(
+					'slide-shape'    => __( 'Slide', 'xpro-elementor-addons' ),
+					'triangle-shape' => __( 'Triangle', 'xpro-elementor-addons' ),
+					'reverse-shape'  => __( 'Reverse', 'xpro-elementor-addons' ),
+				),
+				'condition' => array(
+					'social_hot_spot_hover_animation' => 'hover-effect',
 				),
 			)
 		);
@@ -449,7 +540,7 @@ class Hot_Spot extends Widget_Base {
 					),
 				),
 				'selectors' => array(
-					'{{WRAPPER}}.elementor-widget-xpro-hot-spot' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .elementor-widget-container' => 'text-align: {{VALUE}};',
 				),
 			)
 		);

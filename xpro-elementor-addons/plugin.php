@@ -155,6 +155,12 @@ class Xpro_Elementor_Addons {
 			'5.15.3'
 		);
 		wp_enqueue_style(
+			'social-icons',
+			ELEMENTOR_ASSETS_URL . 'css/widget-social-icons.min.css',
+			null,
+			'3.28.0'
+		);
+		wp_enqueue_style(
 			'xpro-icons',
 			XPRO_ELEMENTOR_ADDONS_ASSETS . 'css/xpro-icons.min.css',
 			null,
@@ -199,6 +205,12 @@ class Xpro_Elementor_Addons {
 		wp_register_style(
 			'cubeportfolio',
 			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/css/cubeportfolio.min.css',
+			null,
+			'4.4.0'
+		);
+		wp_register_style(
+			'flipclock',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/css/flipclock.min.css',
 			null,
 			'4.4.0'
 		);
@@ -264,6 +276,13 @@ class Xpro_Elementor_Addons {
 		);
 
 		//Vendors JS
+		wp_register_script(
+			'flipclock',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/flipclock.min.js',
+			array( 'jquery' ),
+			'4.4.0',
+			true
+		);
 		wp_register_script(
 			'waypoints',
 			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/jquery.waypoints.min.js',

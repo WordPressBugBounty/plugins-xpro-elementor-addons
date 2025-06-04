@@ -1258,6 +1258,7 @@ class Pricing extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .xpro-pricing-features-list li.active .xpro-pricing-feature-icon' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .xpro-pricing-features-list li.active .xpro-pricing-feature-icon' => 'fill: {{VALUE}}',
 				),
 			)
 		);
@@ -1289,6 +1290,8 @@ class Pricing extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .xpro-pricing-features-list li.inactive .xpro-pricing-feature-icon' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .xpro-pricing-features-list li.inactive .xpro-pricing-feature-icon' => 'fill: {{VALUE}}',
+
 				),
 			)
 		);
@@ -1778,6 +1781,7 @@ class Pricing extends Widget_Base {
 				'label'     => __( 'Display', 'xpro-elementor-addons' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'default'   => 'auto',
+				'frontend_available' => true,
 				'options'   => array(
 					'100%' => array(
 						'title' => __( 'Block', 'xpro-elementor-addons' ),
@@ -1787,6 +1791,7 @@ class Pricing extends Widget_Base {
 						'title' => __( 'Inline', 'xpro-elementor-addons' ),
 						'icon'  => 'eicon-ellipsis-h',
 					),
+
 				),
 				'selectors' => array(
 					'{{WRAPPER}} .xpro-pricing-item .xpro-badge'            => 'width: {{VALUE}}; top:0; left: 0',
@@ -1807,6 +1812,7 @@ class Pricing extends Widget_Base {
 					'top-center' => __( 'Top Center', 'xpro-elementor-addons' ),
 					'top-right'  => __( 'Top Right', 'xpro-elementor-addons' ),
 				),
+				'frontend_available' => true,
 				'default'   => 'top-right',
 				'condition' => array(
 					'badge_display' => 'auto',

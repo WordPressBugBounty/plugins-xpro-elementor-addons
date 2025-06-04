@@ -1,10 +1,10 @@
 === 140+ Widgets | Xpro Addons For Elementor - FREE ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.4.11
+Version: 1.4.12
 Contributors: Xpro
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
-Tested up to: 6.8
+Tested up to: 6.8.1
 Stable tag: trunk
 Requires PHP: 7.4
 License: GPLv2
@@ -264,6 +264,25 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 
 == Changelog ==
+
+= V 1.4.12 – 04 June 2025
+
+- New: Added URL options to each content items in the News Ticker Widget.
+- Fix: Included missing icon libraries and added new styles for the Social Icon Widget.
+- New: Introduced new virtual tour and auto options in the Hotspot Widget.
+- New: Added media options, Lottie file support, and corresponding controls in the Counter Widget.
+- Fix: Resolved missing color controls and badge display issues in the Pricing Widget.
+- New: Implemented image options and related controls in the Counter Step Flow Widget.
+- Fix: Included missing CSS libraries in the Social Share Widget.
+- New: Added icon options and controls in the Contact Form Widget.
+- New: Introduced popup display options by days in the Modal Popup Widget.
+- New: Added new animations, media file support, and controls in the Flip Box Widget.
+- New: Integrated flip clock options and controls  the Countdown Widget.
+- New: Added media type options and new direction settings (up and bottom) in the Text Marquee Widget.
+- New: New: Implemented media type options and their controls in the Alert Box Widget.
+- New: New: Added icon options and related controls in the MailChimp Widget.
+- fix: Fix: Set icon color, hover color, and default size options in the Remote Arrows Widget.
+
 
 = V 1.4.11 – 25 April 2025
 

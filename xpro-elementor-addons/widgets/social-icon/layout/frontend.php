@@ -6,7 +6,7 @@ $hover_animation = ( '2d-transition' === $settings['social_icon_hover_animation'
 ?>
 
 <!-- Social Icon -->
-<ul class="xpro-social-icon-wrapper">
+<ul class="xpro-social-icon-wrapper <?php echo esc_attr($settings['styles'] ); ?>">
 	<?php foreach ( $settings['item'] as $i => $item ) : ?>
 		<li class="elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
 			<?php

@@ -1,3 +1,4 @@
+<?php use Elementor\Icons_Manager; ?>
 <div class="xpro-contact-form-message"></div>
 <form id="xpro-contact-form-<?php echo esc_attr( $this->get_id() ); ?>" class="xpro-contact-form" action="<?php echo esc_url( site_url() . '/wp-admin/admin-ajax.php?action=xpro_elementor_contact_form&nonce=' . wp_create_nonce( 'xpro-contact-nonce' ) ); ?>">
 	<?php
@@ -73,8 +74,18 @@
 	<?php endif; ?>
 	<div class="xpro-contact-form-item xpro-contact-form-item-type-submit">
 		<button type="submit" class="xpro-contact-form-submit-button">
-			<?php echo esc_html( $settings['button_text'] ); ?>
-			<i aria-hidden="true" class="fas fa-circle-notch"></i>
-		</button>
+
+				<?php if ( $settings['icon']['value'] && ($settings['show_button_icon']=='yes')) { ?>
+					<span class="xpro-elementor-button-inner xpro-align-icon-<?php echo ( 'left' === $settings['icon_align'] ) ? 'left' : 'right'; ?>">
+					      <span class="xpro-elementor-button-media"><?php Icons_Manager::render_icon( $settings['icon'], array( 'aria-hidden' => 'true' ) ); ?></span>
+						  <?php echo esc_html( $settings['button_text'] ); ?>
+			       </span>
+			        <?php } else{ ?>
+						  <?php echo esc_html( $settings['button_text'] ); ?>
+						  <i aria-hidden="true" class="fas fa-circle-notch"></i>
+			        <?php } ?>
+
+			</button>
+
 	</div>
 </form>

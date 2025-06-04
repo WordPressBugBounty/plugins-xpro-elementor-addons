@@ -349,6 +349,19 @@ class News_Ticker extends Widget_Base {
 			)
 		);
 
+		$repeater->add_control(
+			'description_url',
+			array(
+				'label'       => __( 'URL', 'xpro-elementor-addons' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::TEXT,
+				'placeholder' => __( '#', 'xpro-elementor-addons' ),
+				'dynamic'     => array(
+					'active' => true,
+				),
+			)
+		);
+
 		$this->add_control(
 			'item',
 			array(

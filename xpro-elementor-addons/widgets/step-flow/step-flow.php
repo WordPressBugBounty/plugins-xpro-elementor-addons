@@ -10,6 +10,8 @@ use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 use Elementor\Plugin;
+use Elementor\Group_Control_Image_Size;
+use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -115,12 +117,33 @@ class Step_Flow extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function register_controls() {
+		protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_news_ticker',
 			array(
 				'label' => __( 'General', 'xpro-elementor-addons' ),
+			)
+		);
+
+		$this->add_control(
+			'media_type',
+			array(
+				'label'       => __( 'Media Type', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::CHOOSE,
+				'label_block' => false,
+				'options'     => array(
+					'icon'  => array(
+						'title' => __( 'Icon', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-star-o',
+					),
+					'image' => array(
+						'title' => __( 'Image', 'xpro-elementor-addons' ),
+						'icon'  => 'eicon-image',
+					),
+				),
+				'default'     => 'icon',
+				'toggle'      => false,
 			)
 		);
 
@@ -133,6 +156,23 @@ class Step_Flow extends Widget_Base {
 				'default'     => array(
 					'value'   => 'fas fa-fingerprint',
 					'library' => 'fa-solid',
+				),
+				'condition' => array(
+					'media_type' => 'icon',
+				),
+			)
+		);
+
+		$this->add_control(
+			'image',
+			array(
+				'label'     => __( 'Image', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::MEDIA,
+				'default'   => array(
+					'url' => Utils::get_placeholder_image_src(),
+				),
+				'condition' => array(
+					'media_type' => 'image',
 				),
 			)
 		);
@@ -242,9 +282,10 @@ class Step_Flow extends Widget_Base {
 
 				),
 				'selectors'  => array(
-					'{{WRAPPER}}'                          => '--xpro-step-flow-icon-size: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .xpro-step-flow-icon > i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}'                            => '--xpro-step-flow-icon-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .xpro-step-flow-icon > i'   => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .xpro-step-flow-icon > svg' => 'width: {{SIZE}}{{UNIT}}; height:auto;',
+					'{{WRAPPER}} .xpro-step-flow-icon > img' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; border-radius:50%;',
 				),
 			)
 		);

@@ -43,11 +43,17 @@
 				</span>
 				<?php endif; ?>
 
-
 				<?php if ( $item['description'] ) : ?>
 					<!-- description -->
-					<span class="xpro-news-ticker-description"><?php echo wp_kses_post( $item['description'] ); ?></span>
+					<?php if ( $item['description_url'] ) : ?>
+						<a href="<?php echo esc_url( $item['description_url'] ); ?>">
+							<span class="xpro-news-ticker-description"><?php echo wp_kses_post( $item['description'] ); ?></span>
+						</a>
+					<?php else : ?>
+						<span class="xpro-news-ticker-description"><?php echo wp_kses_post( $item['description'] ); ?></span>
+					<?php endif; ?>
 				<?php endif; ?>
+
 			</div>
 		<?php endforeach; ?>
 	</div>

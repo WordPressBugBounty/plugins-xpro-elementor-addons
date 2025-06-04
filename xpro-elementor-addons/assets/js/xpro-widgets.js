@@ -307,6 +307,10 @@
         },
         Counter: function (t) {
             let i = o.getElementSettings(t);
+            let r = "";
+            let a = t.find(".xpro-counter-lottie-animation");
+            i.lottie_url ? (r = i.lottie_url.url) : i.svg_upload && (r = i.svg_upload.url),
+            lottie.loadAnimation({ container: a[0], renderer: "svg", loop: i.loop || !0, autoplay: i.autoplay || !0, path: r });
             "yes" === i.animate_counter &&
                 new Waypoint({
                     element: t.find(".xpro-counter-wrapper")[0],
@@ -466,6 +470,7 @@
             let i = o.getElementSettings(t),
                 n = t.find(".xpro-news-ticker"),
                 r;
+                
             e(".e-route-panel-editor-content").length && (r = ".elementor-preview-responsive-wrapper"),
                 n.owlCarousel({
                     items: 1,
@@ -546,11 +551,31 @@
                 });
         },
         HotSpot: function (t) {
-            o.getElementSettings(t),
+           let i= o.getElementSettings(t);
                 t.find(".xpro-post-grid-main"),
                 t.find(".xpro-hotspot-type-click").on("click", function (t) {
                     t.preventDefault(), e(this).find(".xpro-hotspot-tooltip-text").toggleClass("active");
                 });
+                function showTooltipsSequentially() {
+                var tooltips = t.find(".xpro-hotspot-animations");
+                var index = 0;
+                var duration =  3 * 1000;
+                tooltips.css({ opacity: 0 });
+                function showNextTooltip() {
+                    tooltips.stop(true, true).css({ opacity: 0 });
+                    var currentTooltip = jQuery(tooltips[index]);
+                        currentTooltip.stop(true, true).animate({ opacity: 1 }, 500, function () {
+                                setTimeout(function () {
+                                    currentTooltip.animate({ opacity: 0 }, 500, function () {
+                                        index = (index + 1) % tooltips.length;
+                                        showNextTooltip();
+                                    });
+                                }, duration);
+                            });
+                        }
+                    showNextTooltip();
+                }
+                setTimeout(showTooltipsSequentially, 500);
         },
         ImageScroller: function (e) {
             let t = o.getElementSettings(e),

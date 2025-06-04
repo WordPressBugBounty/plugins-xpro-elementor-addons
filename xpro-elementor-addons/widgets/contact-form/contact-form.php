@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Elementor widget.
  *
- * @since 1.0.0
+ * @since 1.0.0. 
  */
 class Contact_Form extends Widget_Base {
 
@@ -230,7 +230,7 @@ class Contact_Form extends Widget_Base {
 							'name'     => 'field_type',
 							'operator' => '!in',
 							'value'    => array(
-//								'checkbox',
+                             //	'checkbox',
 								'html',
 							),
 						),
@@ -578,6 +578,67 @@ class Contact_Form extends Widget_Base {
 			)
 		);
 
+		$this->add_control(
+			'show_button_icon',
+			array(
+				'label'        => __( 'Show Icon', 'xpro-elementor-addons-pro' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+			    'default'      => 'no',
+			)
+		);
+
+		$this->add_control(
+			'icon',
+			array(
+				'label'       => __( 'Icon', 'xpro-elementor-addons' ),
+				'type'        => Controls_Manager::ICONS,
+				'skin'        => 'inline',
+				'label_block' => false,
+				'condition'   => array(
+					'show_button_icon' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'icon_align',
+			array(
+				'label'     => __( 'Icon Position', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'left',
+				'options'   => array(
+					'left'  => __( 'Before', 'xpro-elementor-addons' ),
+					'right' => __( 'After', 'xpro-elementor-addons' ),
+				),
+				'condition' => array(
+					'icon[value]!' => '',
+					'show_button_icon' => 'yes',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'icon_indent',
+			array(
+				'label'     => __( 'Icon Spacing', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'max' => 50,
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} .xpro-align-icon-right .xpro-elementor-button-media' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .xpro-align-icon-left .xpro-elementor-button-media'  => 'margin-right: {{SIZE}}{{UNIT}};',
+				),
+				'condition' => array(
+					'icon[value]!' => '',
+					'show_button_icon' => 'yes',
+				),
+			)
+		);
+		
 		$this->end_controls_section();
 
 		//Style
@@ -1286,6 +1347,53 @@ class Contact_Form extends Widget_Base {
 				),
 			)
 		);
+
+		
+		$this->add_responsive_control(
+			'btn_icon_color_size',
+			array(
+				'label'     => __( 'Icon Size', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => array(
+					'size' => 16,
+				),
+				'range'     => array(
+					'px' => array(
+						'min' => 0,
+						'max' => 200,
+					),
+				),
+				'selectors' => array(
+					'{{WRAPPER}} span.xpro-elementor-button-media svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} span.xpro-elementor-button-media i' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+		
+		$this->add_control(
+			'btn_icon_color',
+			array(
+				'label'     => __( 'Icon Color', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} span.xpro-elementor-button-media svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} span.xpro-elementor-button-media i' => 'fill: {{VALUE}};',
+				),
+			)
+		);
+		
+		$this->add_control(
+			'btn_icon_hover_color',
+			array(
+				'label'     => __( 'Icon Hover Color', 'xpro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} button.xpro-contact-form-submit-button:hover span.xpro-elementor-button-media svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} button.xpro-contact-form-submit-button:hover span.xpro-elementor-button-media i' => 'fill: {{VALUE}};',
+				),
+			)
+		);
+
 
 		$this->end_controls_section();
 

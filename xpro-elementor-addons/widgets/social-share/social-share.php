@@ -120,7 +120,7 @@ class Social_Share extends Widget_Base {
 	 */
 	public function get_style_depends() {
 
-		return array( 'hover' );
+		return array( 'hover', 'social-icons' );
 	}
 
 	/**

@@ -118,7 +118,7 @@ class Social_Icon extends Widget_Base {
 	 *
 	 */
 	public function get_style_depends() {
-		return array( 'hover' );
+		return array( 'hover','social-icons' );
 	}
 
 	/**
@@ -461,6 +461,34 @@ class Social_Icon extends Widget_Base {
 			)
 		);
 
+		$this->add_control(
+			'styles',
+			array(
+				'label' => esc_html__( 'Style','xpro-elementor-addons' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'default',
+				'separator' => 'before',
+				'options' => array(
+					'default' => esc_html__( 'default','xpro-elementor-addons' ),
+					'xpro-social-icon-style-1' => esc_html__( 'Style 1','xpro-elementor-addons' ),
+					'xpro-social-icon-style-2' => esc_html__( 'Style 2','xpro-elementor-addons' ),
+					'xpro-social-icon-style-3' => esc_html__( 'Style 3','xpro-elementor-addons' ),
+					'xpro-social-icon-style-4' => esc_html__( 'Style 4','xpro-elementor-addons' ),
+					'xpro-social-icon-style-5' => esc_html__( 'Style 5','xpro-elementor-addons' ),
+					'xpro-social-icon-style-6' => esc_html__( 'Style 6','xpro-elementor-addons' ),
+					'xpro-social-icon-style-7' => esc_html__( 'Style 7','xpro-elementor-addons' ),
+					'xpro-social-icon-style-8' => esc_html__( 'Style 8','xpro-elementor-addons' ),
+					'xpro-social-icon-style-9' => esc_html__( 'Style 9','xpro-elementor-addons' ),
+					'xpro-social-icon-style-10' => esc_html__( 'Style 10','xpro-elementor-addons' ),
+					'xpro-social-icon-style-11' => esc_html__( 'Style 11','xpro-elementor-addons' ),
+					'xpro-social-icon-style-12' => esc_html__( 'Style 12','xpro-elementor-addons' ),
+					'xpro-social-icon-style-13' => esc_html__( 'Style 13','xpro-elementor-addons' ),
+					'xpro-social-icon-style-14' => esc_html__( 'Style 14','xpro-elementor-addons' ),
+					'xpro-social-icon-style-15' => esc_html__( 'Style 15','xpro-elementor-addons' ),
+				),
+			),
+		);
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -542,7 +570,7 @@ class Social_Icon extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .xpro-social-icon,
-                     {{WRAPPER}} .xpro-button-bg-animation:before' => 'background-color: {{VALUE}};',
+                     {{WRAPPER}} .xpro-button-bg-animation:before' => 'background-color: {{VALUE}} !important;',
 				),
 			)
 		);

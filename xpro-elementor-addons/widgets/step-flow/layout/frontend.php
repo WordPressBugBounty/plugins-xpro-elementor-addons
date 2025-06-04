@@ -9,10 +9,15 @@ $layout = ( 'none' !== $settings['separator_layout_style'] ) ? ' xpro-step-' . $
 <div class="xpro-step-flow-wrapper <?php echo esc_attr( $layout ); ?> xpro-step-flow-separator-disable-<?php echo esc_attr( $settings['separator_hide_on'] ); ?>">
 	<div class="xpro-step-flow-icon">
 
-		<?php
-		if ( $settings['step_flow_icon'] ) {
-			Icons_Manager::render_icon( $settings['step_flow_icon'], array( 'aria-hidden' => 'true' ) );
-		}
+	   <?php
+			if ( $settings['step_flow_icon'] && 'icon' === $settings['media_type'] ) {
+				Icons_Manager::render_icon( $settings['step_flow_icon'], array( 'aria-hidden' => 'true' ) );
+			}
+
+			if ( 'image' === $settings['media_type'] ) {
+				$image_markup = ( ! empty( $settings['image']['id'] ) ) ? wp_get_attachment_image( $settings['image']['id'] ) : '';
+				echo ! empty( $image_markup ) ? $image_markup : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
+			}
 		?>
 
 		<!-- Separator -->
