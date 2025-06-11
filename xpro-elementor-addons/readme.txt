@@ -1,6 +1,6 @@
 === 140+ Widgets | Xpro Addons For Elementor - FREE ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.4.12
+Version: 1.4.13
 Contributors: Xpro
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
@@ -265,6 +265,11 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 == Changelog ==
 
+= V 1.4.13 – 11 June 2025
+
+- Fix: Resolved issues related to the FlipClock functionality.
+
+
 = V 1.4.12 – 04 June 2025
 
 - New: Added URL options to each content items in the News Ticker Widget.
@@ -279,9 +284,9 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 - New: Added new animations, media file support, and controls in the Flip Box Widget.
 - New: Integrated flip clock options and controls  the Countdown Widget.
 - New: Added media type options and new direction settings (up and bottom) in the Text Marquee Widget.
-- New: New: Implemented media type options and their controls in the Alert Box Widget.
-- New: New: Added icon options and related controls in the MailChimp Widget.
-- fix: Fix: Set icon color, hover color, and default size options in the Remote Arrows Widget.
+- New: Implemented media type options and their controls in the Alert Box Widget.
+- New: Added icon options and related controls in the MailChimp Widget.
+- Fix: Set icon color, hover color, and default size options in the Remote Arrows Widget.
 
 
 = V 1.4.11 – 25 April 2025
