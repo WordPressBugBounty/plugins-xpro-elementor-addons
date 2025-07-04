@@ -74,8 +74,7 @@
 	<?php endif; ?>
 	<div class="xpro-contact-form-item xpro-contact-form-item-type-submit">
 		<button type="submit" class="xpro-contact-form-submit-button">
-
-				<?php if ( $settings['icon']['value'] && ($settings['show_button_icon']=='yes')) { ?>
+					<?php if ( !empty($settings['icon']['value']) && !empty($settings['show_button_icon']) && $settings['show_button_icon'] === 'yes' ) { ?>
 					<span class="xpro-elementor-button-inner xpro-align-icon-<?php echo ( 'left' === $settings['icon_align'] ) ? 'left' : 'right'; ?>">
 					      <span class="xpro-elementor-button-media"><?php Icons_Manager::render_icon( $settings['icon'], array( 'aria-hidden' => 'true' ) ); ?></span>
 						  <?php echo esc_html( $settings['button_text'] ); ?>
@@ -84,8 +83,6 @@
 						  <?php echo esc_html( $settings['button_text'] ); ?>
 						  <i aria-hidden="true" class="fas fa-circle-notch"></i>
 			        <?php } ?>
-
 			</button>
-
 	</div>
 </form>

@@ -1,3 +1,9 @@
+= V 1.4.14 – 04 July 2025
+
+- Fix: Corrected issues causing the Starter Sites menu and options to display improperly.
+- Fix: Fixed minor bugs in the Contact Form widget to enhance functionality and reliability.
+
+
 = V 1.4.13 – 11 June 2025
 
 - Fix: Resolved issues related to the FlipClock functionality.

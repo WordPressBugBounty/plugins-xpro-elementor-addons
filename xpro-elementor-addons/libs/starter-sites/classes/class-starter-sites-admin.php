@@ -1324,12 +1324,38 @@ class Xpro_Elementor_Starter_Sites_Admin {
 		$this->process_delayed_posts( true );
 
 		// Assign the static front page and the blog page.
-		$front_page = xpro_get_page_by_title( 'Home' );
-		$blog_page  = xpro_get_page_by_title( 'Blog' );
+		// $front_page = xpro_get_page_by_title( 'Home' );
+		// $blog_page  = xpro_get_page_by_title( 'Blog' );
 
-		update_option( 'show_on_front', 'page' );
-		update_option( 'page_on_front', $front_page->ID );
-		update_option( 'page_for_posts', $blog_page->ID );
+		// update_option( 'show_on_front', 'page' );
+		// update_option( 'page_on_front', $front_page->ID );
+		// update_option( 'page_for_posts', $blog_page->ID );
+
+		// Set up static front page with multiple possible title variations
+		$front_page = false;
+		$possible_home_titles = ['Home', 'HOME', 'Main', 'MAIN', 'Front Page'];
+		foreach ($possible_home_titles as $title) {
+			$front_page = xpro_get_page_by_title($title);
+			if ($front_page) break;
+		}
+
+		// Set up blog page with multiple possible title variations
+		$blog_page = false;
+		$possible_blog_titles = ['Blog', 'BLOG', 'Blogs', 'BLOGS', 'News', 'NEWS', 'Articles'];
+		foreach ($possible_blog_titles as $title) {
+			$blog_page = xpro_get_page_by_title($title);
+			if ($blog_page) break;
+		}
+
+		// Verify required pages before updating settings
+		if ($front_page && $blog_page) {
+			update_option('show_on_front', 'page');
+			update_option('page_on_front', $front_page->ID);
+			update_option('page_for_posts', $blog_page->ID);
+		} else {
+			// If either page is not found, log a warning
+			$this->log( esc_html__( 'Warning: Front page or blog page not found. Please check your theme setup.', 'xpro-elementor-addons' ) );
+		}
 
 		/*it includes options and menu data*/
 		$theme_options = $this->get_theme_options_json();
@@ -1338,11 +1364,24 @@ class Xpro_Elementor_Starter_Sites_Admin {
 
 		$this->update_elementor_post_images_meta();
 
+		// Ensure $theme_options is always an array
+		$theme_options = is_array($theme_options) ? $theme_options : [];
+
 		/*options data*/
-		$custom_options = $theme_options['options'] ? $theme_options['options'] : array();
+		$custom_options = array_key_exists('options', $theme_options) 
+			? (array) $theme_options['options'] 
+			: [];
 
 		/*menu data*/
-		$menu_ids = $theme_options['menu'] ? $theme_options['menu'] : array();
+		$menu_ids = array_key_exists('menu', $theme_options) 
+			? (array) $theme_options['menu'] 
+			: [];
+
+		/*options data*/
+		// $custom_options = $theme_options['options'] ? $theme_options['options'] : array();
+
+		/*menu data*/
+		// $menu_ids = $theme_options['menu'] ? $theme_options['menu'] : array();
 
 		/*we also want to update the widget area manager options.*/
 		if ( ! empty( $custom_options ) && is_array( $custom_options ) ) {
