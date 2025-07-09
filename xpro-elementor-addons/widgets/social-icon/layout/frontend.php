@@ -23,6 +23,7 @@ $hover_animation = ( '2d-transition' === $settings['social_icon_hover_animation'
 			?>
 			<?php
 			if ( $item['icon'] ) {
+				$item['icon'] = xpro_fix_elementor_icon_library( $item['icon'] );
 				Icons_Manager::render_icon( $item['icon'], array( 'aria-hidden' => 'true' ) );
 			}
 			?>

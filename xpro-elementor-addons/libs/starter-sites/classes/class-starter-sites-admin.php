@@ -1499,22 +1499,51 @@ class Xpro_Elementor_Starter_Sites_Admin {
 
 	}
 
+	// public function update_image_id_and_url( $array, $find, $replace ) {
+	// 	if ( is_array( $array ) ) {
+	// 		foreach ( $array as $Key => $Val ) {
+	// 			if ( is_array($array[$Key]) && ($Key !== 'value' && $Key !== 'image') ) {
+	// 				$array[ $Key ] = $this->update_image_id_and_url( $array[ $Key ], $find, $replace );
+	// 			} else {
+	// 				if ( ($Key === 'value' || $Key === 'image') && is_array( $Val ) && isset($array[ $Key ]['url']) && $array[ $Key ]['url'] === $find  ) {
+	// 					$array[ $Key ]['id']  = attachment_url_to_postid( $replace );
+	// 					$array[ $Key ]['url'] = $replace;
+	// 					break;
+	// 				}else if($Key === 'url' && ($Key !== 'value' && $Key !== 'image') && $Val === $find){
+	// 					$array[ $Key ] = $replace;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// 	return $array;
+	// }
+
 	public function update_image_id_and_url( $array, $find, $replace ) {
-		if ( is_array( $array ) ) {
-			foreach ( $array as $Key => $Val ) {
-				if ( is_array($array[$Key]) && ($Key !== 'value' && $Key !== 'image') ) {
-					$array[ $Key ] = $this->update_image_id_and_url( $array[ $Key ], $find, $replace );
-				} else {
-					if ( ($Key === 'value' || $Key === 'image') && is_array( $Val ) && isset($array[ $Key ]['url']) && $array[ $Key ]['url'] === $find  ) {
-						$array[ $Key ]['id']  = attachment_url_to_postid( $replace );
-						$array[ $Key ]['url'] = $replace;
-						break;
-					}else if($Key === 'url' && ($Key !== 'value' && $Key !== 'image') && $Val === $find){
-						$array[ $Key ] = $replace;
+		// Validate inputs
+		if ( ! is_array( $array ) || empty( $find ) || empty( $replace ) ) {
+			return $array;
+		}
+
+		// Ensure find and replace are strings
+		if ( ! is_string( $find ) || ! is_string( $replace ) ) {
+			return $array;
+		}
+
+		foreach ( $array as $key => $val ) {
+			if ( is_array( $val ) ) {
+				$array[ $key ] = $this->update_image_id_and_url( $val, $find, $replace );
+			} elseif ( $val === $find ) {
+				$array[ $key ] = $replace;
+				// If this array also has an 'id' key, update it
+				if ( isset( $array['id'] ) ) {
+					$new_id = attachment_url_to_postid( $replace );
+					if ( $new_id > 0 ) {
+						$array['id'] = $new_id;
 					}
 				}
 			}
 		}
+
 		return $array;
 	}
 

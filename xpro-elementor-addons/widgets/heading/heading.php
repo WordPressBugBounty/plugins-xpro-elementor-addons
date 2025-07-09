@@ -300,7 +300,7 @@ class Heading extends Widget_Base {
 				'selectors' => array(
 					'{{WRAPPER}} .xpro-heading-title' => 'color: {{VALUE}};',
 				),
-				'default'   => '#000000',
+				// 'default'   => '#000000',
 				'tablet_default' => '',
 				'mobile_default' => '',
 			)

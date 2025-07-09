@@ -889,9 +889,26 @@ function xpro_elementor_starter_sites_current_url() {
 }
 
 //Starter Sites Update Option
+// function xpro_elementor_starter_sites_update_option( $option, $value = '' ) {
+// 	$option = apply_filters( 'xpro_elementor_starter_sites_update_option_' . $option, $option, $value );
+// 	$value  = apply_filters( 'xpro_elementor_starter_sites_update_value_' . $option, $value, $option );
+// 	update_option( $option, $value );
+// }
+
 function xpro_elementor_starter_sites_update_option( $option, $value = '' ) {
 	$option = apply_filters( 'xpro_elementor_starter_sites_update_option_' . $option, $option, $value );
 	$value  = apply_filters( 'xpro_elementor_starter_sites_update_value_' . $option, $value, $option );
+
+	// Disable Elementor's blogname update handler to prevent `edit_post` capability error
+	if ( 'blogname' === $option ) {
+		global $wp_filter;
+
+		// Check if the hook exists and Elementor has hooked into it
+		if ( isset( $wp_filter['update_option_blogname'] ) ) {
+			$wp_filter['update_option_blogname']->remove_all_filters();
+		}
+	}
+
 	update_option( $option, $value );
 }
 
@@ -977,4 +994,27 @@ function xpro_get_page_by_title( $page_title, $output = OBJECT, $post_type = 'pa
 	}
 
 	return null;
+}
+
+/**
+ * Fix Elementor Icon Library
+ *
+ * @param array $icon
+ *
+ * @return array
+ */
+function xpro_fix_elementor_icon_library( $icon ) {
+	if ( empty( $icon['value'] ) || ! is_string( $icon['value'] ) ) {
+		return $icon;
+	}
+
+	if ( strpos( $icon['value'], 'fab ' ) === 0 ) {
+		$icon['library'] = 'fa-brands';
+	} elseif ( strpos( $icon['value'], 'fas ' ) === 0 ) {
+		$icon['library'] = 'fa-solid';
+	} elseif ( strpos( $icon['value'], 'far ' ) === 0 ) {
+		$icon['library'] = 'fa-regular';
+	}
+
+	return $icon;
 }
