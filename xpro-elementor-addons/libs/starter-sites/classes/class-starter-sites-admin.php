@@ -1451,14 +1451,31 @@ class Xpro_Elementor_Starter_Sites_Admin {
 
 	}
 
+	/**
+	 * Update elementor post images meta.
+	 *
+	 * This function updates Elementor Page Settings and Elementor Data with new image IDs and URLs.
+	 *
+	 */
 	public function update_elementor_post_images_meta() {
 
 		$attachment_data = get_option( 'xpro_starter_sites_attachment_data_temp' );
 
-		$args            = array(
-			'post_type'      => 'any',
-			'posts_per_page' => '-1',
-			'meta_key'       => '_elementor_version',
+		$args = array(
+			'post_type'      => array( 'post', 'page', 'xpro-themer', 'xpro_content', 'attachment', 'product', 'product_variation' ),
+			'posts_per_page' => -1,
+			'meta_query'     => array(
+				'relation' => 'OR',
+				array(
+					'key'     => '_elementor_version',
+					'compare' => 'EXISTS',
+				),
+				array(
+					'key'     => '_elementor_data',
+					'compare' => 'EXISTS',
+				),
+			),
+			'fields' => 'ids',
 		);
 
 		$elementor_pages = new WP_Query( $args );
@@ -1499,6 +1516,76 @@ class Xpro_Elementor_Starter_Sites_Admin {
 
 	}
 
+	/**
+	 * Update image ID and URL in Elementor data arrays.
+	 *
+	 * Recursively searches through arrays and updates image IDs and URLs
+	 * to match the new attachment IDs created during the import process.
+	 * Handles direct URL matches, URLs within strings (like CSS background image),
+	 * and special cases for image objects, background image objects, background overlay image objects,
+	 * and value - icon objects.
+	 *
+	 * @param array|string $array Elementor data array or string value to search and update.
+	 * @param string $find Old URL to search for.
+	 * @param string $replace New URL to replace with.
+	 * @return array|string Updated Elementor data array or string value.
+	 */
+	public function update_image_id_and_url( $array, $find, $replace ) {
+		if ( is_array( $array ) ) {
+			foreach ( $array as $key => $val ) {
+				if ( is_array( $val ) ) {
+					$array[ $key ] = $this->update_image_id_and_url( $val, $find, $replace );
+				} elseif ( is_string( $val ) ) {
+					// Handle direct URL matches
+					if ( $val === $find ) {
+						$array[ $key ] = $replace;
+					}
+					// Handle URLs within strings (like CSS background-image)
+					elseif ( strpos( $val, $find ) !== false ) {
+						$array[ $key ] = str_replace( $find, $replace, $val );
+					}
+				}
+				
+				// Special handling for image objects
+				if ( ($key === 'image') && is_array( $val ) && isset( $val['url'] ) && $val['url'] === $find ) {
+					// error_log( 'image array: ' . print_r( $key, true ) . ' - ' . print_r( $val, true ) );
+					$array[ $key ]['id']  = attachment_url_to_postid( $replace );
+					$array[ $key ]['url'] = $replace;
+				}
+
+				// Special handling for background image objects
+				if ( ($key === 'background_image') && is_array( $val ) && isset( $val['url'] ) && $val['url'] === $find ) {
+					// error_log( 'background image array: ' . print_r( $key, true ) . ' - ' . print_r( $val, true ) );
+					$array[ $key ]['id']  = attachment_url_to_postid( $replace );
+					$array[ $key ]['url'] = $replace;
+				}
+
+				// Special handling for background overlay image objects
+				if ( ($key === 'background_overlay_image') && is_array( $val ) && isset( $val['url'] ) && $val['url'] === $find ) {
+					// error_log( 'background overlay image array: ' . print_r( $key, true ) . ' - ' . print_r( $val, true ) );
+					$array[ $key ]['id']  = attachment_url_to_postid( $replace );
+					$array[ $key ]['url'] = $replace;
+				}
+
+				// Special handling for value - icon objects
+				if ( ($key === 'value') && is_array( $val ) && isset( $val['url'] ) && $val['url'] === $find ) {
+					// error_log( 'value array: ' . print_r( $key, true ) . ' - ' . print_r( $val, true ) );
+					$array[ $key ]['id']  = attachment_url_to_postid( $replace );
+					$array[ $key ]['url'] = $replace;
+				}
+			}
+		} elseif ( is_string( $array ) ) {
+			// Handle string values that contain URLs
+			if ( $array === $find ) {
+				return $replace;
+			} elseif ( strpos( $array, $find ) !== false ) {
+				return str_replace( $find, $replace, $array );
+			}
+		}
+		// If no matches found, return the original array
+		return $array;
+	}
+
 	// public function update_image_id_and_url( $array, $find, $replace ) {
 	// 	if ( is_array( $array ) ) {
 	// 		foreach ( $array as $Key => $Val ) {
@@ -1518,34 +1605,34 @@ class Xpro_Elementor_Starter_Sites_Admin {
 	// 	return $array;
 	// }
 
-	public function update_image_id_and_url( $array, $find, $replace ) {
-		// Validate inputs
-		if ( ! is_array( $array ) || empty( $find ) || empty( $replace ) ) {
-			return $array;
-		}
+	// public function update_image_id_and_url( $array, $find, $replace ) {
+	// 	// Validate inputs
+	// 	if ( ! is_array( $array ) || empty( $find ) || empty( $replace ) ) {
+	// 		return $array;
+	// 	}
 
-		// Ensure find and replace are strings
-		if ( ! is_string( $find ) || ! is_string( $replace ) ) {
-			return $array;
-		}
+	// 	// Ensure find and replace are strings
+	// 	if ( ! is_string( $find ) || ! is_string( $replace ) ) {
+	// 		return $array;
+	// 	}
 
-		foreach ( $array as $key => $val ) {
-			if ( is_array( $val ) ) {
-				$array[ $key ] = $this->update_image_id_and_url( $val, $find, $replace );
-			} elseif ( $val === $find ) {
-				$array[ $key ] = $replace;
-				// If this array also has an 'id' key, update it
-				if ( isset( $array['id'] ) ) {
-					$new_id = attachment_url_to_postid( $replace );
-					if ( $new_id > 0 ) {
-						$array['id'] = $new_id;
-					}
-				}
-			}
-		}
+	// 	foreach ( $array as $key => $val ) {
+	// 		if ( is_array( $val ) ) {
+	// 			$array[ $key ] = $this->update_image_id_and_url( $val, $find, $replace );
+	// 		} elseif ( $val === $find ) {
+	// 			$array[ $key ] = $replace;
+	// 			// If this array also has an 'id' key, update it
+	// 			if ( isset( $array['id'] ) ) {
+	// 				$new_id = attachment_url_to_postid( $replace );
+	// 				if ( $new_id > 0 ) {
+	// 					$array['id'] = $new_id;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
 
-		return $array;
-	}
+	// 	return $array;
+	// }
 
 	/*set delayed post for later process*/
 
