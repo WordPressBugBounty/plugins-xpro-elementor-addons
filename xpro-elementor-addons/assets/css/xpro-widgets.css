@@ -4534,7 +4534,7 @@ ul.xpro-social-icon-wrapper.xpro-social-icon-style-15 li span:hover {
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
-    padding: 15px;
+    /* padding: 15px; */
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;

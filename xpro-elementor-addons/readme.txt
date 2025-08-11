@@ -1,6 +1,6 @@
 === 140+ Widgets | Xpro Addons For Elementor - FREE ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.4.16
+Version: 1.4.17
 Contributors: Xpro
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
@@ -264,6 +264,16 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 
 == Changelog ==
+
+= V 1.4.17 – 11 Aug 2025
+
+Fix: Improved and optimized CSS in the Social Icon widget.
+Fix: Resolved a bug in the MailChimp Widget.
+Fix: Fixed controls not working in the Text Marquee Widget.
+Fix: Fixed icon color issue in the Carousel Portfolio Widget.
+New: Added style layouts and scroll animations to the Vertical Timeline Widget.
+New: Added multiple selection and exclude options in the Ajax Live Search Widget.
+
 
 = V 1.4.16 – 29 July 2025
 

@@ -1018,3 +1018,26 @@ function xpro_fix_elementor_icon_library( $icon ) {
 
 	return $icon;
 }
+
+/**
+ * Retrieves all published content items.
+ *
+ * This method retrieves all published posts and other content items (e.g. products, events, etc.)
+ * and returns an array with their IDs as keys and their titles as values.
+ *
+ * @return array An array of content items where the key is the content item ID and the value is the title.
+ */
+function get_all_published_content_items() {
+	$items = [];
+
+	$all_posts = get_posts([
+		'post_type'      => get_post_types(['public' => true]),
+		'posts_per_page' => -1,
+		'post_status'    => 'publish',
+	]);
+
+	foreach ( $all_posts as $post ) {
+			$items[ $post->ID ] = sprintf('%s (%s)', $post->post_title, $post->post_type);
+		}
+	return $items;
+}

@@ -530,21 +530,39 @@ class Xpro_Ajax_Handler {
 		check_ajax_referer( 'xpro-live-search-nonce', 'nonce' );
 
 		$keyword         = sanitize_text_field( $_POST['keyword'] );
-		$post_type       = sanitize_text_field( $_POST['post_type'] );
+
+	    $post_type = [];
+		if ( ! empty( $_POST['post_type'] ) ) {
+			if ( strpos( $_POST['post_type'], ',' ) !== false ) {
+				$post_type = array_map( 'sanitize_text_field', explode( ',', $_POST['post_type'] ) );
+			} else {
+				$post_type = [ sanitize_text_field( $_POST['post_type'] ) ];
+			}
+		}
+
+		$exclude_posts = [];
+		if ( ! empty( $_POST['exclude_posts'] ) ) {
+			if ( strpos( $_POST['exclude_posts'], ',' ) !== false ) {
+				$exclude_posts = array_map( 'intval', explode( ',', $_POST['exclude_posts'] ) );
+			} else {
+				$exclude_posts = [ intval( $_POST['exclude_posts'] ) ];
+			}
+		}
+
+		$the_query = new WP_Query([
+			'posts_per_page' => $posts_per_page,
+			's'              => $keyword,
+			'post_type'      => $post_type,
+			'post__not_in'   => $exclude_posts, 
+			'order'          => $order,
+		]);
+
 		$posts_per_page  = sanitize_text_field( $_POST['posts_per_page'] );
 		$order           = sanitize_text_field( $_POST['order'] );
 		$show_img        = sanitize_text_field( $_POST['display_img'] );
 		$display_title   = sanitize_text_field( $_POST['display_title'] );
 		$display_content = sanitize_text_field( $_POST['display_content'] );
 
-		$the_query = new WP_Query(
-			array(
-				'posts_per_page' => $posts_per_page,
-				's'              => $keyword,
-				'post_type'      => $post_type,
-				'order'          => $order,
-			)
-		);
 
 		if ( $the_query->have_posts() ) :
 			while ( $the_query->have_posts() ) :

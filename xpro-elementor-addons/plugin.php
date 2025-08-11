@@ -203,6 +203,12 @@ class Xpro_Elementor_Addons {
 
 		//Vendors CSS
 		wp_register_style(
+			'aos-css',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/css/aos.css',
+			null,
+			'1.0.0'
+		);
+		wp_register_style(
 			'cubeportfolio',
 			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/css/cubeportfolio.min.css',
 			null,
@@ -276,6 +282,13 @@ class Xpro_Elementor_Addons {
 		);
 
 		//Vendors JS
+		wp_register_script(
+			'aos-js',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/aos.js',
+			array( 'jquery' ),
+			'1.0.0',
+			true
+		);
 		wp_register_script(
 			'flipclock',
 			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/flipclock.min.js',
