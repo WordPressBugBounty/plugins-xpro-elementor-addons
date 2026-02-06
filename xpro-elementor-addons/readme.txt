@@ -1,11 +1,11 @@
-=== 140+ Widgets | Xpro Addons For Elementor - FREE ===
+=== Xpro Addons — 140+ Widgets for Elementor ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.4.17
+Version: 1.4.23
 Contributors: Xpro
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
-Tested up to: 6.8.2
-Stable tag: trunk
+Tested up to: 6.9.1
+Stable tag: 1.4.23
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -20,12 +20,12 @@ Get Premium level 50+ Free Elementor Widgets, 10+ Free Elementor Extensions, 500
 <p><a href="https://elementor.wpxpro.com?utm_source=wp&utm_medium=readme&utm_campaign=xpro_elementor_addons" target="_blank">Visit Plugin Site</a> | <a href="https://elementor.wpxpro.com/docs/" target="_blank">Documentation</a></p>
 
 <h3>50+ <a href="https://elementor.wpxpro.com/" target="_blank">FREE ELEMENTOR WIDGETS</a> TO CREATE AMAZING WEBSITES</h3>
-<p>Xpro Elementor Addons extends the features and overall functionality of Elementor Page Builder. Our 50+ FREE widgets let you create modern and highly creative websites for your brand, business, or online store with minimal effort.</p>
+<p>Xpro Addons For Elementor extends the features and overall functionality of Elementor Page Builder. Our 50+ FREE widgets let you create modern and highly creative websites for your brand, business, or online store with minimal effort.</p>
 <p>Check out our <a href="https://elementor.wpxpro.com/templates/" target="_blank">Free Elementor Templates</a></p>
 
 <h3>GIVING YOU THE FREEDOM TO DESIGN <br /> YOUR WEBSITE THE WAY YOU WANT WITH OUR FREE <br /> ELEMENTOR ADDONS</h3>
 <strong>50+ Free Elementor Widgets:</strong>
-<p>Xpro Elementor Addons are developed by experienced developers. Our motto has always been to provide complete creative freedom to our users. That’s the reason we offer <a href="https://wordpress.org/plugins/xpro-elementor-addons/" target="_blank">FREE Elementor Addons</a>. Each Xpro addon comes with incredible design aesthetics and creativity to help you create amazing Elementor websites in no time.</p>
+<p>Xpro Addons For Elementor are developed by experienced developers. Our motto has always been to provide complete creative freedom to our users. That’s the reason we offer <a href="https://wordpress.org/plugins/xpro-elementor-addons/" target="_blank">FREE Elementor Addons</a>. Each Xpro addon comes with incredible design aesthetics and creativity to help you create amazing Elementor websites in no time.</p>
 
 <ol>
     <li><a href="https://elementor.wpxpro.com/widgets/simple-gallery/">Gallery</a>  - Showcase your images in interactive layouts</li>
@@ -132,11 +132,11 @@ Get Premium level 50+ Free Elementor Widgets, 10+ Free Elementor Extensions, 500
 <p><a href="https://elementor.wpxpro.com/contact-us/" target="_blank">Contact Us</a></p>
 
 <h3>GET MORE CREATIVE WITH THE PRO VERSION</h3>
-<p><a href="https://elementor.wpxpro.com/premium/" target="_blank">Xpro Elementor Addons - Pro</a> completely boosts up your Elementor Page Builder experience so that you can create modern, customized, and highly user-friendly websites in no time. Our Pro Addons not only comes with Advanced Widgets and Extensions but also offers 100+ Pre-made Blocks and 150+ Full Page Templates to quickly start your web design journey.</p>
+<p><a href="https://elementor.wpxpro.com/premium/" target="_blank">Xpro Addons For Elementor - Pro</a> completely boosts up your Elementor Page Builder experience so that you can create modern, customized, and highly user-friendly websites in no time. Our Pro Addons not only comes with Advanced Widgets and Extensions but also offers 100+ Pre-made Blocks and 150+ Full Page Templates to quickly start your web design journey.</p>
 <p><a href="https://elementor.wpxpro.com/buy/" target="_blank">Upgrade to our Pro version.</a></p>
 
 <h3>70+ Pro Elementor Widgets</h3>
-<p>Xpro Elementor Addons - Pro is a complete package of the most advanced and unique 140+ widgets for your Elementor website. It’s a complete suite of powerful, interactive, and highly customizable essential Elementor widgets including:</p>
+<p>Xpro Addons For Elementor - Pro is a complete package of the most advanced and unique 140+ widgets for your Elementor website. It’s a complete suite of powerful, interactive, and highly customizable essential Elementor widgets including:</p>
 <ol>
     <li><a href="https://elementor.wpxpro.com/widgets/advanced-gallery/">Advanced Gallery</a> - Showcase your images in the most beautiful way using Mosaic and Masonry layouts</li>
     <li><a href="https://elementor.wpxpro.com/widgets/carousel-gallery/">Carousel Gallery</a> - Highlight your images in an attractive slider to draw attention</li>
@@ -199,23 +199,23 @@ Get Premium level 50+ Free Elementor Widgets, 10+ Free Elementor Extensions, 500
 <p><a href="https://elementor.wpxpro.com/buy/" target="_blank">GET ON BOARD</a>.</p>
 
 <h3>LOVE OUR WORK?</h3>
-<p>Do you like Xpro Elementor Addons? If our plugin proved to be a big problem solver for you then please be kind enough to give us a 5 * * * * * rating on WordPress. It will help us spread this amazing plugin in the WP community. It won’t take more than 30 seconds ☺</p>
+<p>Do you like Xpro Addons For Elementor? If our plugin proved to be a big problem solver for you then please be kind enough to give us a 5 * * * * * rating on WordPress. It will help us spread this amazing plugin in the WP community. It won’t take more than 30 seconds ☺</p>
 
 <h3>DOCUMENTATION AND SUPPORT</h3>
-<p>Xpro Elementor Addons is a user-driven project that lives and breathes on your feedback. Feel free to contact our <a href="https://elementor.wpxpro.com/contact-us/" target="_blank">Support Team</a> in case you face any issues using the plugin or want to suggest a feature. We will be more than happy to hear you out.</p>
-<p>We have a 24/7 support team working to cater to your issues, and this is why we promise you the web designing experience of a lifetime. See <a href="https://elementor.wpxpro.com/widgets/" target="_blank">Xpro Elementor Addons</a> in action.</p>
-<p>Explore all features and details by checking out our website at <a href="https://elementor.wpxpro.com/?utm_source=wp&utm_medium=readme&utm_campaign=xpro_elementor_addons" target="_blank">Xpro Elementor Addons</a>. For complete documentation, how-to guides, and more, please visit our <a href="https://elementor.wpxpro.com/docs/xpro-elementor-addons/getting-started/recommended-php-server-settings/" target="_blank">Documentation page</a>.</p>
+<p>Xpro Addons For Elementor is a user-driven project that lives and breathes on your feedback. Feel free to contact our <a href="https://elementor.wpxpro.com/contact-us/" target="_blank">Support Team</a> in case you face any issues using the plugin or want to suggest a feature. We will be more than happy to hear you out.</p>
+<p>We have a 24/7 support team working to cater to your issues, and this is why we promise you the web designing experience of a lifetime. See <a href="https://elementor.wpxpro.com/widgets/" target="_blank">Xpro Addons For Elementor</a> in action.</p>
+<p>Explore all features and details by checking out our website at <a href="https://elementor.wpxpro.com/?utm_source=wp&utm_medium=readme&utm_campaign=xpro_elementor_addons" target="_blank">Xpro Addons For Elementor</a>. For complete documentation, how-to guides, and more, please visit our <a href="https://elementor.wpxpro.com/docs/xpro-elementor-addons/getting-started/recommended-php-server-settings/" target="_blank">Documentation page</a>.</p>
 
 == Installation ==
 
-<strong>Follow These Steps To Quickly Install Xpro Elementor Addons</strong>
+<strong>Follow These Steps To Quickly Install Xpro Addons For Elementor</strong>
 <ol>
-    <li>Install Xpro Elementor Addons via WP Plugin Directory or by uploading the plugin file to your server in the wp-content/plugins folder.</li>
-    <li>After successful installation, simply click on the ‘Activate’ button to use Xpro Elementor Addons.</li>
+    <li>Install Xpro Addons For Elementor via WP Plugin Directory or by uploading the plugin file to your server in the wp-content/plugins folder.</li>
+    <li>After successful installation, simply click on the ‘Activate’ button to use Xpro Addons For Elementor.</li>
     <li>Once the plugin is activated, navigate to the Xpro Addons option on the WP sidebar. You will see the Xpro Addons Dashboard where you can explore Xpro Elementor Extensions, Templates, User Data options, and Featured Addons which you can use to build amazing websites.</li>
     <li>Now open Elementor Page Builder by editing any Page/Post and start creating beautiful websites. A Page Builder option will also be available in the WP Admin Panel on the front end of your website (if logged in).</li>
 </ol>
-<p>Check our detailed <a href="https://elementor.wpxpro.com/docs/xpro-elementor-addons/getting-started/" target="_blank">installation guide for Xpro Elementor Addons</a> for a better understanding of the installation process. If you face any difficulty during the installation process, please feel free to <a href="https://elementor.wpxpro.com/contact-us/" target="_blank">contact</a> our 24/7 customer support.</p>
+<p>Check our detailed <a href="https://elementor.wpxpro.com/docs/xpro-elementor-addons/getting-started/" target="_blank">installation guide for Xpro Addons For Elementor</a> for a better understanding of the installation process. If you face any difficulty during the installation process, please feel free to <a href="https://elementor.wpxpro.com/contact-us/" target="_blank">contact</a> our 24/7 customer support.</p>
 
 
 == Frequently Asked Questions ==
@@ -265,14 +265,49 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 == Changelog ==
 
+= V 1.4.23 – 04 Feb 2026
+
+- Fix: Added sanitization and escaping to secure REST API and prevent XSS.
+
+
+= V 1.4.22 – 02 Feb 2026
+
+- Fix: Resolved all general plugin-related errors.
+
+
+= V 1.4.21 – 05 Jan 2026
+
+- Fix: Resolved vulnerability in the Pricing Widget.
+
+
+= V 1.4.20 – 15 Dec 2025
+
+- Fixed: Cross-Site Scripting (XSS) Vulnerability Issue.
+
+
+= V 1.4.19.1 – 05 Oct 2025
+
+- Fix: Added missing unit options in The Icon Box Widget.
+
+
+= V 1.4.19 – 05 Oct 2025
+
+- Fix: Improved Elementor compatibility and stability.
+
+
+= V 1.4.18 – 22 Aug 2025
+
+- Fix: Resolved vulnerability in the Info List Widget.
+
+
 = V 1.4.17 – 11 Aug 2025
 
-Fix: Improved and optimized CSS in the Social Icon widget.
-Fix: Resolved a bug in the MailChimp Widget.
-Fix: Fixed controls not working in the Text Marquee Widget.
-Fix: Fixed icon color issue in the Carousel Portfolio Widget.
-New: Added style layouts and scroll animations to the Vertical Timeline Widget.
-New: Added multiple selection and exclude options in the Ajax Live Search Widget.
+- Fix: Improved and optimized CSS in the Social Icon widget.
+- Fix: Resolved a bug in the MailChimp Widget.
+- Fix: Fixed controls not working in the Text Marquee Widget.
+- Fix: Fixed icon color issue in the Carousel Portfolio Widget.
+- New: Added style layouts and scroll animations to the Vertical Timeline Widget.
+- New: Added multiple selection and exclude options in the Ajax Live Search Widget.
 
 
 = V 1.4.16 – 29 July 2025

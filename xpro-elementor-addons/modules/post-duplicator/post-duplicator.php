@@ -133,7 +133,7 @@ class Xpro_Elementor_Duplicator {
 
 		// Validate if the post can be duplicated
 		if ( ! self::can_duplicate_post( $post_id ) ) {
-			wp_die( __( 'You are not allowed to duplicate this post.', 'xpro-elementor-addons' ), 403 );
+			wp_die(esc_html__( 'You are not allowed to duplicate this post.', 'xpro-elementor-addons' ), 403 );
 		}
 
 		if ( is_null( ( $post = get_post( $post_id ) ) ) ) {

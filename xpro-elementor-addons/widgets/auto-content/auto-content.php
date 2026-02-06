@@ -101,6 +101,7 @@ class Auto_Content extends Widget_Base {
 	 * @access public
 	 *
 	 */
+	
 	public function get_keywords() {
 		return array( 'xpro', 'text', 'editor', 'ai', 'content', 'generator' );
 	}

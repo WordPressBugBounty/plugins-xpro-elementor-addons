@@ -1,4 +1,6 @@
-<?php use Elementor\Icons_Manager; ?>
+<?php use Elementor\Icons_Manager;
+defined( 'ABSPATH' ) || die();
+?>
 <div class="xpro-elementor-horizontal-navbar-wrapper xpro-elementor-horizontal-menu-responsive-<?php echo esc_attr( $settings['responsive_show'] ); ?> xpro-push-<?php echo esc_attr( $settings['hamburger_entrance_animation'] ); ?>">
 
 	<?php if ( $settings['responsive_show'] !== 'none' ) { ?>

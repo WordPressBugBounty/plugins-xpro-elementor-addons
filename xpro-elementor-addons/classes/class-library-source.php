@@ -194,13 +194,13 @@ class Library_Source extends Source_Base {
 	 *
 	 * @return array|WP_Error Remote Template data.
 	 */
-	public function get_data( array $args, $context = 'display' ) {
+	public function get_data( array $args, $context = 'display' ) {                            
 		$data = self::request_template_data( $args['template_id'] );
 
 		$data = json_decode( $data, true );
 
 		if ( empty( $data ) || empty( $data['content'] ) ) {
-			throw new Exception( __( 'Template does not have any content', 'xpro-elementor-addons' ) );
+			throw new Exception( esc_html__( 'Template does not have any content', 'xpro-elementor-addons' ) );
 		}
 
 		$data['content'] = $this->replace_elements_ids( $data['content'] );

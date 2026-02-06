@@ -1,12 +1,46 @@
+= V 1.4.23 – 04 Feb 2026
+
+- Fix: Added sanitization and escaping to secure REST API and prevent XSS.
+
+
+= V 1.4.22 – 02 Feb 2026
+
+- Fix: Resolved all general plugin-related errors.
+
+
+= V 1.4.21 – 05 Jan 2026
+
+- Fix: Resolved vulnerability in the Pricing Widget.
+
+
+= V 1.4.20 – 15 Dec 2025
+
+- Fixed: Cross-Site Scripting (XSS) Vulnerability Issue.
+
+
+= V 1.4.19.1 – 05 Oct 2025
+
+- Fix: Added missing unit options in The Icon Box Widget.
+
+
+= V 1.4.19 – 05 Oct 2025
+
+- Fix: Improved Elementor compatibility and stability.
+
+
+= V 1.4.18 – 22 Aug 2025
+
+- Fix: Resolved vulnerability in the Info List Widget.
+
 
 = V 1.4.17 – 11 Aug 2025
 
-Fix: Improved and optimized CSS in the Social Icon widget.
-Fix: Resolved a bug in the MailChimp Widget.
-Fix: Fixed controls not working in the Text Marquee Widget.
-Fix: Fixed icon color issue in the Carousel Portfolio Widget.
-New: Added style layouts and scroll animations to the Vertical Timeline Widget.
-New: Added multiple selection and exclude options in the Ajax Live Search Widget.
+- Fix: Improved and optimized CSS in the Social Icon widget.
+- Fix: Resolved a bug in the MailChimp Widget.
+- Fix: Fixed controls not working in the Text Marquee Widget.
+- Fix: Fixed icon color issue in the Carousel Portfolio Widget.
+- New: Added style layouts and scroll animations to the Vertical Timeline Widget.
+- New: Added multiple selection and exclude options in the Ajax Live Search Widget.
 
 
 = V 1.4.16 – 29 July 2025

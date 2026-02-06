@@ -2,6 +2,8 @@
 
 use Elementor\Icons_Manager;
 
+defined( 'ABSPATH' ) || die();
+
 $html_tag = ( $settings['link']['url'] ) ? 'a' : 'span';
 
 // Sanitize the link CSS ID
@@ -32,7 +34,7 @@ if ( $settings['link'] && $settings['link']['custom_attributes'] ) {
 }
 ?>
 
-<<?php echo esc_attr( $html_tag ); ?> <?php echo $attr; ?> data-hover="<?php echo esc_attr( $settings['text'] ); ?>" class="xpro-animated-link xpro-animated-link-<?php echo esc_attr( $settings['layouts'] ); ?>">
+<<?php echo esc_attr( $html_tag ); ?> <?php echo wp_kses_post( $attr ); ?> data-hover="<?php echo esc_attr( $settings['text'] ); ?>" class="xpro-animated-link xpro-animated-link-<?php echo esc_attr( $settings['layouts'] ); ?>">
 <?php
 if ( 'style-10' === $settings['layouts'] ) {
     $str    = $settings['text'];

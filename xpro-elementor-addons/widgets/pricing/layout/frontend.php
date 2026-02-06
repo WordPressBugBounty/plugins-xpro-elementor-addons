@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || die();
 
 use Elementor\Group_Control_Image_Size;
 use Elementor\Icons_Manager;
@@ -7,7 +8,10 @@ $attr  = ( $settings['button_css_id'] ) ? ' id="' . esc_attr($settings['button_c
 $attr .= $settings['button_link']['is_external'] ? ' target="_blank"' : '';
 $attr .= $settings['button_link']['nofollow'] ? ' rel="nofollow"' : '';
 $attr .= $settings['button_link']['url'] ? ' href="' . esc_url ( $settings['button_link']['url'] ) . '"' : '';
-$attr .= ( $settings['onclick_event'] ) ? ' onclick="' . $settings['onclick_event'] . '"' : '';
+// $attr .= ( $settings['onclick_event'] ) ? ' onclick="' . $settings['onclick_event'] . '"' : '';
+if ( !empty( $settings['onclick_event'] ) && self::check_capability( 'manage_options' ) ) {
+    $attr .= ' onclick="' . esc_attr( $settings['onclick_event'] ) . '"';
+}
 
 if ( $settings['button_link']['custom_attributes'] ) {
 	$attributes = explode( ',', $settings['button_link']['custom_attributes'] );
@@ -95,7 +99,7 @@ if ( $settings['button_link']['custom_attributes'] ) {
 	if ( 'before_features' === $settings['button_position'] && $settings['button_title'] ) {
 		?>
 		<div class="xpro-pricing-btn-wrapper">
-			<a class="xpro-pricing-btn" <?php echo $attr; ?>><?php echo esc_html( $settings['button_title'] ); ?></a>
+			<a class="xpro-pricing-btn" <?php echo wp_kses_post($attr); ?>><?php echo esc_html( $settings['button_title'] ); ?></a>
 		</div>
 	<?php } ?>
 
@@ -168,7 +172,7 @@ if ( $settings['button_link']['custom_attributes'] ) {
 	if ( 'after_features' === $settings['button_position'] && $settings['button_title'] ) {
 		?>
 		<div class="xpro-pricing-btn-wrapper">
-			<a class="xpro-pricing-btn" <?php echo $attr; ?>><?php echo esc_html( $settings['button_title'] ); ?></a>
+			<a class="xpro-pricing-btn" <?php echo wp_kses_post($attr); ?>><?php echo esc_html( $settings['button_title'] ); ?></a>
 		</div>
 	<?php } ?>
 </div>

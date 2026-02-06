@@ -47,7 +47,18 @@ class Admin_Product {
                 name="attribute_values[<?php echo esc_attr( $index ); ?>][]">
 			<?php
 
-			$all_terms = get_terms($taxonomy_name, apply_filters('woocommerce_product_attribute_terms', ['orderby' => 'name', 'hide_empty' => false]));
+            $woo_args = apply_filters(
+				'woocommerce_product_attribute_terms',
+				[
+					'taxonomy'   => $taxonomy_name,
+					'orderby'    => 'name',
+					'hide_empty' => false,
+				]
+			);
+
+			$all_terms = get_terms( $woo_args );
+
+			// $all_terms = get_terms($taxonomy_name, apply_filters('woocommerce_product_attribute_terms', ['orderby' => 'name', 'hide_empty' => false]));
 
 			if($all_terms) {
 				foreach($all_terms as $term) {
@@ -146,7 +157,7 @@ class Admin_Product {
                     <div class="hidden xpro_term__tax"></div>
 
                     <input type="hidden" class="xpro__input" name="nonce"
-                           value="<?php echo wp_create_nonce('xpro_nonce_add_attribute') ?>">
+                           value="<?php echo esc_attr(wp_create_nonce('xpro_nonce_add_attribute')) ?>">
                 </div>
                 <div class="xpro_modal__footer">
                     <button class="button button-secondary xpro_modal__close"><?php esc_html_e('Cancel', 'xpro-elementor-addons') ?></button>

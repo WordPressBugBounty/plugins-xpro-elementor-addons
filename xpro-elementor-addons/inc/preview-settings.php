@@ -3,9 +3,7 @@
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+defined( 'ABSPATH' ) || die();
 
 class Xpro_Saved_Templates_Settings extends Elementor\Core\Base\Document {
 
@@ -148,7 +146,14 @@ class Xpro_Saved_Templates_Settings extends Elementor\Core\Base\Document {
 				$title = 'Post ' . $title;
 			}
 
-			$terms = get_terms( $slug, 'orderby=date&hide_empty=0&number=1' );
+			$terms = get_terms(
+				array(
+					'taxonomy'   => $slug,
+					'orderby'    => 'date',
+					'hide_empty' => false,
+					'number'     => 1,
+				)
+			);
 
 			$this->add_control(
 				'preview_archive_' . $slug,
@@ -453,10 +458,10 @@ class Xpro_Saved_Templates_Settings extends Elementor\Core\Base\Document {
 		}
 
 		$query = get_terms(
-			$slug,
 			array(
-				'hide_empty'     => false,
-				'posts_per_page' => - 1,
+				'taxonomy'   => $slug,
+				'hide_empty' => false,
+				'number'     => 0, // 0 = no limit (WP way)
 			)
 		);
 

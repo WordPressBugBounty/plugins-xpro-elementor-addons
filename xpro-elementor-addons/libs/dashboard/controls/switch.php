@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die(); ?>
 <div class="xpro-dashboard-widget-item xpro-dashboard-input-switch <?php echo esc_attr( $class ); ?>">
 	<input type="checkbox" <?php echo esc_attr( true === $options['checked'] ? 'checked' : '' ); ?> value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" id="xpro-dashboard-modules-switch-<?php echo esc_attr( $value ); ?>"
 		<?php

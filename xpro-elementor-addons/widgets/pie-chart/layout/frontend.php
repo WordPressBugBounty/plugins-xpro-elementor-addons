@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die(); ?>
 <div class="xpro-pie-chart" data-percent="0">
 	<div class="xpro-pie-chart-media">
 

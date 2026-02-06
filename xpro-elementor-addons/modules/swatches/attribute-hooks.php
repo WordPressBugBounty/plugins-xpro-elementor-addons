@@ -175,7 +175,7 @@ class Attribute_Hooks {
 			'edit' == $form ? 'tr' : 'div',
 			'edit' == $form ? '<th>' : '',
 			esc_attr( $type ),
-			$types[ $type ],
+			esc_html($types[ $type ]),
 			'edit' == $form ? '</th><td>' : ''
 		);
 

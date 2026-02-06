@@ -76,7 +76,7 @@ $slider_settings = wp_json_encode(
 									}
 								}
 								?>
-								<<?php echo esc_attr( $primary_btn_tag ); ?> <?php echo $primary_btn_attr; ?> class="xpro-hero-slider-button-primary xpro-hero-slider-button-default" data-animation="<?php echo esc_attr( $item['primary_button_animation_effect'] ); ?>">
+								<<?php echo esc_attr( $primary_btn_tag ); ?> <?php echo wp_kses_post($primary_btn_attr); ?> class="xpro-hero-slider-button-primary xpro-hero-slider-button-default" data-animation="<?php echo esc_attr( $item['primary_button_animation_effect'] ); ?>">
 								<span class="xpro-hero-slider-button-text"><?php echo esc_html( $item['primary_button_title'] ); ?></span>
 								<?php if ( $item['primary_button_icon']['value'] ) { ?>
                                     <span class="xpro-hero-slider-button-media"><?php Icons_Manager::render_icon( $item['primary_button_icon'], array( 'aria-hidden' => 'true' ) ); ?></span>
@@ -107,7 +107,7 @@ $slider_settings = wp_json_encode(
 								}
 
 								?>
-								<<?php echo esc_attr( $secondary_btn_tag ); ?> <?php echo $secondary_btn_attr; ?> class="xpro-hero-slider-button-secondary xpro-hero-slider-button-default" data-animation="<?php echo esc_attr( $item['secondary_button_animation_effect'] ); ?>">
+								<<?php echo esc_attr( $secondary_btn_tag ); ?> <?php echo wp_kses_post($secondary_btn_attr); ?> class="xpro-hero-slider-button-secondary xpro-hero-slider-button-default" data-animation="<?php echo esc_attr( $item['secondary_button_animation_effect'] ); ?>">
 								<span class="xpro-hero-slider-button-text"><?php echo esc_html( $item['secondary_button_title'] ); ?></span>
                                 <?php if ( $item['secondary_button_icon']['value'] ) { ?>
                                     <span class="xpro-hero-slider-button-media"><?php Icons_Manager::render_icon( $item['secondary_button_icon'], array( 'aria-hidden' => 'true' ) ); ?></span>

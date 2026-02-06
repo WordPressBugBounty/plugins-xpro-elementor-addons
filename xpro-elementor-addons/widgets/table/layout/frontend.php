@@ -2,6 +2,8 @@
 use Elementor\Control_Media;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Icons_Manager;
+defined( 'ABSPATH' ) || die();
+
 ?>
 <table class="xpro-table<?php echo ( 'yes' === $settings['responsive_mobile'] ) ? ' xpro-table-responsive' : ''; ?>">
 	<thead class="xpro-table-head">

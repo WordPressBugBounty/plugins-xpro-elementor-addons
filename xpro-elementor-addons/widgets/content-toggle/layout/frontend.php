@@ -1,3 +1,5 @@
+<?php  defined( 'ABSPATH' ) || die(); ?>
+
 <div class="xpro-content-toggle-button-wrapper xpro-content-toggle-button-layout-<?php use Elementor\Plugin;
 use XproElementorAddons\Control\Xpro_Elementor_Widget_Area_Utils;
 
@@ -24,11 +26,11 @@ echo esc_attr( $settings['layout'] ); ?><?php echo esc_attr( ( 'yes' === $settin
 			$template_post = get_post($settings['primary_template']);
 			if ( $template_post && 'publish' === get_post_status( $template_post ) ) {
 				if ( '' === $settings['primary_template'] ) {
-					echo __( 'Your primary content here.', 'xpro-elementor-addons' );
+                     echo esc_html__( 'Your primary content here.', 'xpro-elementor-addons' );
 				}
 				echo Plugin::instance()->frontend->get_builder_content_for_display( $settings['primary_template'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             } else if ( $template_post && 'publish' !== get_post_status( $template_post ) ) {
-                echo __( 'You do not have permission to view this content. Please update the content status to "Published" to make it visible.', 'xpro-elementor-addons' );
+               echo esc_html__( 'You do not have permission to view this content. Please update the content status to "Published" to make it visible.', 'xpro-elementor-addons' );
             }
 		} else {
 			xpro_elementor_kses( $settings['primary_editor'] );
@@ -43,11 +45,11 @@ echo esc_attr( $settings['layout'] ); ?><?php echo esc_attr( ( 'yes' === $settin
 			$template_post = get_post($settings['secondary_template']);
 			if ( $template_post && 'publish' === get_post_status( $template_post ) ) {
 				if ( '' === $settings['secondary_template'] ) {
-					echo __( 'Your secondary content here.', 'xpro-elementor-addons' );
+					echo esc_html__( 'Your secondary content here.', 'xpro-elementor-addons' );
 				}
 				echo Plugin::instance()->frontend->get_builder_content_for_display( $settings['secondary_template'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             } else if ( $template_post && 'publish' !== get_post_status( $template_post ) ) {
-                echo __( 'You do not have permission to view this content. Please update the content status to "Published" to make it visible.', 'xpro-elementor-addons' );
+                echo esc_html__( 'You do not have permission to view this content. Please update the content status to "Published" to make it visible.', 'xpro-elementor-addons' );
             }
 		} else {
 			xpro_elementor_kses( $settings['secondary_editor'] );

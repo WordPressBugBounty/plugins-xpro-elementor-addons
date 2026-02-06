@@ -2,6 +2,8 @@
 
 namespace XproElementorAddons\Core;
 
+defined( 'ABSPATH' ) || exit;
+
 use WP_REST_Server;
 
 class Xpro_Elementor_Handler_Api {

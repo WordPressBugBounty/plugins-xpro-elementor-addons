@@ -1,6 +1,7 @@
 <?php
 
 use Elementor\Icons_Manager;
+defined( 'ABSPATH' ) || die();
 
 $layout = ( 'none' !== $settings['separator_layout_style'] ) ? ' xpro-step-' . $settings['separator_layout_style'] : '';
 ?>
@@ -16,7 +17,7 @@ $layout = ( 'none' !== $settings['separator_layout_style'] ) ? ' xpro-step-' . $
 
 			if ( 'image' === $settings['media_type'] ) {
 				$image_markup = ( ! empty( $settings['image']['id'] ) ) ? wp_get_attachment_image( $settings['image']['id'] ) : '';
-				echo ! empty( $image_markup ) ? $image_markup : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
+				echo ! empty( $image_markup ) ? wp_kses( $image_markup, xpro_allowed_img_kses() ) : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
 			}
 		?>
 

@@ -3,6 +3,8 @@
 use Elementor\Group_Control_Image_Size;
 use Elementor\Icons_Manager;
 
+defined( 'ABSPATH' ) || die();
+
 $html_tag = ( $settings['link']['url'] ) ? 'a' : 'div';
 $attr     = $settings['link']['is_external'] ? ' target="_blank"' : '';
 $attr    .= $settings['link']['nofollow'] ? ' rel="nofollow"' : '';

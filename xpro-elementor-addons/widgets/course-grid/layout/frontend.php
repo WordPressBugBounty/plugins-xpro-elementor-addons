@@ -1,6 +1,7 @@
 <?php
 
 use Elementor\Icons_Manager;
+defined( 'ABSPATH' ) || die();
 
 global $post;
 
@@ -78,9 +79,10 @@ $content = preg_replace( '`[[^]]*]`', '', $content );
 				</div>
 
 				<?php if ( $course_rating->rating_avg > 0 ) : ?>
-					<div class="xpro-tutor-ratings-average"><?php echo apply_filters( 'tutor_course_rating_average', $course_rating->rating_avg ); ?></div>
-					<div class="xpro-tutor-ratings-count">(<?php echo $course_rating->rating_count > 0 ? $course_rating->rating_count : 0; ?>)</div>
+					<div class="xpro-tutor-ratings-average"><?php echo wp_kses_post(apply_filters( 'tutor_course_rating_average', $course_rating->rating_avg )); ?></div>
+					<div class="xpro-tutor-ratings-count">(<?php echo wp_kses_post($course_rating->rating_count > 0 ? $course_rating->rating_count : 0); ?>)</div>
 				<?php endif; ?>
+
 			</div>
 			<?php
 		}

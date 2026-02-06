@@ -1,4 +1,7 @@
 <?php
+
+defined( 'ABSPATH' ) || die();
+
 $forms               = ( 'yes' === $settings['all_forms'] ? '' : $settings['form_ids'] );
 $columns             = esc_html( $settings['columns'] );
 $orderby             = esc_html( $settings['orderby'] );

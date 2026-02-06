@@ -5,6 +5,8 @@
 
 use XproElementorAddons\Inc\Xpro_Elementor_Module_List;
 
+defined( 'ABSPATH' ) || die();
+
 $modules_all    = Xpro_Elementor_Module_List::instance()->get_list();
 $modules_active = $this->utils->get_option( 'xpro_elementor_module_list', array_keys( $modules_all ) );
 $modules_active = ( is_array( $modules_active ) && ! isset( $modules_active[0] ) ? array_keys( $modules_active ) : $modules_active );

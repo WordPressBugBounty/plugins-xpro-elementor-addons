@@ -1,5 +1,6 @@
 
 <?php
+defined( 'ABSPATH' ) || die();
 $hover_animation = ( '2d-transition' === $settings['social_hot_spot_hover_animation'] ) ? 'xpro-button-2d-animation ' . $settings['social_hot_spot_hover_2d_css_animation'] : ( ( 'background-transition' === $settings['social_hot_spot_hover_animation'] ) ? 'xpro-button-bg-animation ' . $settings['social_hot_spot_hover_background_css_animation'] : ( ( 'hover-effect' === $settings['social_hot_spot_hover_animation'] ) ? 'xpro-unique-' . $settings['social_hot_spot_hover_effect_animation'] : 'xpro-elementor-button-animation-none' ) );
 ?>
 <div class="xpro-hotspot-wrapper">
@@ -37,7 +38,7 @@ $hover_animation = ( '2d-transition' === $settings['social_hot_spot_hover_animat
 
 			<?php if ( 'yes' === $item['show_tooltip'] ) : ?>
 
-				<span class="<?php echo $hover_animation ?>  xpro-hotspot-tooltip-text  <?php echo esc_attr( $item['show_default_tooltip'] === 'yes' ? 'xpro-active' : '' ); ?> xpro-hotspot-<?php echo esc_attr( $item['position'] ); ?>">
+				<span class="<?php echo esc_attr($hover_animation) ?>  xpro-hotspot-tooltip-text  <?php echo esc_attr( $item['show_default_tooltip'] === 'yes' ? 'xpro-active' : '' ); ?> xpro-hotspot-<?php echo esc_attr( $item['position'] ); ?>">
 					<?php echo wp_kses_post( $item['tooltip_text'] ); ?>
 				</span>
 				<?php if ( 'auto' === $settings['type'] ) : ?>
@@ -45,9 +46,10 @@ $hover_animation = ( '2d-transition' === $settings['social_hot_spot_hover_animat
 					<span class="<?php echo esc_attr( $hover_animation ); ?> xpro-hotspot-tooltip-text xpro-active xpro-hotspot-<?php echo esc_attr( $item['position'] ); ?>">
 						 <?php echo wp_kses_post( $item['tooltip_text'] ); ?>
 					</span>
+
 				<?php endif; ?>
 				<?php if ( 'virtual-tour' === $settings['type'] ) : ?>
-				<span class="<?php echo $hover_animation ?>  xpro-hotspot-tooltip-text xpro-active xpro-hotspot-animations xpro-hotspot-<?php echo esc_attr( $item['position'] ); ?>">
+				<span class="<?php echo esc_attr($hover_animation) ?>  xpro-hotspot-tooltip-text xpro-active xpro-hotspot-animations xpro-hotspot-<?php echo esc_attr( $item['position'] ); ?>">
 					<?php echo wp_kses_post( $item['tooltip_text'] ); ?>
 				</span>
 				<?php endif; ?>

@@ -1322,7 +1322,9 @@ class Custom_Field extends Widget_Base {
 					<?php
 				}
 			}
-			echo $custom_field_html;
+            
+			echo wp_kses_post($custom_field_html);
+            
 			?>
 		</div>
 		<?php

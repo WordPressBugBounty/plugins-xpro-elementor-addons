@@ -13,8 +13,14 @@ class Xpro_Elementor_Post_Item_Api extends Core\Xpro_Elementor_Handler_Api {
 	}
 
 	public function get_content_editor() {
-		$content_key  = $this->request['key'];
-		$content_type = $this->request['type'];
+
+	    if ( ! is_user_logged_in() || ! current_user_can( 'edit_posts' ) ) {
+			wp_die( __( 'Unauthorized request.', 'xpro-elementor-addons' ), 403 );
+		}
+
+		$content_key  = sanitize_text_field( $this->request['key'] );
+		$content_type = sanitize_text_field( $this->request['type'] );
+
 
 		$builder_post_title = 'dynamic-content-' . $content_type . '-' . $content_key;
 		$builder_post_id    = xpro_get_page_by_title( $builder_post_title, OBJECT, 'xpro_content' );
@@ -49,8 +55,13 @@ class Xpro_Elementor_Post_Item_Api extends Core\Xpro_Elementor_Handler_Api {
 		}
 
 		$url = get_admin_url() . '/post.php?post=' . $builder_post_id . '&action=elementor';
-		wp_safe_redirect( $url );
+			wp_safe_redirect( $url );
+			To: $url = admin_url(
+				'post.php?post=' . absint( $builder_post_id ) . '&action=elementor'
+			);
+			wp_safe_redirect( $url );
 		exit;
+		
 	}
 }
 

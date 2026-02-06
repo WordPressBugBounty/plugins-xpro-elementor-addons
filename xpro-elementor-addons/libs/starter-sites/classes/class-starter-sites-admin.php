@@ -326,8 +326,8 @@ class Xpro_Elementor_Starter_Sites_Admin {
 
             <div class="xs-header">
                 <div class="xs-header-left">
-                    <h2 class="xs-header-title"><?php echo __( 'Xpro Starter Sites', 'xpro-elementor-addons' ); ?></h2>
-                    <p class="xs-header-description"><?php echo __( 'This will help you to configure your new website like theme demo.', 'xpro-elementor-addons' ); ?></p>
+                    <h2 class="xs-header-title"><?php echo esc_html__( 'Xpro Starter Sites', 'xpro-elementor-addons' ); ?></h2>
+                    <p class="xs-header-description"><?php echo esc_html__( 'This will help you to configure your new website like theme demo.', 'xpro-elementor-addons' ); ?></p>
                 </div>
                 <div class="xs-header-right">
 					<?php echo wp_nonce_field( 'xpro-elementor-starter-sites-reset', 'xpro-elementor-starter-sites-reset', true, false ); ?>
@@ -404,8 +404,8 @@ class Xpro_Elementor_Starter_Sites_Admin {
 								}
 								$unique_categories[] = $single_cat;
 								?>
-                                <li class="xs-filter-btn" data-filter=".<?php echo strtolower( esc_attr( $single_cat ) ); ?>">
-									<?php echo ucfirst( esc_html( $single_cat ) ); ?>
+                                <li class="xs-filter-btn" data-filter=".<?php echo esc_attr(strtolower( $single_cat ) ); ?>">
+									 <?php echo esc_html( ucfirst( $single_cat ) ); ?>
                                 </li>
 								<?php
 							}
@@ -429,7 +429,7 @@ class Xpro_Elementor_Starter_Sites_Admin {
                 <div class="xs-total-themes-wrap">
                     <h4 class="xs-total-themes-content">
                         <span class="xs-count"><?php echo esc_html( $total_demo ); ?></span>
-						<?php echo __( ' Themes Found', 'xpro-elementor-addons' ); ?>
+						<?php echo esc_html( ' Themes Found', 'xpro-elementor-addons' ); ?>
                     </h4>
                 </div>
                 <div class="xs-search-control">
@@ -590,77 +590,6 @@ class Xpro_Elementor_Starter_Sites_Admin {
 	}
 
 	/**
-	 * Handle the demo content upload and called to process
-	 * Ajax callback
-	 *
-	 * @return void
-	 */
-	public function upload_zip() {
-		if ( isset( $_FILES['xs-upload-zip-archive']['name'] ) && ! empty( $_FILES['xs-upload-zip-archive']['name'] ) ) {
-			/*check for security*/
-			if ( ! current_user_can( 'upload_files' ) ) {
-				wp_send_json_error(
-					array(
-						'message' => esc_html__( 'Sorry, you are not allowed to install demo on this site.', 'xpro-elementor-addons' ),
-					)
-				);
-			}
-			check_admin_referer( 'xpro-elementor-starter-sites' );
-
-			/*file process*/
-			require_once ABSPATH . 'wp-admin/includes/file.php';
-			WP_Filesystem();
-			global $wp_filesystem;
-			$wp_filesystem->rmdir( XPRO_ELEMENTOR_ADDONS_TEMP, true );
-			$upload_zip_archive = $_FILES['xs-upload-zip-archive'];
-			$unzipfile          = unzip_file( $upload_zip_archive['tmp_name'], XPRO_ELEMENTOR_ADDONS_TEMP );
-			if ( is_wp_error( $unzipfile ) ) {
-				wp_send_json_error(
-					array(
-						'message' => esc_html__( 'Error on unzipping, Please try again', 'xpro-elementor-addons' ),
-					)
-				);
-			}
-			/*(check) Zip should contain json file and uploads folder only*/
-			$dirlist = $wp_filesystem->dirlist( XPRO_ELEMENTOR_ADDONS_TEMP );
-			foreach ( (array) $dirlist as $filename => $fileinfo ) {
-				if ( 'd' == $fileinfo['type'] ) {
-					if ( 'uploads' == $filename ) {
-						continue;
-					} else {
-						$wp_filesystem->rmdir( XPRO_ELEMENTOR_ADDONS_TEMP, true );
-						wp_send_json_error(
-							array(
-								'message' => esc_html__( 'Invalid Zip File', 'xpro-elementor-addons' ),
-							)
-						);
-					}
-				} else {
-					$filetype = wp_check_filetype( $filename, $this->mime_types() );
-					if ( empty( $filetype['ext'] ) || 'json' != $filetype['ext'] ) {
-						$wp_filesystem->rmdir( XPRO_ELEMENTOR_ADDONS_TEMP, true );
-						wp_send_json_error(
-							array(
-								'message' => esc_html__( 'Invalid Zip File', 'xpro-elementor-addons' ),
-							)
-						);
-					}
-				}
-			}
-			wp_send_json_success(
-				array(
-					'message' => esc_html__( 'Success', 'xpro-elementor-addons' ),
-				)
-			);
-		}
-		wp_send_json_error(
-			array(
-				'message' => esc_html__( 'No Zip File Found', 'xpro-elementor-addons' ),
-			)
-		);
-	}
-
-	/**
 	 * Adding new mime types.
 	 *
 	 * @access public
@@ -792,7 +721,8 @@ class Xpro_Elementor_Starter_Sites_Admin {
 				wp_send_json_error(
 					array(
 						'error'   => 1,
-						'message' => sprintf( esc_html__( 'Remote file is too large, limit is %s', 'xpro-elementor-addons' ), size_format( $max_size ) ),
+                         // translators: %s is the maximum allowed file size (e.g. 10 MB).
+						'message' => sprintf( esc_html__('Remote file is too large, limit is %s', 'xpro-elementor-addons' ), size_format( $max_size ) ),
 					)
 				);
 			}
@@ -937,7 +867,7 @@ class Xpro_Elementor_Starter_Sites_Admin {
 		?>
         <div class="xs-notification-title">
             <p>
-				<?php esc_html_e( 'Inserting demo content to your new WordPress site...' ); ?>
+				<?php esc_html_e( 'Inserting demo content to your new WordPress site...', 'xpro-elementor-addons' ); ?>
             </p>
         </div>
 
@@ -997,6 +927,7 @@ class Xpro_Elementor_Starter_Sites_Admin {
 				$post_type_title       = ! empty( $first['type_title'] ) ? $first['type_title'] : ucwords( $post_type ) . 's';
 				$content[ $post_type ] = array(
 					'title'            => $post_type_title,
+					// translators: %s is the type of post being created (e.g., "Posts", "Pages").
 					'description'      => sprintf( esc_html__( 'This will create default %s as seen in the demo.', 'xpro-elementor-addons' ), $post_type_title ),
 					'pending'          => esc_html__( 'Pending.', 'xpro-elementor-addons' ),
 					'installing'       => esc_html__( 'Installing.', 'xpro-elementor-addons' ),
@@ -1658,6 +1589,7 @@ class Xpro_Elementor_Starter_Sites_Admin {
 
 		$message  = '<div class="xs-notification-title" data-site-url="' . esc_url( home_url() ) . '">';
 		$message .= '<p>' . esc_html__( 'Your Website is Ready!', 'xpro-elementor-addons' ) . '</p>';
+        // translators: %1$s is the opening <a> tag linking to the WordPress dashboard, %2$s is the closing </a> tag.
 		$message .= '<p>' . sprintf( esc_html__( 'Congratulations! All Data is imported successfully. From %1$s WordPress dashboard%2$s you can make changes and modify any of the default content to suit your needs.', 'xpro-elementor-addons' ), '<a href="' . esc_url( admin_url() ) . '">', '</a>' ) . '</p>';
 		$message .= '</div>';
 
@@ -2537,6 +2469,7 @@ class Xpro_Elementor_Starter_Sites_Admin {
 			if ( ! empty( $max_size ) && $file_size > $max_size ) {
 				wp_delete_file( $upload['file'] );
 
+                // translators: %s is [explanation of what %s represents]
 				return new WP_Error( 'import_file_error', sprintf( esc_html__( 'Remote file is too large, limit is %s', 'xpro-elementor-addons' ), size_format( $max_size ) ) );
 			}
 		}

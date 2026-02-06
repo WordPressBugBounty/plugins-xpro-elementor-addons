@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die(); ?>
 <div class="xpro-progress-bar-wrapper xpro-progress-bar-layout-<?php echo esc_attr( $settings['layout'] ); ?>">
 	<?php if ( $settings['title'] && '15' !== $settings['layout'] ) : ?>
 		<div class="xpro-progress-content">

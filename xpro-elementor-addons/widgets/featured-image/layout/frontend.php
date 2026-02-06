@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || die();
 
 $post_data = get_demo_post_data();
 

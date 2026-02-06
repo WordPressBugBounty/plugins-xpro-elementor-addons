@@ -1,6 +1,7 @@
 <?php
 
 use Elementor\Icons_Manager;
+defined( 'ABSPATH' ) || die();
 
 $title_tag   = ( $settings['title_link']['url'] ) ? 'a' : 'h2';
 $title_attr  = $settings['title_link']['is_external'] ? ' target="_blank"' : '';
@@ -18,7 +19,7 @@ $title_attr .= $settings['title_link']['url'] ? ' href="' . esc_url( $settings['
 	<div class="xpro-team-image">
 		<?php
 		$image_markup = ( ! empty( $settings['image']['id'] ) ) ? wp_get_attachment_image( $settings['image']['id'], $settings['thumbnail_size'] ) : '';
-		echo ! empty( $image_markup ) ? $image_markup : '<img alt="team-img" src="' . esc_url( $settings['image']['url'] ) . '">';
+		echo ! empty( $image_markup ) ? wp_kses( $image_markup, xpro_allowed_img_kses() ) : '<img alt="team-img" src="' . esc_url( $settings['image']['url'] ) . '">';
 		?>
 		<?php if ( '8' === $settings['layout'] || '9' === $settings['layout'] ) : ?>
 		<div class="xpro-team-inner-content">

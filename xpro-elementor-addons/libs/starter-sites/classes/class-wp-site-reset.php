@@ -1,5 +1,5 @@
 <?php
-
+defined( 'ABSPATH' ) || die();
 /**
  * The admin-specific functionality of the plugin.
  * Reset WordPress

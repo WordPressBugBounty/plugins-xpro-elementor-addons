@@ -1,4 +1,6 @@
 <?php
+defined( 'ABSPATH' ) || die();
+
 $title_tag   = ( $settings['name_link']['url'] ) ? 'a' : 'h3';
 $title_attr  = $settings['name_link']['is_external'] ? ' target="_blank"' : '';
 $title_attr .= $settings['name_link']['nofollow'] ? ' rel="nofollow"' : '';
@@ -10,7 +12,7 @@ $title_attr .= $settings['name_link']['url'] ? ' href="' . esc_url( $settings['n
 		<div class="xpro-testimonial-image">
 			<?php
 			$image_markup = ( ! empty( $settings['image']['id'] ) ) ? wp_get_attachment_image( $settings['image']['id'], $settings['thumbnail_size'] ) : '';
-			echo ! empty( $image_markup ) ? $image_markup : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
+			echo ! empty( $image_markup ) ? wp_kses( $image_markup, xpro_allowed_img_kses() ) : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
 			?>
 		</div>
 	<?php endif; ?>
@@ -75,7 +77,7 @@ $title_attr .= $settings['name_link']['url'] ? ' href="' . esc_url( $settings['n
 			<div class="xpro-testimonial-image">
 				<?php
 				$image_markup = ( ! empty( $settings['image']['id'] ) ) ? wp_get_attachment_image( $settings['image']['id'], $settings['thumbnail_size'] ) : '';
-				echo ! empty( $image_markup ) ? $image_markup : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
+				echo ! empty( $image_markup ) ? wp_kses( $image_markup, xpro_allowed_img_kses() ) : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
 				?>
 			</div>
 		<?php endif; ?>

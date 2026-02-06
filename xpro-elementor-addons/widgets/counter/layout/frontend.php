@@ -1,6 +1,8 @@
 <?php
 use Elementor\Group_Control_Image_Size;
 use Elementor\Icons_Manager;
+defined( constant_name: 'ABSPATH' ) || die();
+
 ?>
 <div class="xpro-counter-wrapper">
 		<div class="xpro-counter-wrapper-inner">
@@ -12,12 +14,12 @@ use Elementor\Icons_Manager;
 								Icons_Manager::render_icon( $settings['icon'], array( 'aria-hidden' => 'true' ) );
 							}
 							if ( 'image' === $settings['media_type'] ) {
-								$image_markup = ( ! empty( $settings['image']['id'] ) ) ? wp_get_attachment_image( $settings['image']['id'], $settings['thumbnail_size'] ) : '';
-								echo ! empty( $image_markup ) ? $image_markup : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
+								$image_markup = ( ! empty( $settings['image']['id'] ) ) ? wp_get_attachment_image( $settings['image']['id'], 'medium' ) : '';
+								echo ! empty( $image_markup ) ?  wp_kses( $image_markup, xpro_allowed_img_kses() ) : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
 							}
 							if ( 'lottie' === $settings['media_type'] ) {
-								?> <div id="xpro-counter-box-lottie"  class="xpro-counter-lottie-animation"></div> 
-								<?php } 
+								?> <div id="xpro-counter-box-lottie"  class="xpro-counter-lottie-animation"></div> <?php 
+							} 
 							?>
 						</div>
 				<?php endif; ?>
@@ -39,7 +41,14 @@ use Elementor\Icons_Manager;
 					<div class="xpro-counter-content">
 						<?php
 						if ( $settings['title'] ) :
-							printf( '<%1$s %2$s>%3$s</%1$s>', tag_escape( $settings['title_tag'] ), $this->get_render_attribute_string( 'title' ), $settings['title'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+							$allowed_tags = array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' );
+							$html_tag = isset($settings['title_tag']) ? $settings['title_tag'] : 'h3';
+							$html_tag = strtolower($html_tag);
+							$html_tag = in_array( $html_tag, $allowed_tags, true ) ? $html_tag : 'h3';
+							
+							printf('<%1$s %2$s>%3$s</%1$s>', esc_attr( $html_tag ), $this->get_render_attribute_string( 'title' ), wp_kses_post( $settings['title'] )); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							
 						endif;
 						if ( $settings['description'] ) :
 							?>
@@ -49,3 +58,6 @@ use Elementor\Icons_Manager;
 		     </div>
 	  </div>
 </div>
+<?php
+
+?>

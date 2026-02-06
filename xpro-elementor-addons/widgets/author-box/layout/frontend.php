@@ -1,4 +1,7 @@
 <?php
+
+defined( 'ABSPATH' ) || die();
+
 $author          = array();
 $link_tag        = 'div';
 $link_url        = '';

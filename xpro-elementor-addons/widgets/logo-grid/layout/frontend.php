@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die(); ?>
 <div class="xpro-logo-grid-wrapper">
 	<?php
 	use Elementor\Utils;

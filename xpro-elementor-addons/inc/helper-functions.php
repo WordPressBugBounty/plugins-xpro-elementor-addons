@@ -5,6 +5,9 @@ use ElementorPro\Modules\ThemeBuilder\Module;
 use XproElementorAddons\Libs\Dashboard\Classes\Xpro_Elementor_Dashboard_Utils;
 use XproElementorAddonsPro\Libs\Xpro_Elementor_License;
 
+defined( 'ABSPATH' ) || die();
+
+
 /**
  * @param $attachment_id
  *
@@ -773,6 +776,17 @@ function xpro_elementor_kses( $raw ) {
 	);
 
 	echo wp_kses( $raw, $allowed_tags );
+}
+
+function xpro_allowed_img_kses() {
+	$allowed_img_kses = wp_kses_allowed_html( 'post' );
+
+	$allowed_img_kses['img']['srcset']        = true;
+	$allowed_img_kses['img']['sizes']         = true;
+	$allowed_img_kses['img']['decoding']      = true;
+	$allowed_img_kses['img']['fetchpriority'] = true;
+
+	return $allowed_img_kses;
 }
 
 function get_demo_post_data() {

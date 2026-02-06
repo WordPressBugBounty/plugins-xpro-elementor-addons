@@ -5,6 +5,8 @@
 
 use XproElementorAddons\Inc\Xpro_Elementor_Widget_List;
 
+defined( 'ABSPATH' ) || die();
+
 $widgets_all    = Xpro_Elementor_Widget_List::instance()->get_list();
 $widgets_active = $this->utils->get_option( 'xpro_elementor_widget_list', array_keys( $widgets_all ) );
 $widgets_active = ( is_array( $widgets_active ) && ! isset( $widgets_active[0] ) && is_array( $widgets_active[0] ) ? array_keys( $widgets_active ) : $widgets_active );

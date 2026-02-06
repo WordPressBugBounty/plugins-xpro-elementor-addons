@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || die();
+
 use Elementor\Plugin;
 
 global $product, $post;

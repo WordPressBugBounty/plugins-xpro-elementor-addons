@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die(); ?>
 <!-- News Ticker -->
 <div class="xpro-news-ticker-wrapper">
 

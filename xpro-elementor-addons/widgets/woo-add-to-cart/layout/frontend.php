@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || die();
 
 $product     = $this->get_product( get_post_type() );
 $editor_mode = ( \Elementor\Plugin::$instance->editor->is_edit_mode() || is_preview() );
@@ -33,7 +34,7 @@ if ( $editor_mode ) {
 }
 
 add_filter( 'woocommerce_product_single_add_to_cart_text', function() use ( $custom_button_text ) {
-	return $custom_button_text ? $custom_button_text : __( 'Add to Cart', 'woocommerce' );
+	return $custom_button_text ? $custom_button_text : __( 'Add to Cart', 'xpro-elementor-addons' );
 });
 woocommerce_template_single_add_to_cart();
 

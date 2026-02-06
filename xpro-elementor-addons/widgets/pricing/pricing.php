@@ -579,14 +579,16 @@ class Pricing extends Widget_Base {
 			)
 		);
 
-		$this->add_control(
-			'onclick_event',
-			array(
-				'label'       => esc_html__( 'onClick Event', 'xpro-elementor-addons' ),
-				'type'        => Controls_Manager::TEXT,
-				'placeholder' => 'myFunction()',
-			)
-		);
+		if ( current_user_can( 'manage_options' ) ) { 
+			$this->add_control(
+				'onclick_event',
+				array(
+					'label'       => esc_html__( 'onClick Event', 'xpro-elementor-addons' ),
+					'type'        => Controls_Manager::TEXT,
+					'placeholder' => 'myFunction()',
+				)
+			);
+	    }
 
 		$this->end_controls_section();
 
@@ -2019,6 +2021,15 @@ class Pricing extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+	}
+
+	public static function check_capability( $capability ) {
+		$post = get_post();
+		if ( ! $post ) {
+			return false;
+		}
+		$post_author_id = $post->post_author;
+		return user_can( $post_author_id, $capability );
 	}
 
 	/**

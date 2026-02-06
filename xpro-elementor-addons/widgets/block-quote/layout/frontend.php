@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die(); ?>
 <div class="xpro-block-quote-wrapper xpro-block-quote-<?php echo esc_attr( $settings['quote_position'] ); ?>">
 	<div class="xpro-block-quote-inner">
 		<?php if ( !empty($settings['quote_icon']['value']) && ( 'layout-3' !== $settings['quote_position'] && 'layout-6' !== $settings['quote_position'] ) ) : ?>

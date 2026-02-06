@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die(); ?>
 <form class="xpro-elementor-search-wrapper xpro-elementor-search-layout-<?php use Elementor\Icons_Manager;
 
 echo esc_attr( $settings['layout'] ); ?>" method="get" id="searchform" autocomplete="off" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">

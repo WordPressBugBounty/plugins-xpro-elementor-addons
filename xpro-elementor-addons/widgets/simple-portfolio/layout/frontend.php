@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die(); ?>
 <div class="xpro-elementor-gallery xpro-elementor-gallery-layout-grid">
 
 	<?php use Elementor\Icons_Manager;
@@ -44,7 +45,7 @@
 			?>
 
 			<!--Item-->
-			<div class="cbp-item xpro-elementor-gallery-item xpro-preview-type-<?php echo esc_attr( $settings['preview_type'] ); ?> <?php echo esc_attr( xpro_elementor_friendly_str_replace( $item['filter'] ) ); ?>" data-title="<?php echo htmlentities( strip_tags( $item['title_text'] ), ENT_QUOTES, 'UTF-8' ); ?>" data-src-preview="<?php echo esc_url( $item['preview_link'] ); ?>">
+			<div class="cbp-item xpro-elementor-gallery-item xpro-preview-type-<?php echo esc_attr( $settings['preview_type'] ); ?> <?php echo esc_attr( xpro_elementor_friendly_str_replace( $item['filter'] ) ); ?>" data-title="<?php echo esc_attr( wp_strip_all_tags( $item['title_text'] ), ENT_QUOTES, 'UTF-8' ); ?>" data-src-preview="<?php echo esc_url( $item['preview_link'] ); ?>">
 				<div class="cbp-caption">
 					<?php
 					$thumb_url = ( ! empty( $item['image']['id'] ) ) ? wp_get_attachment_image_url( $item['image']['id'], 'thumbnail' ) : '';
@@ -52,7 +53,7 @@
 					<div class="cbp-caption-defaultWrap" data-xpro-thumb="<?php echo ! empty( $thumb_url ) ? esc_url( $thumb_url ) : esc_url( $item['image']['url'] ); ?>">
 						<?php
 						$image_markup = ( ! empty( $item['image']['id'] ) ) ? wp_get_attachment_image( $item['image']['id'], $settings['thumbnail_size'] ) : '';
-						echo ! empty( $image_markup ) ? $image_markup : '<img src="' . esc_url( $item['image']['url'] ) . '">';
+						echo ! empty( $image_markup ) ? wp_kses( $image_markup, xpro_allowed_img_kses() ) : '<img src="' . esc_url( $item['image']['url'] ) . '">';
 						?>
 					</div>
 					<div class="cbp-caption-activeWrap">

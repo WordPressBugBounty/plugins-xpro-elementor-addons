@@ -1,5 +1,5 @@
 <?php
-
+defined( 'ABSPATH' ) || die();
 use Elementor\Icons_Manager;
 
 $html_tag = sanitize_key($settings['title_tag']);

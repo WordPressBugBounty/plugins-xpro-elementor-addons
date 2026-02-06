@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die(); ?> 
 <div class="xpro-elementor-gallery xpro-elementor-gallery-layout-grid">
 
 	<?php use Elementor\Icons_Manager;

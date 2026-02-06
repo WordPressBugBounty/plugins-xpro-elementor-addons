@@ -27,7 +27,7 @@ class Xpro_Elementor_Display_Order {
 		$element->add_responsive_control(
 			'xpro_display_order',
 			array(
-				'label'       => _x( 'Display Order', 'xpro-elementor-addons' ),
+				'label'       => __( 'Display Order', 'xpro-elementor-addons' ),
 				'type'        => Controls_Manager::NUMBER,
 				'min'         => -10,
 				'max'         => 10,

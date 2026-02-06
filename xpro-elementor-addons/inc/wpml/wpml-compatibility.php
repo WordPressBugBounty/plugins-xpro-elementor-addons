@@ -1,6 +1,8 @@
 <?php
 
 namespace XproElementorAddons\Inc;
+defined( 'ABSPATH' ) || die();
+
 
 class Xpro_WPML_Compatibility {
 

@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || die();
+
 $xpro_elementor_user_data = $this->utils->get_option( 'xpro_elementor_user_data', array() );
 $pro_active               = ( in_array( 'xpro-elementor-addons-pro/xpro-elementor-addons-pro.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) );
 

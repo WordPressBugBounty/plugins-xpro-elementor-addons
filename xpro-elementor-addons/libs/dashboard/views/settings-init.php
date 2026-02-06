@@ -4,6 +4,10 @@ use XproElementorAddons\Inc\Xpro_Elementor_Widget_List;
 use XproElementorAddons\Libs\Xpro_Elementor_Dashboard;
 use XproElementorAddonsPro\Libs\Xpro_Elementor_License;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 $sections = array(
 	'dashboard' => array(
 		'title' => esc_html__( 'Dashboard', 'xpro-elementor-addons' ),

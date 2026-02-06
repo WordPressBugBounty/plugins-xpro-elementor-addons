@@ -2,6 +2,8 @@
 
 use Elementor\Icons_Manager;
 
+defined( 'ABSPATH' ) || die();
+
 $html_tag = ( $settings['link']['url'] ) ? 'a' : 'span';
 $attr     = ( $settings['button_css_id'] ) ? ' id="' . esc_attr ( $settings['button_css_id'] ) . '"' : '';
 $attr    .= $settings['link']['is_external'] ? ' target="_blank"' : '';

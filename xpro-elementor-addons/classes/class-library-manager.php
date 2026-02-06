@@ -67,7 +67,7 @@ class Xpro_Elementor_Library_Manager {
 					$editor_post_id = absint( $data['editor_post_id'] );
 
 					if ( ! get_post( $editor_post_id ) ) {
-						throw new Exception( __( 'Post not found.', 'xpro-elementor-addons' ) );
+						throw new Exception( esc_html__( 'Post not found.', 'xpro-elementor-addons' ) );
 					}
 
 					Plugin::instance()->db->switch_to_post( $editor_post_id );
@@ -90,14 +90,14 @@ class Xpro_Elementor_Library_Manager {
 					$editor_post_id = absint( $data['editor_post_id'] );
 
 					if ( ! get_post( $editor_post_id ) ) {
-						throw new Exception( __( 'Post not found', 'xpro-elementor-addons' ) );
+						throw new Exception( esc_html__( 'Post not found', 'xpro-elementor-addons' ) );
 					}
 
 					Plugin::instance()->db->switch_to_post( $editor_post_id );
 				}
 
 				if ( empty( $data['template_id'] ) ) {
-					throw new Exception( __( 'Template id missing', 'xpro-elementor-addons' ) );
+					throw new Exception( esc_html__( 'Template id missing', 'xpro-elementor-addons' ) );
 				}
 
 				$result = self::get_template_data( $data );

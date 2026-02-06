@@ -1,4 +1,6 @@
 <?php
+defined( 'ABSPATH' ) || die();
+
 global $product, $post;
 
 $post_type = $post->post_type; //phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited

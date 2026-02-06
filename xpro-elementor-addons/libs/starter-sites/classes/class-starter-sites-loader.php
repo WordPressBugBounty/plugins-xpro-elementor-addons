@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || die();
 
 class Xpro_Elementor_Starter_Sites_Loader {
 

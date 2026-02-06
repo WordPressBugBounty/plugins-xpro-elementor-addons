@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die();?>
 <div class="xpro-business-hour-wrapper">
 
 	<?php if ( 'yes' === $settings['show_title'] ) : ?>

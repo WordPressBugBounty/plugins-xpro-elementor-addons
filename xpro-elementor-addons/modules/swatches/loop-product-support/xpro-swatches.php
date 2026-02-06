@@ -1,6 +1,7 @@
 <?php
 
 namespace XproElementorAddons\Modules\Swatches;
+defined( 'ABSPATH' ) || die();
 
 class Xpro_Swatches {
 
@@ -76,7 +77,7 @@ class Xpro_Swatches {
 				}
 			}
 			if ( $swatches ) {
-				echo '<div class="xpro_swatches xpro_swatches_in_loop xpro_' . $attribute_to_show . '" data-attribute=' . "'" . wp_json_encode( $attribute_data, true ) . "'" . ' data-attribute_name="attribute_' . esc_attr( $attribute_to_show ) . '">' . $swatches . '</div>';
+				echo '<div class="xpro_swatches xpro_swatches_in_loop xpro_' .  esc_attr($attribute_to_show) . '" data-attribute=' . "'" . wp_json_encode( $attribute_data, true ) . "'" . ' data-attribute_name="attribute_' . esc_attr( $attribute_to_show ) . '">' . wp_kses_post($swatches) . '</div>';
 			}
 		}
 	}
@@ -151,6 +152,6 @@ class Xpro_Swatches {
 		}
 
 		$this->attribute_options[ $term->slug ] = $html;
-		return $html;
+		return wp_kses_post( $html );
 	}
 }

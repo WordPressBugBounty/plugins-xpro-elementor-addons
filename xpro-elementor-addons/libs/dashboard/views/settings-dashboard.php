@@ -1,4 +1,7 @@
 <?php
+
+defined( 'ABSPATH' ) || die();
+
 $package = xpro_elementor_get_package_type();
 ?>
 

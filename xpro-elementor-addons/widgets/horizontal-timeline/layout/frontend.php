@@ -1,6 +1,7 @@
 <?php
 use Elementor\Group_Control_Image_Size;
 use Elementor\Icons_Manager;
+defined( 'ABSPATH' ) || die();
 ?>
 <div class="xpro-horizontal-timeline-wrapper<?php echo esc_attr( ( 'yes' === $settings['reverse'] ) ? ' xpro-horizontal-timeline-reverse-yes' : '' ); ?> xpro-horizontal-timeline-<?php echo esc_attr( $settings['direction'] ); ?>">
 	<div class="xpro-horizontal-timeline-inner">

@@ -601,11 +601,15 @@ class Icon_Box extends Widget_Base {
 			array(
 				'label'      => __( 'Size', 'xpro-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px' ),
+				'size_units' => array( 'px', '%' ),
 				'range'      => array(
 					'px' => array(
 						'min' => 5,
 						'max' => 300,
+					),
+					'%' => array(
+						'min' => 1,
+						'max' => 100,
 					),
 				),
 				'default'    => array(
@@ -689,13 +693,17 @@ class Icon_Box extends Widget_Base {
 				'mobile_default' => array(
 					'unit' => 'px',
 				),
-				'size_units'     => array( 'px', 'vh' ),
+				'size_units'     => array( 'px', 'vh', '%' ),
 				'range'          => array(
 					'px' => array(
 						'min' => 1,
 						'max' => 500,
 					),
 					'vh' => array(
+						'min' => 1,
+						'max' => 100,
+					),
+					'%' => array(
 						'min' => 1,
 						'max' => 100,
 					),

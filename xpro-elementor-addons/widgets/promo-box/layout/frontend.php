@@ -3,6 +3,8 @@
 use Elementor\Group_Control_Image_Size;
 use Elementor\Icons_Manager;
 
+defined( 'ABSPATH' ) || die();
+
 $html_tag = ( $settings['title_link']['url'] ) ? 'a' : 'h3';
 $attr     = $settings['title_link']['url'] ? ' href="' . esc_url( $settings['title_link']['url'] ) . '"' : '';
 $attr    .= $settings['title_link']['is_external'] ? ' target="_blank"' : '';
@@ -93,7 +95,7 @@ if ( $settings['title_link'] && $settings['title_link']['custom_attributes'] ) {
 
 		?>
 
-	<<?php echo esc_attr( $btn_tag ); ?> <?php echo $btn_attr; ?> class="xpro-promo-box-btn xpro-promo-box-align-<?php echo esc_attr( $settings['icon_align'] ); ?>">
+	<<?php echo esc_attr( $btn_tag ); ?> <?php echo wp_kses_post($btn_attr); ?> class="xpro-promo-box-btn xpro-promo-box-align-<?php echo esc_attr( $settings['icon_align'] ); ?>">
 		<?php if ( $settings['icon']['value'] ) : ?>
 			<?php Icons_Manager::render_icon( $settings['icon'], array( 'aria-hidden' => 'true' ) ); ?>
 	<?php endif; ?>

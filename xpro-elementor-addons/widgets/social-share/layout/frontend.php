@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || die();
 $hover_animation = ( '2d-transition' === $settings['social_share_hover_animation'] ) ? 'xpro-button-2d-animation ' . $settings['social_share_hover_2d_css_animation'] : ( ( 'background-transition' === $settings['social_share_hover_animation'] ) ? 'xpro-button-bg-animation ' . $settings['social_share_hover_background_css_animation'] : ( ( 'hover-effect' === $settings['social_share_hover_animation'] ) ? 'xpro-unique-' . $settings['social_share_hover_effect_animation'] : 'xpro-elementor-button-animation-none' ) );
 ?>
 

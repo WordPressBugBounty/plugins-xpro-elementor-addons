@@ -4,7 +4,7 @@ namespace XproElementorAddons\Libs;
 
 use Xpro_Elementor_Addons;
 use XproElementorAddons\Libs\Dashboard\Classes;
-
+defined( 'ABSPATH' ) || die();
 /**
  * Class Xpro_Elementor_Dashboard
  *

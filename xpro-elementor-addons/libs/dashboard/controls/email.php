@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die(); ?>
 <div class="xpro-dashboard-text-item <?php echo esc_attr( $class ); ?>">
 	<label class="xpro-dashboard-control-label" for="xpro-dashboard-modules-text-<?php echo esc_attr( $value ); ?>">
 		<?php echo esc_html( $label ); ?>

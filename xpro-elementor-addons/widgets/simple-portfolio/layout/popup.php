@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || die(); ?>
 <!--Site Laoder-->
 <ul class="xpro-portfolio-loader xpro-portfolio-loader-style-<?php echo esc_attr( $settings['popup_animation'] ); ?>">
 	<li></li>

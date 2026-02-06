@@ -581,7 +581,7 @@ class Contact_Form extends Widget_Base {
 		$this->add_control(
 			'show_button_icon',
 			array(
-				'label'        => __( 'Show Icon', 'xpro-elementor-addons-pro' ),
+				'label'        => __( 'Show Icon', 'xpro-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 			    'default'      => 'no',

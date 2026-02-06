@@ -2,6 +2,7 @@
 
 use Elementor\Group_Control_Image_Size;
 use Elementor\Icons_Manager;
+defined( 'ABSPATH' ) || die();
 
 $html_tag = ( $settings['link'] ) ? 'a' : 'div';
 $attr     = $settings['link']['url'] ? ' href="' . esc_url ( $settings['link']['url'] ) . '"' : '';
@@ -38,7 +39,7 @@ if ( $settings['link'] && $settings['link']['custom_attributes'] ) {
 				}
 				if ( 'image' === $settings['media_type'] ) {
 					$image_markup = ( ! empty( $settings['image']['id'] ) ) ? wp_get_attachment_image( $settings['image']['id'], $settings['thumbnail_size'] ) : '';
-					echo ! empty( $image_markup ) ? $image_markup : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
+					echo ! empty( $image_markup ) ? wp_kses( $image_markup, xpro_allowed_img_kses() ) : '<img src="' . esc_url( $settings['image']['url'] ) . '">';
 				}
 				if ( 'lottie' === $settings['media_type'] ) {
 					?> <div id="xpro-icon-box-lottie"  class="xpro-box-lottie-animation"></div> 
@@ -80,6 +81,6 @@ if ( $settings['link'] && $settings['link']['custom_attributes'] ) {
 					</Button>  
 				</div>
 			<?php endif; ?>
-   </span>	
+   </span>
    </div>
 </<?php echo esc_attr( $html_tag ); ?>>

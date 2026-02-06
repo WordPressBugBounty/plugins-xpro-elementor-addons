@@ -1,4 +1,7 @@
-<?php use Elementor\Icons_Manager; ?>
+<?php use Elementor\Icons_Manager;
+defined( 'ABSPATH' ) || die();
+?>
+
 <div class="xpro-contact-form-message"></div>
 <form id="xpro-contact-form-<?php echo esc_attr( $this->get_id() ); ?>" class="xpro-contact-form" action="<?php echo esc_url( site_url() . '/wp-admin/admin-ajax.php?action=xpro_elementor_contact_form&nonce=' . wp_create_nonce( 'xpro-contact-nonce' ) ); ?>">
 	<?php
