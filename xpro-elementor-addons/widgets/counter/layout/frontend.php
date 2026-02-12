@@ -1,8 +1,7 @@
 <?php
 use Elementor\Group_Control_Image_Size;
 use Elementor\Icons_Manager;
-defined( constant_name: 'ABSPATH' ) || die();
-
+defined( 'ABSPATH' ) || die();
 ?>
 <div class="xpro-counter-wrapper">
 		<div class="xpro-counter-wrapper-inner">

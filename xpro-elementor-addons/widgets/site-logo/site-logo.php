@@ -47,6 +47,7 @@ class Site_Logo extends Widget_Base {
 		return $has_wrapper;
 	}
 
+
 	/**
 	 * Get widget title.
 	 *
@@ -90,6 +91,8 @@ class Site_Logo extends Widget_Base {
 	public function get_categories() {
 		return array( 'xpro-themer' );
 	}
+
+	
 
 	/**
 	 * Get widget keywords.

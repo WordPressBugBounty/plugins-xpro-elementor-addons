@@ -6,7 +6,6 @@ defined( 'ABSPATH' ) || exit;
 
 class Xpro_Elementor_Post_Item_Api extends Core\Xpro_Elementor_Handler_Api {
 
-
 	public function config() {
 		$this->prefix = 'dynamic-content';
 		$this->param  = '/(?P<type>\w+)/(?P<key>\w+(|[-]\w+))/';
@@ -14,8 +13,29 @@ class Xpro_Elementor_Post_Item_Api extends Core\Xpro_Elementor_Handler_Api {
 
 	public function get_content_editor() {
 
-	    if ( ! is_user_logged_in() || ! current_user_can( 'edit_posts' ) ) {
-			wp_die( __( 'Unauthorized request.', 'xpro-elementor-addons' ), 403 );
+	    $site_url = site_url();
+
+		if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
+			$referer = $_SERVER['HTTP_REFERER'];
+
+			if ( strpos( $referer, $site_url ) !== 0 ) {
+				if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+					return new \WP_Error(
+						'rest_forbidden',
+						__( 'External requests are not allowed.', 'xpro-elementor-addons' ),
+						array( 'status' => 403 )
+					);
+				}
+				wp_die( 'External access not allowed.', 403 );
+			}
+		} else {
+			if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+				return new \WP_Error(
+					'rest_forbidden',
+					__( 'Direct API access is not allowed.', 'xpro-elementor-addons' ),
+					array( 'status' => 403 )
+				);
+			}
 		}
 
 		$content_key  = sanitize_text_field( $this->request['key'] );
@@ -54,12 +74,10 @@ class Xpro_Elementor_Post_Item_Api extends Core\Xpro_Elementor_Handler_Api {
 			$builder_post_id = $builder_post_id->ID;
 		}
 
-		$url = get_admin_url() . '/post.php?post=' . $builder_post_id . '&action=elementor';
-			wp_safe_redirect( $url );
-			To: $url = admin_url(
-				'post.php?post=' . absint( $builder_post_id ) . '&action=elementor'
-			);
-			wp_safe_redirect( $url );
+		$url = admin_url(
+			'post.php?post=' . absint( $builder_post_id ) . '&action=elementor' );
+
+		wp_safe_redirect( $url );
 		exit;
 		
 	}
