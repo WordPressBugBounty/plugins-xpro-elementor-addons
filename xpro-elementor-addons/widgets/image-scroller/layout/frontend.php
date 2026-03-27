@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || die();
 $html_tag = ( $settings['link']['url'] ) ? 'a' : 'div';
 $attr     = $settings['link']['is_external'] ? ' target="_blank"' : '';
 $attr    .= $settings['link']['nofollow'] ? ' rel="nofollow"' : '';
-$attr    .= $settings['link']['url'] ? ' href="' . esc_attr($settings['link']['url']) . '"' : '';
+$attr    .= $settings['link']['url'] ? ' href="' . esc_url($settings['link']['url']) . '"' : '';
 
 if ( $settings['link'] && $settings['link']['custom_attributes'] ) {
 	$attributes = explode( ',', $settings['link']['custom_attributes'] );

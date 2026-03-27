@@ -32,7 +32,7 @@ if ( $settings['link'] && $settings['link']['custom_attributes'] ) {
 	<?php endif; ?>
      
 	<?php if ( 'icon' === $settings['media_type'] || 'image' === $settings['media_type'] || 'lottie' === $settings['media_type'] ) : ?>
-		<span class="xpro-box-icon-item">
+		   <span class="xpro-box-icon-item">
 				<?php
 				if ( 'icon' === $settings['media_type'] && $settings['icon'] ) {
 					Icons_Manager::render_icon( $settings['icon'], array( 'aria-hidden' => 'true' ) );
@@ -45,13 +45,13 @@ if ( $settings['link'] && $settings['link']['custom_attributes'] ) {
 					?> <div id="xpro-icon-box-lottie"  class="xpro-box-lottie-animation"></div> 
 					<?php } 
 				?>
-			</span>
+		  </span>
 	<?php endif; ?>
 
 	<span class="xpro-box-icon-content">
 	<?php
 	if ( $settings['title'] ) :
-		printf( '<%1$s %2$s>%3$s</%1$s>', tag_escape( $settings['title_tag'] ), $this->get_render_attribute_string( 'title' ), $settings['title'] ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf( '<%1$s %2$s>%3$s</%1$s>', tag_escape( $settings['title_tag'] ), $this->get_render_attribute_string( 'title' ), esc_js( $settings['title'])); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	endif;
 	?>
 
