@@ -36,6 +36,11 @@
                         n = i.data("xpro-element-link"),
                         r = i.data("id"),
                         a = document.createElement("a");
+                        // safety check
+                        if (!n || !n.url) return;
+                        if (!/^https?:\/\//i.test(n.url)) {
+                            n.url = "https://" + n.url;
+                        }
                     (a.id = "xpro-addons-wrapper-link-" + r),
                         (a.href = n.url),
                         (a.target = n.is_external ? "_blank" : "_self"),

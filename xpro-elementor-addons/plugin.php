@@ -664,6 +664,7 @@ class Xpro_Elementor_Addons {
 			'XproWidgetAreaEditorParams',
 			array(
 				'rest_api_url' => get_rest_url(),
+				'nonce' => wp_create_nonce('wp_rest'),
 			)
 		);
 	}

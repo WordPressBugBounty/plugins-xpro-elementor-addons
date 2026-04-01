@@ -124,11 +124,10 @@ class Xpro_Ajax_Handler {
 				'vertical_megamenu_position_type' => '',
 				'megamenu_width_type'             => '',
 			);
-			$data = esc_attr(wp_json_encode( $data ));
+			$data = wp_json_encode( $data );
 		}
 
-		echo esc_html($data);
-
+		echo $data;
 		wp_die();
 	}
 
@@ -172,7 +171,7 @@ class Xpro_Ajax_Handler {
 		}
 
 		$url = get_admin_url() . 'post.php?post=' . $builder_post_id . '&action=elementor';
-		echo esc_url($url);
+		echo $url;
 		wp_die();
 	}
 
@@ -204,13 +203,13 @@ class Xpro_Ajax_Handler {
 			case 'taxonomy':
 				$post_list = wp_list_pluck(
 					get_terms(
+						$post_type,
 						array(
-						    'taxonomy'   => $post_type,
 							'hide_empty' => false,
 							'orderby'    => 'name',
 							'order'      => 'ASC',
 							'search'     => $search,
-							'number'     => 5,
+							'number'     => '5',
 						)
 					),
 					'name',
@@ -252,8 +251,8 @@ class Xpro_Ajax_Handler {
 			case 'taxonomy':
 				$response = wp_list_pluck(
 					get_terms(
+						$post_type,
 						array(
-							'taxonomy'   => $post_type,
 							'hide_empty' => false,
 							'orderby'    => 'name',
 							'order'      => 'ASC',

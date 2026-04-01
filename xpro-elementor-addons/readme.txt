@@ -1,11 +1,11 @@
 === Xpro Addons — 140+ Widgets for Elementor ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.4.25
+Version: 1.4.27
 Contributors: Xpro
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
-Tested up to: 6.9.1
-Stable tag: 1.4.25
+Tested up to: 6.9.4
+Stable tag: 1.4.27
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -264,6 +264,19 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 
 == Changelog ==
+
+= V 1.4.27 – 01 April 2025
+
+- Fix: Resolved an issue impacting the Hover Card Widget (Pro).
+- Fix: resolved an issue impacting the Image Accordion Widget (Pro).
+- Fix: resolved an issue in the Wrapper Link Extension.
+- Fix: Resolved a security issue in Xpro Template creation.
+
+
+= V 1.4.26 – 27 March 2026
+
+- Fix: resolved an issue affecting the Mega Menu functionality.
+
 
 = V 1.4.25 – 26 Feb 2026
 

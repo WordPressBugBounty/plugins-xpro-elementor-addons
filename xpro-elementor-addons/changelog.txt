@@ -1,3 +1,16 @@
+= V 1.4.27 – 01 April 2025
+
+- Fix: Resolved an issue impacting the Hover Card Widget (Pro).
+- Fix: resolved an issue impacting the Image Accordion Widget (Pro).
+- Fix: resolved an issue in the Wrapper Link Extension.
+- Fix: Resolved a security issue in Xpro Template creation.
+
+
+= V 1.4.26 – 27 March 2026
+
+- Fix: resolved an issue affecting the Mega Menu functionality.
+
+
 = V 1.4.25 – 26 Feb 2026
 
 - Fix: Resolved vulnerability in the Icon Box Widget.
