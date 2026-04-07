@@ -33,6 +33,11 @@ class Xpro_Elementor_Widget_List {
 			'title'   => 'AI Content',
 			'package' => 'free',
 		),
+		'social-chat'      => array(
+			'slug'    => 'social_chat',
+			'title'   => 'Social Chat - All In One',
+			'package' => 'free',
+		),
 		'icon-box'                => array(
 			'slug'    => 'icon_box',
 			'title'   => 'Icon Box',

@@ -208,6 +208,13 @@ class Xpro_Elementor_Addons {
 			null,
 			'1.0.0'
 		);
+		wp_register_script(
+			'dark-mode',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/dark-mode.min.js',
+			array( 'jquery' ),
+			'1.0.0',
+			true
+		);
 		wp_register_style(
 			'cubeportfolio',
 			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/css/cubeportfolio.min.css',

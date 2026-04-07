@@ -8815,3 +8815,202 @@ span.ex-char {
         opacity: 1;
     }
 }
+
+/* ====social chat - all in one ====*/
+.xpro-social-chat-widget {
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.xpro-social-chat-channels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.xpro-social-chat-main-btn {
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px -3px #000;
+    color: #fff;
+    background: linear-gradient(.414turn, #ee3a7b 15.42%, #9c396d 87.4%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    position: relative;
+}
+
+.xpro-social-chat-main-btn .fa-times {
+    display: none;
+}
+
+/* Channel specific colors */
+.xpro-social-chat-whatsapp {
+    background-color: #25d366;
+}
+
+.xpro-social-chat-messenger {
+    background-color: #0084ff;
+}
+
+.xpro-social-chat-telegram {
+    background-color: #0088cc;
+}
+
+.xpro-social-chat-line {
+    background-color: #00c300;
+}
+
+.xpro-social-chat-viber {
+    background-color: #7360f2;
+}
+
+.xpro-social-chat-wechat {
+    background-color: #09b83e;
+}
+
+.xpro-social-chat-instagram {
+    background-color: #e4405f;
+}
+
+.xpro-social-chat-twitter {
+    background-color: #1da1f2;
+}
+
+.xpro-social-chat-linkedin {
+    background-color: #0077b5;
+}
+
+.xpro-social-chat-skype {
+    background-color: #00aff0;
+}
+
+.xpro-social-chat-call {
+    background-color: #ff6600;
+}
+
+.xpro-social-chat-sms {
+    background-color: #20c997;
+}
+
+.xpro-social-chat-email {
+    background-color: #b92b27;
+}
+
+.xpro-social-chat-custom {
+    background-color: #6c757d;
+}
+
+/* Tooltip styles */
+.xpro-social-chat-tooltip {
+    position: absolute;
+    /* background: #000; */
+    background: linear-gradient(.414turn, #ee3a7b 15.42%, #9c396d 87.4%);
+    color: #fff;
+    padding: 7px 11px;
+    border-radius: 5px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.xpro-social-chat-placement-left .xpro-social-chat-channel .xpro-social-chat-tooltip,
+.xpro-social-chat-placement-left .xpro-social-chat-main-btn .xpro-social-chat-tooltip {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 10px;
+}
+
+.xpro-social-chat-placement-right .xpro-social-chat-channel .xpro-social-chat-tooltip,
+.xpro-social-chat-placement-right .xpro-social-chat-main-btn .xpro-social-chat-tooltip {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+}
+
+.xpro-social-chat-placement-top .xpro-social-chat-channel .xpro-social-chat-tooltip,
+.xpro-social-chat-placement-top .xpro-social-chat-main-btn .xpro-social-chat-tooltip {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+}
+
+.xpro-social-chat-placement-bottom .xpro-social-chat-channel .xpro-social-chat-tooltip,
+.xpro-social-chat-placement-bottom .xpro-social-chat-main-btn .xpro-social-chat-tooltip {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+}
+
+.xpro-social-chat-channel:hover .xpro-social-chat-tooltip,
+.xpro-social-chat-main-btn:hover .xpro-social-chat-tooltip {
+    opacity: 0.85;
+    visibility: visible;
+}
+
+.xpro-social-chat-channel:hover,
+.xpro-social-chat-main-btn:hover {
+    transform: scale(1.1);
+}
+
+.xpro-social-chat-channel {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2s ease, transform 3s ease, visibility 3s;
+    /* display: none; */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px -3px #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.xpro-social-chat-widget.active .xpro-social-chat-channel {
+    opacity: 1;
+    visibility: visible;
+}
+
+.xpro-social-chat-widget.active .xpro-social-chat-main-btn .fa-comments {
+    display: none;
+}
+
+.xpro-social-chat-widget.active .xpro-social-chat-main-btn .fa-times {
+    display: inline-block;
+}
+
+.xpro-social-chat-vertical-pos-top {
+    flex-direction: column-reverse;
+}
+
+.xpro-hide-desktop {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    .xpro-hide-desktop {
+        display: block !important;
+    }
+}
+@media (max-width: 767px) {
+    .xpro-hide-mobile {
+        display: none !important;
+    }
+}
+
+.xpro-social-chat-widget.active .xpro-social-chat-channel {
+    opacity: 1;
+    visibility: visible;
+}

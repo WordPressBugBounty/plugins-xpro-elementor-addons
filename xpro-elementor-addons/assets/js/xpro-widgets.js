@@ -9,6 +9,7 @@
                 "xpro-progress-bar.default": o.ProgressBar,
                 "xpro-pie-chart.default": o.PieChart,
                 "xpro-counter.default": o.Counter,
+                "xpro-social-chat.default": o.SocialChat,
                 "xpro-horizontal-menu.default": o.HorizontalMenu,
                 "xpro-team.default": o.Team,
                 "xpro-before-after.default": o.BeforeAfter,
@@ -334,6 +335,21 @@
                     },
                     offset: "100%",
                 });
+        },
+        SocialChat: function (e) {
+            let t = o.getElementSettings(e);
+            let widget = e.find('.xpro-social-chat-widget');
+            let mainBtn = e.find('.xpro-social-chat-main-btn');
+            let channels = e.find('.xpro-social-chat-channel');
+            mainBtn.on('click', function (event) {
+                event.preventDefault();
+                widget.toggleClass('active');
+            });
+            jQuery(document).on('click', function (event) {
+                if (!widget.is(event.target) && widget.has(event.target).length === 0) {
+                    widget.removeClass('active');
+                }
+            });
         },
         HorizontalMenu: function (t) {
             let i = o.getElementSettings(t),
