@@ -13,29 +13,15 @@ class Xpro_Elementor_Post_Item_Api extends Core\Xpro_Elementor_Handler_Api {
 
 	public function get_content_editor() {
 
-	    $site_url = site_url();
-
-		if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
-			$referer = $_SERVER['HTTP_REFERER'];
-
-			if ( strpos( $referer, $site_url ) !== 0 ) {
-				if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
-					return new \WP_Error(
-						'rest_forbidden',
-						__( 'External requests are not allowed.', 'xpro-elementor-addons' ),
-						array( 'status' => 403 )
-					);
-				}
-				wp_die( 'External access not allowed.', 403 );
-			}
-		} else {
+	   	if ( ! current_user_can( 'edit_posts' ) ) {
 			if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
 				return new \WP_Error(
 					'rest_forbidden',
-					__( 'Direct API access is not allowed.', 'xpro-elementor-addons' ),
+					__( 'You do not have permission to access this endpoint.', 'xpro-elementor-addons' ),
 					array( 'status' => 403 )
 				);
 			}
+			wp_die( 'You do not have permission to access this endpoint.', 403 );
 		}
 
 		$content_key  = sanitize_text_field( $this->request['key'] );

@@ -1,3 +1,8 @@
+= V 1.5.1 – 17 April 2026
+
+- Fix: Addressed security vulnerabilities in the Post Duplicator and REST API.
+
+
 = V 1.5.0 – 07 April 2026
 
 - Fix: Resolved a custom JS issue in the Extension (Pro).
