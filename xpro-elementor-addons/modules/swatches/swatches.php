@@ -43,7 +43,7 @@ class Swatches {
 
 	public static function get_dummy() {
 
-		return WC()->plugin_url() . '/assets/images/placeholder.png';
+		return WC()->plugin_url() . '/assets/images/placeholder.webp';
 	}
 
 	public function init() {

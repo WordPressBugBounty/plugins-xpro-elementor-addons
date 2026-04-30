@@ -1,11 +1,11 @@
 === Xpro Addons — 140+ Widgets for Elementor ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.5.1
-Contributors: Xpro, muxmantayyab
+Version: 1.5.2
+Contributors: Xpro, muxmantayyab, @dilshad101
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
 Tested up to: 6.9.4
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -264,6 +264,15 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 
 == Changelog ==
+
+= V 1.5.2 – 30 April 2026
+
+- Fix: Resolved a security vulnerability issue.
+- Fix: Height control not functioning properly in the Woo Product Images.
+- Fix: Resolved Xpro attribute type image placeholder issue in Woo Swatches.
+- Fix: Resolved issues with stock status and product description toggles, variation label color in the Add To Cart.
+- Fix: Woo Product Price issue where sale price control was affecting regular price and vice versa, including variation pricing Issue.
+
 
 = V 1.5.1 – 17 April 2026
 

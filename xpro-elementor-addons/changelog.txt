@@ -1,3 +1,13 @@
+
+= V 1.5.2 – 30 April 2026
+
+- Fix: Resolved a security vulnerability issue.
+- Fix: Height control not functioning properly in the Woo Product Images.
+- Fix: Resolved Xpro attribute type image placeholder issue in Woo Swatches.
+- Fix: Resolved issues with stock status and product description toggles, variation label color in the Add To Cart.
+- Fix: Woo Product Price issue where sale price control was affecting regular price and vice versa, including variation pricing Issue.
+
+
 = V 1.5.1 – 17 April 2026
 
 - Fix: Addressed security vulnerabilities in the Post Duplicator and REST API.

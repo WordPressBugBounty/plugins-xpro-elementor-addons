@@ -162,7 +162,11 @@ class Woo_Add_To_Cart extends Widget_Base {
 				'default'      => 'yes',
 				'return_value' => 'yes',
 				'selectors'    => array(
-					'{{WRAPPER}} .stock' => 'display: block;',
+					'{{WRAPPER}} .woocommerce-variation-availability .stock' => 'display: {{VALUE}};',
+				),
+				'selectors_dictionary' => array(
+					'yes' => 'block',
+					''    => 'none',
 				),
 			)
 		);
@@ -178,7 +182,11 @@ class Woo_Add_To_Cart extends Widget_Base {
 				'default'      => 'yes',
 				'return_value' => 'yes',
 				'selectors'    => array(
-					'{{WRAPPER}} .woocommerce-variation-description' => 'display: block;',
+					'{{WRAPPER}} .woocommerce-variation-description' =>  'display: {{VALUE}};',
+				),
+				'selectors_dictionary' => array(
+					'yes' => 'block',
+					''    => 'none',
 				),
 			)
 		);
@@ -449,8 +457,8 @@ class Woo_Add_To_Cart extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'alpha'     => false,
 				'selectors' => array(
-					'{{WRAPPER}} .variations td label' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .variations select'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} table.variations th.label'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .label[for="pa_xpro-label"],.label[for="pa_xpro-colors"],.label[for="pa_xpro-image"]'   => 'color: {{VALUE}};',
 				),
 			)
 		);

@@ -122,7 +122,8 @@ class Xpro_Elementor_Duplicator {
 			}
 		}
 
-		$nonce   = isset( $_GET['_wpnonce'] ) ? $_GET['_wpnonce'] : '';
+		// $nonce   = isset( $_GET['_wpnonce'] ) ? $_GET['_wpnonce'] : '';
+		$nonce = isset( $_GET['_wpnonce'] ) ? sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ) : '';
 		$post_id = isset( $_GET['post_id'] ) ? absint( $_GET['post_id'] ) : 0;
 		$ref     = isset( $_GET['ref'] ) ? sanitize_text_field( $_GET['ref'] ) : '';
 
@@ -139,7 +140,13 @@ class Xpro_Elementor_Duplicator {
 			return;
 		}
 
-		$post               = sanitize_post( $post, 'db' );
+		$post = get_post( $post_id );
+
+		if ( ! $post || empty( $post->post_type ) ) {
+			return;
+		}
+
+		$post = sanitize_post( $post, 'db' );
 		$duplicated_post_id = self::duplicate_post( $post );
 		$redirect           = add_query_arg( array( 'post_type' => $post->post_type ), admin_url( 'edit.php' ) );
 
@@ -238,25 +245,39 @@ class Xpro_Elementor_Duplicator {
 	protected static function duplicate_meta_entries( $post, $duplicated_post_id ) {
 		global $wpdb;
 
+		// 1. Fetch all meta for the original post
 		$entries = $wpdb->get_results(
-			$wpdb->prepare( "SELECT meta_key, meta_value FROM {$wpdb->postmeta} WHERE post_id = %d", $post->ID )
+			$wpdb->prepare( 
+				"SELECT meta_key, meta_value FROM {$wpdb->postmeta} WHERE post_id = %d", 
+				$post->ID 
+			) 
 		);
 
-		if ( is_array( $entries ) ) {
-			$query    = sprintf( 'INSERT INTO %s ( post_id, meta_key, meta_value ) VALUES ', $wpdb->postmeta );
-			$_records = array();
+		if ( ! empty( $entries ) && is_array( $entries ) ) {
 			foreach ( $entries as $entry ) {
-				$_value     = wp_slash( $entry->meta_value );
-				$_records[] = "( $duplicated_post_id, '{$entry->meta_key}', '{$_value}' )";
+				// 2. Use $wpdb->insert to safely add each meta row.
+				// This replaces the manual query string and handles sanitization.
+				$wpdb->insert(
+					$wpdb->postmeta,
+					array(
+						'post_id'    => $duplicated_post_id,
+						'meta_key'   => $entry->meta_key,
+						'meta_value' => $entry->meta_value,
+					),
+					array(
+						'%d', 
+						'%s', 
+						'%s',
+					)
+				);
 			}
-			$query .= implode( ', ', $_records ) . ';';
 
-			$wpdb->query( $query ); //phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
-
-			// Fix Template Type Wrong issue
+			// 3. Fix Elementor Template Type specifically
+			// We fetch from the source and update the duplicate to ensure consistency
 			$source_type = get_post_meta( $post->ID, '_elementor_template_type', true );
-			delete_post_meta( $duplicated_post_id, '_elementor_template_type' );
-			update_post_meta( $duplicated_post_id, '_elementor_template_type', $source_type );
+			if ( ! empty( $source_type ) ) {
+				update_post_meta( $duplicated_post_id, '_elementor_template_type', $source_type );
+			}
 		}
 	}
 

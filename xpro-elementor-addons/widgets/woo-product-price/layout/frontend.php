@@ -54,10 +54,11 @@ if ( empty( $product ) && \Elementor\Plugin::$instance->editor->is_edit_mode() &
 			$post         = get_post( $product_id, OBJECT ); //phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 
 			setup_postdata( $post );
+			$is_variable = $product->is_type( 'variable' );
 			do_action( 'xpro_elementor_woo_before_product' );
 			?>
 
-		<div class="xpro-woo-themer-module-wrapper woocommerce clearfix">
+		<div class="xpro-woo-themer-module-wrapper woocommerce clearfix <?php echo esc_attr( $is_variable ? 'is-variable-product' : 'is-simple-product' ); ?> ">
 			<div class="xpro-woo-themer-module-layout-cls">
 				<div class="xpro-woo-product-price-cls">
 					<?php xpro_elementor_kses( $product->get_price_html() ); ?>

@@ -219,7 +219,10 @@ class Woo_Product_Price extends Widget_Base {
 				'label'     => __( 'Space', 'xpro-elementor-addons' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => array(
-					'{{WRAPPER}} .xpro-woo-product-price-cls ins' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .is-simple-product .xpro-woo-product-price-cls span.woocommerce-Price-amount.amount:not(del span.woocommerce-Price-amount.amount)' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .is-variable-product .xpro-woo-product-price-cls > span.woocommerce-Price-amount.amount:first-of-type' => 'padding-left: {{SIZE}}{{UNIT}} !important;',
+					'{{WRAPPER}} .is-variable-product .xpro-woo-product-price-cls:has(del) span.woocommerce-Price-amount.amount:nth-of-type(2)' => 'padding-left: {{SIZE}}{{UNIT}} !important;',
+
 				),
 			)
 		);
@@ -228,7 +231,8 @@ class Woo_Product_Price extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'     => 'sale_typography',
-				'selector' => '{{WRAPPER}} .xpro-woo-product-price-cls del .woocommerce-Price-amount',
+				'selector' => '.is-simple-product .xpro-woo-product-price-cls span.woocommerce-Price-amount.amount:not(del span.woocommerce-Price-amount.amount), .is-variable-product .xpro-woo-product-price-cls > span.woocommerce-Price-amount.amount:first-of-type, .is-variable-product .xpro-woo-product-price-cls:has(del) span.woocommerce-Price-amount.amount:nth-of-type(2)',
+				
 			)
 		);
 
@@ -238,7 +242,10 @@ class Woo_Product_Price extends Widget_Base {
 				'label'     => __( 'Color', 'xpro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .xpro-woo-product-price-cls del .woocommerce-Price-amount' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .is-simple-product .xpro-woo-product-price-cls span.woocommerce-Price-amount.amount:not(del span.woocommerce-Price-amount.amount)' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .is-variable-product .xpro-woo-product-price-cls > span.woocommerce-Price-amount.amount:first-of-type' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .is-variable-product .xpro-woo-product-price-cls:has(del) span.woocommerce-Price-amount.amount:nth-of-type(2)' => 'color: {{VALUE}} !important;',
+
 				),
 			)
 		);

@@ -136,7 +136,19 @@ class Xpro_Ajax_Handler {
 	 */
 	public static function get_menu_content_editor() {
 
-		$content_key = $_REQUEST['key'];
+	    if ( ! current_user_can( 'manage_options' ) ) {
+              wp_send_json_error( [ 'message' => 'Access denied.' ], 403 );
+		}
+		check_ajax_referer( 'xpro-menu-content-editor', '_ajax_nonce' );
+
+		$content_key = isset( $_REQUEST['key'] )
+			? sanitize_key( wp_unslash( $_REQUEST['key'] ) )
+			: '';
+		if ( '' === $content_key ) {
+			wp_send_json_error( [ 'message' => 'Invalid key.' ], 400 );
+		}
+
+		// $content_key = $_REQUEST['key'];
 
 		$builder_post_title = 'xpro-megamenu-content-' . $content_key;
 		$builder_post_id    = xpro_get_page_by_title( $builder_post_title, OBJECT, 'xpro_content' );

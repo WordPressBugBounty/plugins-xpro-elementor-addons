@@ -283,7 +283,7 @@ class Woo_Product_Images extends Widget_Base {
 				'range'          => array(
 					'px' => array(
 						'min' => 1,
-						'max' => 500,
+						'max' => 1000,
 					),
 					'vh' => array(
 						'min' => 1,
@@ -291,7 +291,9 @@ class Woo_Product_Images extends Widget_Base {
 					),
 				),
 				'selectors'      => array(
-					'{{WRAPPER}} .xpro-product-image-wrapper figure img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .xpro-product-image-wrapper ol.flex-control-nav.flex-control-thumbs figure img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .xpro-product-image-wrapper ol.flex-control-nav.flex-control-thumbs  img' => 'height: {{SIZE}}{{UNIT}};',
+
 				),
 			)
 		);
@@ -313,6 +315,8 @@ class Woo_Product_Images extends Widget_Base {
 				'default'   => '',
 				'selectors' => array(
 					'{{WRAPPER}} .xpro-product-image-wrapper figure img' => 'object-fit: {{VALUE}};',
+					'{{WRAPPER}} .xpro-product-image-wrapper  img' => 'object-fit: {{VALUE}};',
+
 				),
 			)
 		);
@@ -345,7 +349,7 @@ class Woo_Product_Images extends Widget_Base {
 				'range'          => array(
 					'px' => array(
 						'min' => 1,
-						'max' => 500,
+						'max' => 1000,
 					),
 					'vh' => array(
 						'min' => 1,
@@ -353,7 +357,9 @@ class Woo_Product_Images extends Widget_Base {
 					),
 				),
 				'selectors'      => array(
-					'{{WRAPPER}}  .xpro-product-image-wrapper .flex-control-nav li img' => 'height: {{SIZE}}{{UNIT}};',
+					// '{{WRAPPER}}  .xpro-product-image-wrapper .flex-control-nav li img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}  .xpro-product-image-wrapper > div > div div:first-child img ' => 'height: {{SIZE}}{{UNIT}};',
+
 				),
 			)
 		);
@@ -374,7 +380,9 @@ class Woo_Product_Images extends Widget_Base {
 				),
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}} .xpro-product-image-wrapper .flex-control-nav li img' => 'object-fit: {{VALUE}};',
+					// '{{WRAPPER}} .xpro-product-image-wrapper .flex-control-nav li img' => 'object-fit: {{VALUE}};',
+					'{{WRAPPER}}  .xpro-product-image-wrapper   img.wp-post-image' => 'object-fit: {{VALUE}} !important;',
+
 				),
 			)
 		);
@@ -386,6 +394,8 @@ class Woo_Product_Images extends Widget_Base {
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => array(
 					'{{WRAPPER}} .xpro-product-image-wrapper .flex-control-nav'  => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}  .xpro-product-image-wrapper > div > div div:first-child img ' => 'margin-top: {{SIZE}}{{UNIT}};',
+
 				),
 			)
 		);
