@@ -1,11 +1,11 @@
 === Xpro Addons — 140+ Widgets for Elementor ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.5.2
+Version: 1.5.3
 Contributors: Xpro, muxmantayyab, @dilshad101
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
-Tested up to: 6.9.4
-Stable tag: 1.5.2
+Tested up to: 6.9
+Stable tag: 1.5.3
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -264,6 +264,16 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 
 == Changelog ==
+
+= V 1.5.3 – 01 May 2026
+
+- Fix: Add conditional controls in the Icon Box widget for better UX.
+
+
+= V 1.5.2.1 – 30 April 2026
+
+- Fix: Resolved minor issue.
+
 
 = V 1.5.2 – 30 April 2026
 

@@ -1,4 +1,14 @@
 
+= V 1.5.3 – 01 May 2026
+
+- Fix: Add conditional controls in the Icon Box widget for better UX.
+
+
+= V 1.5.2.1 – 30 April 2026
+
+- Fix: Resolved minor issue.
+
+
 = V 1.5.2 – 30 April 2026
 
 - Fix: Resolved a security vulnerability issue.
