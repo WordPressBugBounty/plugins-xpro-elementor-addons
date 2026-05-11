@@ -427,6 +427,20 @@ class Social_Chat extends Widget_Base {
 		);
 
 		$this->add_control(
+			'xpro_fab_trigger',
+			array(
+				'label'   => __('Trigger Type', 'xpro-elementor-addons'),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'click',
+				'frontend_available' => true,
+				'options' => array(
+					'click' => __('Click', 'xpro-elementor-addons'),
+					'hover' => __('Hover', 'xpro-elementor-addons'),
+				),
+			)
+		);
+
+		$this->add_control(
 			'position_horizontal',
 			array(
 				'label'   => __( 'Horizontal Position', 'xpro-elementor-addons' ),
@@ -549,7 +563,7 @@ class Social_Chat extends Widget_Base {
 		$this->add_control(
 			'more_options',
 			array(
-				'label' => esc_html__( 'Animations', 'textdomain' ),
+				'label' => esc_html__( 'Animations', 'xpro-elementor-addons' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			)

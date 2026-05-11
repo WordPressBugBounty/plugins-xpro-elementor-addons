@@ -289,6 +289,65 @@ class Xpro_Elementor_Addons {
 		);
 
 		//Vendors JS
+
+		wp_register_script(
+			'xpro-chartjs',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/chart.min.js',
+			array( 'jquery' ),
+			'4.5.1',
+			true
+		);
+		wp_enqueue_script(
+			'sweetalert2',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/sweetalert2.all.min.js',
+			array( 'jquery' ),
+			'3.0.6',
+			true
+		);
+		wp_register_script(
+			'scratchcard',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/scratchcard.min.js',
+			array( 'jquery' ),
+			'1.5.12',
+			true
+		);
+		wp_register_script(
+			'peelcard',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/peelcard.min.js',
+			array( 'jquery' ),
+			'3.7.1',
+			true
+		);
+		wp_register_script(
+			'tweenlite',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/tweenlite.min.js',
+			array( 'jquery' ),
+			'2.1.3',
+			true
+		);
+		wp_register_script(
+			'soundjs',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/soundjs.min.js',
+			array( 'jquery' ),
+			'1.0.0',
+			true
+		);
+
+		wp_register_script(
+			'revealFx',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/reveal-fx.js',
+			array( 'jquery' ),
+			'1.0.0',
+			true
+		);
+		wp_register_script(
+			'ripples',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/jquery.ripples.js',
+			array( 'jquery' ),
+			'1.0.0',
+			true
+		);
+
 		wp_register_script(
 			'aos-js',
 			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/aos.js',

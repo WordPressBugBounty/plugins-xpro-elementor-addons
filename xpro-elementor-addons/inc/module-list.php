@@ -28,6 +28,22 @@ class Xpro_Elementor_Module_List {
 			'title'   => 'Floating Effect',
 			'package' => 'free',
 		),
+		'reveal-effect' => array(
+			'slug' => 'reveal_effect',
+			'title' => 'Reveal Effect',
+			'package' => 'free',
+		),
+		'ripples-effect' => array(
+			'slug' => 'ripples_effect',
+			'title' => 'Ripples Effect',
+			'package' => 'free',
+		),
+		'liquid-glass'         => array(
+			'slug'    => 'liquid_glass',
+			'title'   => 'Liquid Glass',
+			'package' => 'free',
+		),
+
 		'custom-css'           => array(
 			'slug'    => 'custom_css',
 			'title'   => 'Custom CSS',

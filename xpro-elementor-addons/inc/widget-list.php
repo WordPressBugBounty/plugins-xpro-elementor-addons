@@ -28,6 +28,11 @@ class Xpro_Elementor_Widget_List {
 			'title'   => 'Heading',
 			'package' => 'free',
 		),
+		'line-chart'               => array(
+			'slug'    => 'line_chart',
+			'title'   => 'Line Chart',
+			'package' => 'free',
+		),
 		'auto-content'            => array(
 			'slug'    => 'auto_content',
 			'title'   => 'AI Content',

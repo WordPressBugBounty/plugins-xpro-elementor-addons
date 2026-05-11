@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || die();
+
 // Safely fetch settings with fallbacks
 $channels = ! empty( $settings['channels'] ) && is_array( $settings['channels'] ) ? $settings['channels'] : array();
 

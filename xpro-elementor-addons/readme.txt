@@ -1,11 +1,11 @@
 === Xpro Addons — 140+ Widgets for Elementor ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.5.3
+Version: 1.6.0
 Contributors: Xpro, muxmantayyab, @dilshad101
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
 Tested up to: 6.9
-Stable tag: 1.5.3
+Stable tag: 1.6.0
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -264,6 +264,22 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 
 == Changelog ==
+
+= V 1.6.0 – 12 May 2026
+
+- New: Introduced Peel Card widget (Pro).
+- New: Introduced Scratch Card widget (Pro).
+- New: Added Bar Chart widget (Pro).
+- New: Added Polar Chart widget (Pro).
+- New: Added Doughnut & Pie Chart widget (Pro).
+- New: Added Radar Chart widget (Pro).
+- New: Added Line Chart widget.
+- New: Added Ripples Effect module.
+- New: Added Liquid Glass module.
+- New: Added Reveal Effect module.
+- Improvement:Enhanced Social Chat widget functionality.
+- Fix: Resolved some widget general issues and errors.
+
 
 = V 1.5.3 – 01 May 2026
 

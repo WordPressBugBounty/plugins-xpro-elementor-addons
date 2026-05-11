@@ -8,6 +8,7 @@
                 "xpro-simple-portfolio.default": o.SimplePortfolio,
                 "xpro-progress-bar.default": o.ProgressBar,
                 "xpro-pie-chart.default": o.PieChart,
+                "xpro-line-chart.default": o.LineChart,
                 "xpro-counter.default": o.Counter,
                 "xpro-social-chat.default": o.SocialChat,
                 "xpro-horizontal-menu.default": o.HorizontalMenu,
@@ -294,7 +295,7 @@
                 rotate: 0,
                 animate: 1e3 * i.duration.size || 2e3,
             }),
-                t.find(".xpro-pie-chart").waypoint(
+            t.find(".xpro-pie-chart").waypoint(
                     function () {
                         t.find(".xpro-pie-chart-count").animate(
                             { Counter: i.value },
@@ -311,6 +312,45 @@
                     { offset: "100%" }
                 );
         },
+
+        LineChart: function (t) {
+            const $canvas = t.find('.xpro-line-chart-js');
+            if (!$canvas.length) {
+                return;
+            }
+            const canvas = $canvas[0];
+            if (canvas.xproChart instanceof Chart) {
+                canvas.xproChart.destroy();
+            }
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                return;
+            }
+            let settings = $canvas.data('settings');
+            if (typeof settings === 'string') {
+                try {
+                    settings = JSON.parse(settings);
+                } catch (error) {
+                    console.error('Line Chart JSON Parse Error:', error);
+                    return;
+                }
+            }
+            if (
+                !settings ||
+                !settings.data ||
+                !settings.data.datasets ||
+                settings.data.datasets.length === 0
+            ) {
+                console.warn('No data available for line chart');
+                return;
+            }
+            try {
+                canvas.xproChart = new Chart(ctx, settings);
+            } catch (error) {
+                console.error('Line Chart Creation Error:', error);
+            }
+        },
+
         Counter: function (t) {
             let i = o.getElementSettings(t);
             let r = "";
@@ -341,10 +381,23 @@
             let widget = e.find('.xpro-social-chat-widget');
             let mainBtn = e.find('.xpro-social-chat-main-btn');
             let channels = e.find('.xpro-social-chat-channel');
-            mainBtn.on('click', function (event) {
-                event.preventDefault();
-                widget.toggleClass('active');
-            });
+             const triggerType = t.xpro_fab_trigger || 'click';
+             console.log('Trigger Type:', triggerType);
+             console.log('t.xpro_fab_trigger:', t.xpro_fab_trigger);
+            if (triggerType === 'click') {
+                mainBtn.on('click', function (event) {
+                    event.preventDefault();
+                    widget.toggleClass('active');
+                });
+            }
+            if (triggerType === 'hover') {
+                widget.on('mouseenter', function () {
+                    widget.addClass('active');
+                });
+                widget.on('mouseleave', function () {
+                    widget.removeClass('active');
+                });
+            }
             jQuery(document).on('click', function (event) {
                 if (!widget.is(event.target) && widget.has(event.target).length === 0) {
                     widget.removeClass('active');

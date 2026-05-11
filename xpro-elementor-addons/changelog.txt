@@ -1,4 +1,20 @@
 
+= V 1.6.0 – 12 May 2026
+
+- New: Introduced Peel Card widget (Pro).
+- New: Introduced Scratch Card widget (Pro).
+- New: Added Bar Chart widget (Pro).
+- New: Added Polar Chart widget (Pro).
+- New: Added Doughnut & Pie Chart widget (Pro).
+- New: Added Radar Chart widget (Pro).
+- New: Added Line Chart widget.
+- New: Added Ripples Effect module.
+- New: Added Liquid Glass module.
+- New: Added Reveal Effect module.
+- Improvement:Enhanced Social Chat widget functionality.
+- Fix: Resolved some widget general issues and errors.
+
+
 = V 1.5.3 – 01 May 2026
 
 - Fix: Add conditional controls in the Icon Box widget for better UX.
