@@ -28,6 +28,21 @@ class Xpro_Elementor_Widget_List {
 			'title'   => 'Heading',
 			'package' => 'free',
 		),
+		'weather'                 => array(
+			'slug'    => 'weather',
+			'title'   => 'Weather',
+			'package' => 'free',
+		),
+		'interactive-circle'        => array(
+			'slug'    => 'interactive_circle',
+			'title'   => 'Interactive Circle',
+			'package' => 'free',
+		),
+		'image-stack-group'                 => array(
+			'slug'    => 'image_stack_group',
+			'title'   => 'Image Stack Group',
+			'package' => 'free',
+		),
 		'line-chart'               => array(
 			'slug'    => 'line_chart',
 			'title'   => 'Line Chart',

@@ -28,6 +28,11 @@ class Xpro_Elementor_Module_List {
 			'title'   => 'Floating Effect',
 			'package' => 'free',
 		),
+		'sound-effect'      => array(
+			'slug'    => 'sound_effect',
+			'title'   => 'Sound Effect',
+			'package' => 'free',
+		),
 		'reveal-effect' => array(
 			'slug' => 'reveal_effect',
 			'title' => 'Reveal Effect',

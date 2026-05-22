@@ -347,6 +347,13 @@ class Xpro_Elementor_Addons {
 			'1.0.0',
 			true
 		);
+		wp_register_script(
+			'xpro-confetti',
+			XPRO_ELEMENTOR_ADDONS_ASSETS . 'vendor/js/confetti.browser.min.js',
+			array( 'jquery' ),
+			'5.39.0',
+			true
+		);
 
 		wp_register_script(
 			'aos-js',

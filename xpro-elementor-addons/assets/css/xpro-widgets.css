@@ -9014,3 +9014,607 @@ span.ex-char {
     opacity: 1;
     visibility: visible;
 }
+
+/* Layout 1: Minimal Horizontal */
+.xpro-weather-widget .weather-layout-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.xpro-weather-widget .layout1-current {
+    flex: 1;
+}
+.xpro-weather-widget .layout1-temp-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.xpro-weather-widget .layout1-details {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+.xpro-weather-widget .layout1-forecast {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+.xpro-weather-widget .forecast-hour {
+    text-align: center;
+    min-width: 60px;
+}
+.xpro-weather-widget .forecast-time {
+    font-size: 12px;
+    color: #888;
+}
+.xpro-weather-widget .forecast-temp {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Layout 2: Detailed Card */
+.xpro-weather-widget .weather-layout-2 {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.xpro-weather-widget .layout2-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.xpro-weather-widget .layout2-location h3 {
+    margin: 0 0 5px;
+    font-size: 24px;
+}
+.xpro-weather-widget .current-time {
+    font-size: 14px;
+    opacity: 0.9;
+}
+.xpro-weather-widget .layout2-temp-large {
+    text-align: center;
+}
+.xpro-weather-widget .layout2-temp-large .weather-temp {
+    font-size: 48px;
+    margin: 0;
+}
+.xpro-weather-widget .weather-icon-large {
+    width: 80px;
+    height: auto;
+}
+.xpro-weather-widget .layout2-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1px;
+    background: #f0f0f0;
+}
+.xpro-weather-widget .detail-card {
+    background: white;
+    padding: 15px;
+    text-align: center;
+}
+.xpro-weather-widget .detail-label {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+}
+.xpro-weather-widget .detail-value {
+    font-size: 16px;
+    font-weight: 600;
+}
+.xpro-weather-widget .layout2-forecast {
+    padding: 20px;
+}
+.xpro-weather-widget .layout2-forecast h4 {
+    margin: 0 0 15px;
+}
+.xpro-weather-widget .forecast-scroll {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+}
+.xpro-weather-widget .forecast-item {
+    text-align: center;
+    min-width: 70px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* Layout 3: Modern Vertical */
+.xpro-weather-widget .weather-layout-3 {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.xpro-weather-widget .layout3-current {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.xpro-weather-widget .layout3-main {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+    .xpro-weather-widget .layout3-condition {
+    text-align: right;
+}
+.xpro-weather-widget .layout3-details {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    margin: 15px 0;
+}
+.xpro-weather-widget.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+}
+.xpro-weather-widget .forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+.xpro-weather-widget .forecast-card {
+    text-align: center;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Layout 4: Forecast Focus */
+.xpro-weather-widget .weather-layout-4 {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+    .xpro-weather-widget .layout4-current-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.xpro-weather-widget .current-temp {
+    font-size: 36px;
+    font-weight: bold;
+}
+.xpro-weather-widget .forecast-timeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+.xpro-weather-widget .timeline-hour {
+    flex: 1;
+    min-width: 60px;
+    text-align: center;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+.xpro-weather-widget .layout4-highlights {
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+.xpro-weather-widget .highlight {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+/* Layout 5: Compact Grid */
+.xpro-weather-widget .weather-layout-5 {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+}
+.xpro-weather-widget .layout5-current {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.xpro-weather-widget .layout5-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.xpro-weather-widget .stat {
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+}
+.xpro-weather-widget .stat-label {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 5px;
+}
+.xpro-weather-widget .layout5-forecast {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+.xpro-weather-widget .forecast-block {
+    text-align: center;
+    min-width: 60px;
+    padding: 8px;
+    background: white;
+    border-radius: 8px;
+}
+.xpro-weather-widget .block-time {
+    font-size: 11px;
+    color: #888;
+}
+.xpro-weather-widget .block-temp {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.weather-layout-4 img,
+.weather-layout-4 svg {
+    filter: invert(1) !important;
+}
+
+/*--------------------------------------------------------------
+# Xpro Image Stacked Group - Enhanced Version
+--------------------------------------------------------------*/
+
+.xpro-image-stacked-group {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.xpro-image-stacked-group.overlap {
+    display: inline-flex;
+}
+
+.xpro-image-stacked-group.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.xpro-image-stacked-group.inline {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.xpro-image-stacked-group.circle {
+    display: inline-flex;
+}
+
+.xpro-image-stacked-group.rounded {
+    display: inline-flex;
+}
+
+.xpro-image-stacked-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.xpro-image-stacked-group.overlap .xpro-image-stacked-item:not(:first-child) {
+    margin-left: -20px;
+}
+
+.xpro-image-stacked-group.overlap:hover .xpro-image-stacked-item:not(:first-child) {
+    margin-left: 10px;
+}
+
+.xpro-image-stacked-group.grid .xpro-image-stacked-item {
+    margin: 0;
+}
+
+.xpro-image-stacked-group.inline .xpro-image-stacked-item {
+    margin-right: 20px;
+}
+
+.xpro-image-stacked-group.inline .xpro-image-stacked-item:last-child {
+    margin-right: 0;
+}
+
+.xpro-image-stacked-group.circle .xpro-image-stacked-item img,
+.xpro-image-stacked-group.circle .xpro-image-stacked-item i,
+.xpro-image-stacked-group.circle .xpro-image-stacked-item .xpro-image-stacked-icon {
+    border-radius: 50%;
+}
+
+.xpro-image-stacked-group.rounded .xpro-image-stacked-item img,
+.xpro-image-stacked-group.rounded .xpro-image-stacked-item i,
+.xpro-image-stacked-group.rounded .xpro-image-stacked-item .xpro-image-stacked-icon {
+    border-radius: 12px;
+}
+
+.xpro-image-stacked-item img,
+.xpro-image-stacked-item i,
+.xpro-image-stacked-item .xpro-image-stacked-icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 3px solid #ffffff;
+    background: #ffffff;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    object-fit: cover;
+}
+
+.xpro-image-stacked-item img {
+    object-fit: cover;
+}
+
+.xpro-image-stacked-item i,
+.xpro-image-stacked-item svg {
+    font-size: 24px;
+    width: 1em;
+    height: 1em;
+}
+
+.xpro-image-stacked-item svg {
+    fill: currentColor;
+}
+
+.xpro-image-stacked-item.style-outline img,
+.xpro-image-stacked-item.style-outline i,
+.xpro-image-stacked-item.style-outline .xpro-image-stacked-icon {
+    background: transparent !important;
+    border-width: 2px;
+}
+
+.xpro-image-stacked-item.style-glow img,
+.xpro-image-stacked-item.style-glow i,
+.xpro-image-stacked-item.style-glow .xpro-image-stacked-icon {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+    animation: glow-pulse 2s infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 123, 255, 0.8);
+    }
+}
+
+.xpro-image-stacked-item.style-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.xpro-image-stacked-item.style-gradient img,
+.xpro-image-stacked-item.style-gradient i,
+.xpro-image-stacked-item.style-gradient .xpro-image-stacked-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.xpro-image-stacked-item.style-shadow img,
+.xpro-image-stacked-item.style-shadow i,
+.xpro-image-stacked-item.style-shadow .xpro-image-stacked-icon {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.xpro-image-stacked-item.style-minimal img,
+.xpro-image-stacked-item.style-minimal i,
+.xpro-image-stacked-item.style-minimal .xpro-image-stacked-icon {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+
+.xpro-image-stacked-group.hover-lift .xpro-image-stacked-item:hover {
+    transform: translateY(-5px);
+}
+
+.xpro-image-stacked-group.hover-scale .xpro-image-stacked-item:hover {
+    transform: scale(1.1);
+}
+
+.xpro-image-stacked-group.hover-rotate .xpro-image-stacked-item:hover {
+    transform: rotate(5deg);
+}
+
+.xpro-image-stacked-group.hover-glow .xpro-image-stacked-item:hover img,
+.xpro-image-stacked-group.hover-glow .xpro-image-stacked-item:hover i,
+.xpro-image-stacked-group.hover-glow .xpro-image-stacked-item:hover .xpro-image-stacked-icon {
+    box-shadow: 0 0 25px rgba(0, 123, 255, 0.6);
+}
+
+.xpro-image-stacked-item:hover {
+    z-index: 5;
+}
+
+.xpro-image-stacked-item[data-tooltip] {
+    position: relative;
+}
+
+.xpro-image-stacked-item[data-tooltip]::before,
+.xpro-image-stacked-item[data-tooltip]::after {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.25s ease-in-out;
+    z-index: 999;
+}
+
+.xpro-image-stacked-item[data-tooltip]::after {
+    content: attr(data-tooltip);
+    background: #111111;
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.4;
+    white-space: nowrap;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.xpro-image-stacked-item[data-tooltip]::before {
+    content: "";
+    border: 6px solid transparent;
+}
+
+/* Tooltip Top */
+.xpro-image-stacked-item[data-flow="up"]::after {
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.xpro-image-stacked-item[data-flow="up"]::before {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: var(--caret-color, #111111);
+}
+
+/* Tooltip Bottom */
+.xpro-image-stacked-item[data-flow="down"]::after {
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.xpro-image-stacked-item[data-flow="down"]::before {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: var(--caret-color, #111111);
+}
+
+/* Tooltip Left */
+.xpro-image-stacked-item[data-flow="left"]::after {
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.xpro-image-stacked-item[data-flow="left"]::before {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: var(--caret-color, #111111);
+}
+
+/* Tooltip Right */
+.xpro-image-stacked-item[data-flow="right"]::after {
+    left: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.xpro-image-stacked-item[data-flow="right"]::before {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: var(--caret-color, #111111);
+}
+
+/* Tooltip Hover */
+.xpro-image-stacked-item:hover::before,
+.xpro-image-stacked-item:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .xpro-image-stacked-item,
+    .xpro-image-stacked-item::before,
+    .xpro-image-stacked-item::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Focus Styles for Accessibility */
+.xpro-image-stacked-item:focus-visible {
+    outline: 2px solid #007cba;
+    outline-offset: 2px;
+    z-index: 10;
+}
+
+/* RTL Support */
+[dir="rtl"] .xpro-image-stacked-group.overlap .xpro-image-stacked-item:not(:first-child) {
+    margin-left: 0;
+    margin-right: -20px;
+}
+
+[dir="rtl"] .xpro-image-stacked-group.overlap:hover .xpro-image-stacked-item:not(:first-child) {
+    margin-right: 10px;
+}
+
+[dir="rtl"] .xpro-image-stacked-group.inline .xpro-image-stacked-item {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+[dir="rtl"] .xpro-image-stacked-group.inline .xpro-image-stacked-item:last-child {
+    margin-left: 0;
+}
+
+.xpro-image-stacked-group {
+    display: flex;
+    align-items: center;
+}
+
+.xpro-image-stacked-group span {
+    margin: 0 -20px;
+    transition: margin 0.4s ease-in-out,
+                transform 0.4s ease-in-out;
+    will-change: margin, transform;
+}
+
+.xpro-image-stacked-group:hover span {
+    margin: 0;
+    transform: translateY(-3px);
+}

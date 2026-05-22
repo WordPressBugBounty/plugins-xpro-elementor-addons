@@ -1,4 +1,15 @@
 
+= V 1.7.0 – 23 May 2026
+
+- New: Added Google Reviews widget (Pro).
+- New: Added Dark Mode feature (Pro).
+- New: Added Confetti Effect module (Pro).
+- New: Added Image Stack Group widget.
+- New: Added Interactive Circle widget.
+- New: Added Weather widget.
+- New: Added Sound Effect module.
+
+
 = V 1.6.0 – 12 May 2026
 
 - New: Introduced Peel Card widget (Pro).

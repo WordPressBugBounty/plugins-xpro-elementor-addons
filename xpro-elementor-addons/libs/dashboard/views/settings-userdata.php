@@ -250,6 +250,41 @@ $pro_active               = ( in_array( 'xpro-elementor-addons-pro/xpro-elemento
 					</div>
 				</div>
 
+				<!--google-reviews-->
+				<div class="xpro-col-lg-4">
+					<div class="xpro-dashboard-text-form-wrapper pro <?php echo esc_attr( $this->utils->is_widget_active_class( 'google', $pro_active ) ); ?>">
+						<h4 class="xpro-dashboard-text-form-title">
+							<?php esc_html_e( 'Google Reviews', 'xpro-elementor-addons' ); ?>
+						</h4>
+						<hr class="xpro-dashboard-text-form-seperator">
+						<p class="xpro-dashboard-text-form-description">
+							Go to <a href="https://developers.facebook.com/docs/instagram-basic-display-api/getting-started" target="_blank">https://developers.facebook.com/</a> for create your Consumer key and Access Token.
+						</p>
+						<?php
+						$this->utils->input(
+							array(
+								'type'        => 'text',
+								'name'        => 'xpro_elementor_user_data[google][user_id]',
+								'label'       => esc_html__( 'Place Id', 'xpro-elementor-addons' ),
+								'placeholder' => __( 'Enter Place Id', 'xpro-elementor-addons' ),
+								'value'       => ( ! isset( $xpro_elementor_user_data['google']['user_id'] ) ) ? '' : ( $xpro_elementor_user_data['google']['user_id'] ),
+							)
+						);
+						$this->utils->input(
+							array(
+								'type'        => 'text',
+								'name'        => 'xpro_elementor_user_data[google][access_token]',
+								'label'       => esc_html__( 'Access Token', 'xpro-elementor-addons' ),
+								'placeholder' => __( 'Enter Access Token Here', 'xpro-elementor-addons' ),
+								'value'       => ( ! isset( $xpro_elementor_user_data['google']['access_token'] ) ) ? '' : ( $xpro_elementor_user_data['google']['access_token'] ),
+							)
+						);
+						?>
+					</div>
+				</div>
+
+				
+
 			</div>
 		</div>
 

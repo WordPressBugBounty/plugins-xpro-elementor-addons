@@ -1,11 +1,11 @@
 === Xpro Addons — 140+ Widgets for Elementor ===
 Plugin Name: Xpro Addons For Elementor (140+ Widgets & Free Theme Builder)
-Version: 1.6.0
+Version: 1.7.0
 Contributors: Xpro, muxmantayyab, @dilshad101
 Tags: elementor, widgets for elementor, elementor widgets, addons for elementor, woocommerce elementor
 Requires at least: 6.0
-Tested up to: 6.9
-Stable tag: 1.6.0
+Tested up to: 7.0
+Stable tag: 1.7.0
 Requires PHP: 7.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -264,6 +264,17 @@ Yes, absolutely! We are well established company over more than 10 years of expe
 
 
 == Changelog ==
+
+= V 1.7.0 – 23 May 2026
+
+- New: Added Google Reviews widget (Pro).
+- New: Added Dark Mode feature (Pro).
+- New: Added Confetti Effect module (Pro).
+- New: Added Image Stack Group widget.
+- New: Added Interactive Circle widget.
+- New: Added Weather widget.
+- New: Added Sound Effect module.
+
 
 = V 1.6.0 – 12 May 2026
 
