@@ -446,7 +446,7 @@ class Woo_Add_To_Cart extends Widget_Base {
 			array(
 				'name'     => 'variation_label_typography',
 				'label'    => esc_html__( 'Typography', 'xpro-elementor-addons' ),
-				'selector' => '{{WRAPPER}} .variations label, {{WRAPPER}} .variations select',
+				'selector' => '{{WRAPPER}} .variations label',
 			)
 		);
 
@@ -481,28 +481,6 @@ class Woo_Add_To_Cart extends Widget_Base {
 				),
 				'selectors' => array(
 					'{{WRAPPER}} .variations tr' => 'flex-direction: {{VALUE}};',
-				),
-			)
-		);
-
-		$this->add_control(
-			'variation_inline_label_width',
-			array(
-				'label'      => esc_html__( 'Label Width', 'xpro-elementor-addons' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px' ),
-				'range'      => array(
-					'px' => array(
-						'min' => 0,
-						'max' => 200,
-					),
-				),
-				'selectors'  => array(
-					'{{WRAPPER}} .variations th.label' => 'width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .variations td.value' => 'width: 100%;',
-				),
-				'condition'  => array(
-					'variation_label_display_style' => 'row',
 				),
 			)
 		);
@@ -663,13 +641,44 @@ class Woo_Add_To_Cart extends Widget_Base {
 			)
 		);
 
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'variation_label_typography_select',
+				'label'    => esc_html__( 'Typography', 'xpro-elementor-addons' ),
+				'selector' => '{{WRAPPER}} .variations select',
+			)
+		);
+
 		$this->add_control(
 			'variation_dropdown_color',
 			array(
-				'label'     => esc_html__( 'Dropdown Color', 'xpro-elementor-addons' ),
+				'label'     => esc_html__( 'Dropdown Label Color', 'xpro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .variations select' => 'color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+		'variation_inline_label_width',
+			array(
+				'label'      => esc_html__( 'Dropdown Label Width', 'xpro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 0,
+						'max' => 200,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .variations th.label' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .variations td.value' => 'width: 100%;',
+				),
+				'condition'  => array(
+					'variation_label_display_style' => 'row',
 				),
 			)
 		);

@@ -1,3 +1,7 @@
+= V 1.7.1 – 23 May 2026
+
+- Fix: Improve the control structure in the Add to Cart widget.
+
 
 = V 1.7.0 – 23 May 2026
 
